@@ -1,8 +1,8 @@
 # Model per-gene variance in expression
 
-![Unit tests](https://github.com/libscran/model_gene_variances/actions/workflows/run-tests.yaml/badge.svg)
-![Documentation](https://github.com/libscran/model_gene_variances/actions/workflows/doxygenate.yaml/badge.svg)
-[![Codecov](https://codecov.io/gh/libscran/model_gene_variances/graph/badge.svg?token=JWV0I4WJX2)](https://codecov.io/gh/libscran/model_gene_variances)
+![Unit tests](https://github.com/libscran/log_normalize_counts/actions/workflows/run-tests.yaml/badge.svg)
+![Documentation](https://github.com/libscran/log_normalize_counts/actions/workflows/doxygenate.yaml/badge.svg)
+[![Codecov](https://codecov.io/gh/libscran/log_normalize_counts/graph/badge.svg?token=JWV0I4WJX2)](https://codecov.io/gh/libscran/log_normalize_counts)
 
 ## Overview
 
