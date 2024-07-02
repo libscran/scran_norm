@@ -24,7 +24,7 @@
   <td id="projectalign">
    <div id="projectname">scran_log_normalize_counts
    </div>
-   <div id="projectbrief">Log-transform normalized counts</div>
+   <div id="projectbrief">Normalize and log-transform counts</div>
   </td>
  </tr>
  </tbody>
@@ -90,7 +90,13 @@ $(function() {
 <div class="ttc" id="anamespacescran_1_1center__size__factors_html_a6c791f5cf852c4901e510e90af0d3744"><div class="ttname"><a href="namespacescran_1_1center__size__factors.html#a6c791f5cf852c4901e510e90af0d3744">scran::center_size_factors::compute</a></div><div class="ttdeci">SizeFactor_ compute(size_t num, SizeFactor_ *size_factors, sanitize_size_factors::Diagnostics *diagnostics, const Options &amp;options)</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:127</div></div>
 <div class="ttc" id="astructscran_1_1center__size__factors_1_1Options_html"><div class="ttname"><a href="structscran_1_1center__size__factors_1_1Options.html">scran::center_size_factors::Options</a></div><div class="ttdoc">Options for compute() and compute_blocked().</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:42</div></div>
 </div><!-- fragment --><p>Alternatively, in the presence of blocks, we adjust our centering so that the mean size factor in each block is no less than 1. This avoids inflated variances from applying small size factors to low-coverage blocks.</p>
-<div class="fragment"><div class="line"><a class="code hl_function" href="namespacescran_1_1center__size__factors.html#a38aec96b210a32eb97ae5c0f47fe861c">scran::center_size_factors::compute_blocked</a>(bias.size(), bias.data(), block.data(), NULL, copt);</div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="namespacescran_1_1center__size__factors.html#a38aec96b210a32eb97ae5c0f47fe861c">scran::center_size_factors::compute_blocked</a>(</div>
+<div class="line">    bias.size(), </div>
+<div class="line">    bias.data(), </div>
+<div class="line">    block.data(), </div>
+<div class="line">    NULL, </div>
+<div class="line">    copt</div>
+<div class="line">);</div>
 <div class="ttc" id="anamespacescran_1_1center__size__factors_html_a38aec96b210a32eb97ae5c0f47fe861c"><div class="ttname"><a href="namespacescran_1_1center__size__factors.html#a38aec96b210a32eb97ae5c0f47fe861c">scran::center_size_factors::compute_blocked</a></div><div class="ttdeci">std::vector&lt; SizeFactor_ &gt; compute_blocked(size_t num, SizeFactor_ *size_factors, const Block_ *block, sanitize_size_factors::Diagnostics *diagnostics, const Options &amp;options)</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:204</div></div>
 </div><!-- fragment --><p>If our size factors might contain invalid values (i.e., zero, negative, or non-finite), we can sanitize them prior to the construction of the log-normalized matrix:</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structscran_1_1sanitize__size__factors_1_1Options.html">scran::sanitize_size_factors::Options</a> sopt;</div>

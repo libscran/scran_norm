@@ -6,6 +6,7 @@
     <filename>center__size__factors_8hpp.html</filename>
     <includes id="sanitize__size__factors_8hpp" name="sanitize_size_factors.hpp" local="yes" import="no" module="no" objc="no">sanitize_size_factors.hpp</includes>
     <class kind="struct">scran::center_size_factors::Options</class>
+    <namespace>scran</namespace>
     <namespace>scran::center_size_factors</namespace>
   </compound>
   <compound kind="file">
@@ -13,6 +14,7 @@
     <path>scran/</path>
     <filename>choose__pseudo__count_8hpp.html</filename>
     <class kind="struct">scran::choose_pseudo_count::Options</class>
+    <namespace>scran</namespace>
     <namespace>scran::choose_pseudo_count</namespace>
   </compound>
   <compound kind="file">
@@ -21,7 +23,14 @@
     <filename>sanitize__size__factors_8hpp.html</filename>
     <class kind="struct">scran::sanitize_size_factors::Diagnostics</class>
     <class kind="struct">scran::sanitize_size_factors::Options</class>
+    <namespace>scran</namespace>
     <namespace>scran::sanitize_size_factors</namespace>
+  </compound>
+  <compound kind="file">
+    <name>scran.hpp</name>
+    <path>scran/</path>
+    <filename>scran_8hpp.html</filename>
+    <namespace>scran</namespace>
   </compound>
   <compound kind="struct">
     <name>scran::sanitize_size_factors::Diagnostics</name>
@@ -129,6 +138,17 @@
       <anchor>a362fde9190da642eb9808e7396b1d55e</anchor>
       <arglist></arglist>
     </member>
+  </compound>
+  <compound kind="namespace">
+    <name>log_normalize_counts::hpp</name>
+    <filename>namespacelog__normalize__counts_1_1hpp.html</filename>
+  </compound>
+  <compound kind="namespace">
+    <name>scran</name>
+    <filename>namespacescran.html</filename>
+    <namespace>scran::center_size_factors</namespace>
+    <namespace>scran::choose_pseudo_count</namespace>
+    <namespace>scran::sanitize_size_factors</namespace>
   </compound>
   <compound kind="namespace">
     <name>scran::center_size_factors</name>

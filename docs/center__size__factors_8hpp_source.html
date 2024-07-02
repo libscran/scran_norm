@@ -24,7 +24,7 @@
   <td id="projectalign">
    <div id="projectname">scran_log_normalize_counts
    </div>
-   <div id="projectbrief">Log-transform normalized counts</div>
+   <div id="projectbrief">Normalize and log-transform counts</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="sanitize__size__factors_8hpp.html">sanitize_size_factors.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span>scran {</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacescran.html">   18</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacescran.html">scran</a> {</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">namespace </span>center_size_factors {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
@@ -230,6 +231,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>}</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>}</div>
+</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="anamespacescran_1_1center__size__factors_html_a38aec96b210a32eb97ae5c0f47fe861c"><div class="ttname"><a href="namespacescran_1_1center__size__factors.html#a38aec96b210a32eb97ae5c0f47fe861c">scran::center_size_factors::compute_blocked</a></div><div class="ttdeci">std::vector&lt; SizeFactor_ &gt; compute_blocked(size_t num, SizeFactor_ *size_factors, const Block_ *block, sanitize_size_factors::Diagnostics *diagnostics, const Options &amp;options)</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:204</div></div>
@@ -237,6 +239,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="anamespacescran_1_1center__size__factors_html_a6c791f5cf852c4901e510e90af0d3744"><div class="ttname"><a href="namespacescran_1_1center__size__factors.html#a6c791f5cf852c4901e510e90af0d3744">scran::center_size_factors::compute</a></div><div class="ttdeci">SizeFactor_ compute(size_t num, SizeFactor_ *size_factors, sanitize_size_factors::Diagnostics *diagnostics, const Options &amp;options)</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:127</div></div>
 <div class="ttc" id="anamespacescran_1_1center__size__factors_html_a7734640d4844a6a52efef03cc52d093f"><div class="ttname"><a href="namespacescran_1_1center__size__factors.html#a7734640d4844a6a52efef03cc52d093f">scran::center_size_factors::BlockMode</a></div><div class="ttdeci">BlockMode</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:37</div></div>
 <div class="ttc" id="anamespacescran_1_1center__size__factors_html_ac30020480ad8d32c883603db60a6a2d0"><div class="ttname"><a href="namespacescran_1_1center__size__factors.html#ac30020480ad8d32c883603db60a6a2d0">scran::center_size_factors::compute_blocked_mean</a></div><div class="ttdeci">std::vector&lt; SizeFactor_ &gt; compute_blocked_mean(size_t num, const SizeFactor_ *size_factors, const Block_ *block, sanitize_size_factors::Diagnostics *diagnostics, const Options &amp;options)</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:153</div></div>
+<div class="ttc" id="anamespacescran_html"><div class="ttname"><a href="namespacescran.html">scran</a></div><div class="ttdoc">Methods for single-cell analysis.</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:18</div></div>
 <div class="ttc" id="asanitize__size__factors_8hpp_html"><div class="ttname"><a href="sanitize__size__factors_8hpp.html">sanitize_size_factors.hpp</a></div><div class="ttdoc">Sanitize invalid size factors.</div></div>
 <div class="ttc" id="astructscran_1_1center__size__factors_1_1Options_html"><div class="ttname"><a href="structscran_1_1center__size__factors_1_1Options.html">scran::center_size_factors::Options</a></div><div class="ttdoc">Options for compute() and compute_blocked().</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:42</div></div>
 <div class="ttc" id="astructscran_1_1center__size__factors_1_1Options_html_a8eafa0dfb239ea3d0a5988ec36176dd6"><div class="ttname"><a href="structscran_1_1center__size__factors_1_1Options.html#a8eafa0dfb239ea3d0a5988ec36176dd6">scran::center_size_factors::Options::ignore_invalid</a></div><div class="ttdeci">bool ignore_invalid</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:70</div></div>
