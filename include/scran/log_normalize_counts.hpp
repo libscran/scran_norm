@@ -7,11 +7,16 @@
 
 #include "tatami/tatami.hpp"
 
+/**
+ * @namespace log_normalize_counts.hpp
+ * @brief Normalize and log-transform counts.
+ */
+
 namespace scran {
 
 /**
  * @namespace scran::log_normalize_counts
- * @brief Log-transform normalized counts.
+ * @brief Normalize and log-transform counts.
  *
  * Given a count matrix and a set of size factors, compute log-transformed normalized expression values.
  * Each cell's counts are divided by the cell's size factor, to account for differences in capture efficiency and sequencing depth across cells.

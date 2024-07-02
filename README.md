@@ -32,7 +32,13 @@ Alternatively, in the presence of blocks, we adjust our centering so that the me
 This avoids inflated variances from applying small size factors to low-coverage blocks.
 
 ```cpp
-scran::center_size_factors::compute_blocked(bias.size(), bias.data(), block.data(), NULL, copt);
+scran::center_size_factors::compute_blocked(
+    bias.size(), 
+    bias.data(), 
+    block.data(), 
+    NULL, 
+    copt
+);
 ```
 
 If our size factors might contain invalid values (i.e., zero, negative, or non-finite),
