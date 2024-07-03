@@ -140,8 +140,8 @@
     </member>
   </compound>
   <compound kind="namespace">
-    <name>log_normalize_counts::hpp</name>
-    <filename>namespacelog__normalize__counts_1_1hpp.html</filename>
+    <name>normalize_counts::hpp</name>
+    <filename>namespacenormalize__counts_1_1hpp.html</filename>
   </compound>
   <compound kind="namespace">
     <name>scran</name>
@@ -250,7 +250,7 @@
   </compound>
   <compound kind="page">
     <name>index</name>
-    <title>Model per-gene variance in expression</title>
+    <title>Normalize scaling biases in count data</title>
     <filename>index.html</filename>
     <docanchor file="index.html">md__2github_2workspace_2README</docanchor>
   </compound>

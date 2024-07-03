@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['per_20gene_20variance_20in_20expression_0',['Model per-gene variance in expression',['../index.html',1,'']]]
+  ['normalize_20scaling_20biases_20in_20count_20data_0',['Normalize scaling biases in count data',['../index.html',1,'']]]
 ];

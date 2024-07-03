@@ -1,7 +1,7 @@
 var searchData=
 [
   ['ignore_5finvalid_0',['ignore_invalid',['../structscran_1_1center__size__factors_1_1Options.html#a8eafa0dfb239ea3d0a5988ec36176dd6',1,'scran::center_size_factors::Options']]],
-  ['in_20expression_1',['Model per-gene variance in expression',['../index.html',1,'']]],
+  ['in_20count_20data_1',['Normalize scaling biases in count data',['../index.html',1,'']]],
   ['index_2',['index',['https://tatami-inc.github.io/tatami/structtatami_1_1CompressedSparseContents.html#ad6aa16e860a82ebc6de6774e8b6905ea',1,'tatami::CompressedSparseContents::index'],['https://tatami-inc.github.io/tatami/structtatami_1_1FragmentedSparseContents.html#a8c1a2bebb066b64451576dc356877091',1,'tatami::FragmentedSparseContents::index'],['https://tatami-inc.github.io/tatami/structtatami_1_1SparseRange.html#af61bafe43fadb90cee6162ac79bfdd3d',1,'tatami::SparseRange::index']]],
   ['index_5ftype_3',['index_type',['https://tatami-inc.github.io/tatami/classtatami_1_1Matrix.html#adebf536caf3a3c1751eefc6e10f0b16e',1,'tatami::Matrix']]],
   ['indexsparsifiedwrapper_4',['indexsparsifiedwrapper',['https://tatami-inc.github.io/tatami/classtatami_1_1IndexSparsifiedWrapper.html#ad4571decc854c38dae3b9ec1f6593a1e',1,'tatami::IndexSparsifiedWrapper::IndexSparsifiedWrapper()'],['https://tatami-inc.github.io/tatami/classtatami_1_1IndexSparsifiedWrapper.html',1,'tatami::IndexSparsifiedWrapper&lt; bool oracle_, typename Value_, typename Index_ &gt;']]],
