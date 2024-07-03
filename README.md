@@ -1,8 +1,8 @@
-# Model per-gene variance in expression
+# Normalize scaling biases in count data
 
-![Unit tests](https://github.com/libscran/log_normalize_counts/actions/workflows/run-tests.yaml/badge.svg)
-![Documentation](https://github.com/libscran/log_normalize_counts/actions/workflows/doxygenate.yaml/badge.svg)
-[![Codecov](https://codecov.io/gh/libscran/log_normalize_counts/graph/badge.svg?token=JWV0I4WJX2)](https://codecov.io/gh/libscran/log_normalize_counts)
+![Unit tests](https://github.com/libscran/normalize_counts/actions/workflows/run-tests.yaml/badge.svg)
+![Documentation](https://github.com/libscran/normalize_counts/actions/workflows/doxygenate.yaml/badge.svg)
+[![Codecov](https://codecov.io/gh/libscran/normalize_counts/graph/badge.svg?token=JWV0I4WJX2)](https://codecov.io/gh/libscran/normalize_counts)
 
 ## Overview
 
@@ -55,11 +55,11 @@ scran::sanitize_size_factors::compute(size_factors.size(), size_factors.data(), 
 Finally, we convert our a [`tatami::Matrix`](https://github.com/tatami-inc/tatami) of counts to a log-transformed normalized matrix:
 
 ```cpp
-scran::log_normalize_counts::Options lopts;
-auto logcounts = scran::log_normalize_counts::compute(counts, size_factors, lopt);
+scran::normalize_counts::Options lopts;
+auto logcounts = scran::normalize_counts::compute(counts, size_factors, lopt);
 ```
 
-Check out the [reference documentation](https://libscran.github.io/log_normalize_counts) for more details.
+Check out the [reference documentation](https://libscran.github.io/normalize_counts) for more details.
 
 ## Building projects
 
@@ -71,16 +71,16 @@ so users are recommended to use the latter in their projects.
 include(FetchContent)
 
 FetchContent_Declare(
-  scran_log_normalize_counts 
-  GIT_REPOSITORY https://github.com/libscran/log_normalize_counts
+  scran_normalize_counts 
+  GIT_REPOSITORY https://github.com/libscran/normalize_counts
   GIT_TAG master # or any version of interest
 )
 
-FetchContent_MakeAvailable(scran_log_normalize_counts)
+FetchContent_MakeAvailable(scran_normalize_counts)
 
 # For executables:
-target_link_libraries(myexe scran_log_normalize_counts)
+target_link_libraries(myexe scran_normalize_counts)
 
 # For libaries
-target_link_libraries(mylib INTERFACE scran_log_normalize_counts)
+target_link_libraries(mylib INTERFACE scran_normalize_counts)
 ```

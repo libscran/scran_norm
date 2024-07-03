@@ -6,9 +6,9 @@
 #include "simulate_vector.h"
 #include "compare_almost_equal.h"
 
-#include "log_normalize_counts.hpp"
+#include "normalize_counts.hpp"
 
-class LogNormalizeCountsTest : public ::testing::Test {
+class NormalizeCountsTest : public ::testing::Test {
 protected:
     inline static std::vector<double> size_factors;
     inline static std::shared_ptr<tatami::Matrix<double, int> > mat;
@@ -30,23 +30,33 @@ protected:
     }
 };
 
-TEST_F(LogNormalizeCountsTest, Basic) {
-    scran::log_normalize_counts::Options opt;
-    auto lmat = scran::log_normalize_counts::compute(mat, size_factors, opt);
+TEST_F(NormalizeCountsTest, Basic) {
+    scran::normalize_counts::Options opt;
+    auto lmat = scran::normalize_counts::compute(mat, size_factors, opt);
 
     auto buffer = extract(lmat.get(), 0);
     auto expected = extract(mat.get(), 0);
     for (int i = 0; i < mat->ncol(); ++i) {
         expected[i] = std::log(expected[i]/size_factors[i] + 1) / std::log(2.0);
     }
+    compare_almost_equal(expected, buffer);
 
+    // Now without the log.
+    opt.log = false;
+    auto nmat = scran::normalize_counts::compute(mat, size_factors, opt);
+
+    buffer = extract(nmat.get(), 0);
+    expected = extract(mat.get(), 0);
+    for (int i = 0; i < mat->ncol(); ++i) {
+        expected[i] /= size_factors[i];
+    }
     compare_almost_equal(expected, buffer);
 }
 
-TEST_F(LogNormalizeCountsTest, PseudoCount) {
-    scran::log_normalize_counts::Options opt;
+TEST_F(NormalizeCountsTest, PseudoCount) {
+    scran::normalize_counts::Options opt;
     opt.pseudo_count = 5;
-    auto lmat = scran::log_normalize_counts::compute(mat, size_factors, opt);
+    auto lmat = scran::normalize_counts::compute(mat, size_factors, opt);
     EXPECT_FALSE(lmat->is_sparse());
 
     auto buffer = extract(lmat.get(), 0);
@@ -57,7 +67,7 @@ TEST_F(LogNormalizeCountsTest, PseudoCount) {
     compare_almost_equal(expected, buffer);
 
     opt.preserve_sparsity = true;
-    lmat = scran::log_normalize_counts::compute(mat, size_factors, opt);
+    lmat = scran::normalize_counts::compute(mat, size_factors, opt);
     EXPECT_TRUE(lmat->is_sparse());
 
     buffer = extract(lmat.get(), 0);
@@ -66,9 +76,20 @@ TEST_F(LogNormalizeCountsTest, PseudoCount) {
         expected[i] = std::log(expected[i]/(size_factors[i] * 5) + 1) / std::log(2.0);
     }
     compare_almost_equal(expected, buffer);
+
+    // Pseudo-count considerations ignored if log = false.
+    opt.log = false;
+    auto nmat = scran::normalize_counts::compute(mat, size_factors, opt);
+
+    buffer = extract(nmat.get(), 0);
+    expected = extract(mat.get(), 0);
+    for (int i = 0; i < mat->ncol(); ++i) {
+        expected[i] /= size_factors[i];
+    }
+    compare_almost_equal(expected, buffer);
 }
 
-TEST_F(LogNormalizeCountsTest, NewType) {
+TEST_F(NormalizeCountsTest, NewType) {
     size_t nr = 10;
     size_t nc = size_factors.size();
     auto vec = simulate_sparse_vector(nr * nc, /* lower = */ 1, /* upper = */ 10, /* seed = */ 6942);
@@ -78,8 +99,8 @@ TEST_F(LogNormalizeCountsTest, NewType) {
 
     std::vector<int> ivec(vec.begin(), vec.end());
     std::shared_ptr<tatami::Matrix<int, int> > imat(new tatami::DenseRowMatrix<int, int>(nr, nc, std::move(ivec)));
-    scran::log_normalize_counts::Options opt;
-    auto lmat = scran::log_normalize_counts::compute<double>(imat, size_factors, opt);
+    scran::normalize_counts::Options opt;
+    auto lmat = scran::normalize_counts::compute<double>(imat, size_factors, opt);
 
     auto buffer = extract(lmat.get(), 0);
     auto expected_raw = extract(imat.get(), 0);

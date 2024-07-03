@@ -29,7 +29,7 @@ include(GoogleTest)
 macro(create_test name) 
     add_executable(
         ${name} 
-        src/log_normalize_counts.cpp
+        src/normalize_counts.cpp
         src/sanitize_size_factors.cpp
         src/center_size_factors.cpp
         src/choose_pseudo_count.cpp
@@ -38,7 +38,7 @@ macro(create_test name)
     target_link_libraries(
         ${name}
         gtest_main
-        scran_log_normalize_counts
+        scran_normalize_counts
         scran_test_utils
     )
 
