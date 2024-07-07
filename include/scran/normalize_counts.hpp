@@ -18,7 +18,7 @@ namespace scran {
  * @namespace scran::normalize_counts
  * @brief Normalize and log-transform counts.
  *
- * Given a count matrix and a set of size factors, compute log2-transformed normalized expression values.
+ * Given a count matrix and a set of size factors, compute log-transformed normalized expression values.
  * Each cell's counts are divided by the cell's size factor, to account for differences in capture efficiency and sequencing depth across cells.
  * The normalized values are then log-transformed so that downstream analyses focus on the relative rather than absolute differences in expression;
  * this process also provides some measure of variance stabilization.
@@ -48,15 +48,21 @@ struct Options {
      * Whether to preserve sparsity for non-unity pseudo-counts.
      * If true, we multiply the size factors by the `pseudo_count` and add 1 before log-transformation.
      * This does not change the differences between entries of the resulting matrix,
-     * and adding `log2(pseudo_count)` will recover the expected log-count values.
+     * and adding `log(pseudo_count)` will recover the expected log-count values.
      * Ignored if `log = false`.
      */
     bool preserve_sparsity = false;
 
     /**
-     * Whether to perform the log-transformation.
+     * Whether to log-transform the normalized counts in the output matrix.
      */
     bool log = true;
+
+    /**
+     * Base for the log-transformation.
+     * Only used if `Options::log = true`.
+     */
+    double log_base = 2;
 };
 
 /**
@@ -100,7 +106,7 @@ std::shared_ptr<tatami::Matrix<OutputValue_, Index_> > compute(std::shared_ptr<c
     if (current_pseudo == 1) {
         return tatami::make_DelayedUnaryIsometricOperation<OutputValue_>(
             std::move(div), 
-            tatami::DelayedUnaryIsometricLog1p<OutputValue_>(2.0)
+            tatami::DelayedUnaryIsometricLog1p<OutputValue_, OutputValue_>(options.log_base)
         );
     } else {
         auto add = tatami::make_DelayedUnaryIsometricOperation<OutputValue_>(
@@ -109,7 +115,7 @@ std::shared_ptr<tatami::Matrix<OutputValue_, Index_> > compute(std::shared_ptr<c
         );
         return tatami::make_DelayedUnaryIsometricOperation<OutputValue_>(
             std::move(add), 
-            tatami::DelayedUnaryIsometricLog<OutputValue_>(2.0)
+            tatami::DelayedUnaryIsometricLog<OutputValue_, OutputValue_>(options.log_base)
         );
     }
 };
