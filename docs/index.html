@@ -74,61 +74,68 @@ $(function() {
   <div class="headertitle"><div class="title">Normalize scaling biases in count data </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__2github_2workspace_2README"></a> <img src="https://github.com/libscran/normalize_counts/actions/workflows/run-tests.yaml/badge.svg" alt="Unit tests" style="pointer-events: none;" class="inline"/> <img src="https://github.com/libscran/normalize_counts/actions/workflows/doxygenate.yaml/badge.svg" alt="Documentation" style="pointer-events: none;" class="inline"/> <a href="https://codecov.io/gh/libscran/normalize_counts"><img src="https://codecov.io/gh/libscran/normalize_counts/graph/badge.svg?token=JWV0I4WJX2" alt="Codecov" style="pointer-events: none;" class="inline"/></a></p>
+<div class="textblock"><p><a class="anchor" id="md__2github_2workspace_2README"></a> <img src="https://github.com/libscran/scran_norm/actions/workflows/run-tests.yaml/badge.svg" alt="Unit tests" style="pointer-events: none;" class="inline"/> <img src="https://github.com/libscran/scran_norm/actions/workflows/doxygenate.yaml/badge.svg" alt="Documentation" style="pointer-events: none;" class="inline"/> <a href="https://codecov.io/gh/libscran/scran_norm"><img src="https://codecov.io/gh/libscran/scran_norm/graph/badge.svg?token=JWV0I4WJX2" alt="Codecov" style="pointer-events: none;" class="inline"/></a></p>
 <h1>Overview</h1>
 <p>This repository contains functions to perform scaling normalization and log-transformation of a gene-by-cell count matrix. Normalization removes per-cell scaling biases such as differences in capture efficiency and sequencing depth, while the log-transformation provides some variance stabilization and allows differences in values to be interpreted as log-fold changes. The code itself was originally derived from the <a href="https://bioconductor.org/packages/scran"><b>scran</b> R package</a>, factored out into a separate C++ library for easier re-use.</p>
 <h1>Quick start</h1>
 <p>Given a measure of the per-cell scaling bias - for example, the sum of counts for a cell - we can convert them into centered size factors:</p>
-<div class="fragment"><div class="line"><span class="comment">// Assuming that counts is a std::shared_ptr&lt;tatami::Matrix&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;scran_norm/scran_norm.hpp&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Assuming that counts is a std::shared_ptr&lt;tatami::Matrix&gt;</span></div>
 <div class="line">std::vector&lt;double&gt; bias = tatami_stats::sums::by_column(counts.get()); </div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_struct" href="structscran_1_1center__size__factors_1_1Options.html">scran::center_size_factors::Options</a> copt;</div>
-<div class="line"><a class="code hl_function" href="namespacescran_1_1center__size__factors.html#a6c791f5cf852c4901e510e90af0d3744">scran::center_size_factors::compute</a>(bias.size(), bias.data(), NULL, copt);</div>
+<div class="line">scran_norm::CenterSizeFacotrsOptions copt;</div>
+<div class="line">scran_norm::center_size_factors(bias.size(), bias.data(), NULL, copt);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// &#39;bias&#39; is now centered at unity and can be used as size factors.</span></div>
 <div class="line"><span class="keyword">auto</span>&amp; size_factors = bias;</div>
-<div class="ttc" id="anamespacescran_1_1center__size__factors_html_a6c791f5cf852c4901e510e90af0d3744"><div class="ttname"><a href="namespacescran_1_1center__size__factors.html#a6c791f5cf852c4901e510e90af0d3744">scran::center_size_factors::compute</a></div><div class="ttdeci">SizeFactor_ compute(size_t num, SizeFactor_ *size_factors, sanitize_size_factors::Diagnostics *diagnostics, const Options &amp;options)</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:127</div></div>
-<div class="ttc" id="astructscran_1_1center__size__factors_1_1Options_html"><div class="ttname"><a href="structscran_1_1center__size__factors_1_1Options.html">scran::center_size_factors::Options</a></div><div class="ttdoc">Options for compute() and compute_blocked().</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:42</div></div>
 </div><!-- fragment --><p>Alternatively, in the presence of blocks, we adjust our centering so that the mean size factor in each block is no less than 1. This avoids inflated variances from applying small size factors to low-coverage blocks.</p>
-<div class="fragment"><div class="line"><a class="code hl_function" href="namespacescran_1_1center__size__factors.html#a38aec96b210a32eb97ae5c0f47fe861c">scran::center_size_factors::compute_blocked</a>(</div>
+<div class="fragment"><div class="line">scran_norm::center_size_factors_blocked(</div>
 <div class="line">    bias.size(), </div>
 <div class="line">    bias.data(), </div>
 <div class="line">    block.data(), </div>
 <div class="line">    NULL, </div>
 <div class="line">    copt</div>
 <div class="line">);</div>
-<div class="ttc" id="anamespacescran_1_1center__size__factors_html_a38aec96b210a32eb97ae5c0f47fe861c"><div class="ttname"><a href="namespacescran_1_1center__size__factors.html#a38aec96b210a32eb97ae5c0f47fe861c">scran::center_size_factors::compute_blocked</a></div><div class="ttdeci">std::vector&lt; SizeFactor_ &gt; compute_blocked(size_t num, SizeFactor_ *size_factors, const Block_ *block, sanitize_size_factors::Diagnostics *diagnostics, const Options &amp;options)</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:204</div></div>
 </div><!-- fragment --><p>If our size factors might contain invalid values (i.e., zero, negative, or non-finite), we can sanitize them prior to the construction of the log-normalized matrix:</p>
-<div class="fragment"><div class="line"><a class="code hl_struct" href="structscran_1_1sanitize__size__factors_1_1Options.html">scran::sanitize_size_factors::Options</a> sopt;</div>
-<div class="line">opt.<a class="code hl_variable" href="structscran_1_1sanitize__size__factors_1_1Options.html#aea15dd95caf27c024bbc0afd8b44aa86">handle_zero</a> = scran::sanitize_size_factors::HandleAction::SANITIZE;</div>
-<div class="line">opt.handle_infinite = scran::sanitize_size_factors::HandleAction::SANITIZE;</div>
-<div class="line"><a class="code hl_function" href="namespacescran_1_1sanitize__size__factors.html#a5aed65fe52d5abe25550519137805be7">scran::sanitize_size_factors::compute</a>(size_factors.size(), size_factors.data(), sopt);</div>
+<div class="fragment"><div class="line">scran_norm::SanitizeSizeFactorsOptions sopt;</div>
+<div class="line">sopt.handle_zero = scran_norm::SanitizeAction::SANITIZE;</div>
+<div class="line">sopt.handle_infinite = scran_norm::SanitizeAction::SANITIZE;</div>
+<div class="line">scran_norm::sanitize_size_factors(size_factors.size(), size_factors.data(), sopt);</div>
 <div class="line"><span class="comment">// Gets rid of any zero and infinite values in &#39;size_factors&#39;.</span></div>
-<div class="ttc" id="anamespacescran_1_1sanitize__size__factors_html_a5aed65fe52d5abe25550519137805be7"><div class="ttname"><a href="namespacescran_1_1sanitize__size__factors.html#a5aed65fe52d5abe25550519137805be7">scran::sanitize_size_factors::compute</a></div><div class="ttdeci">void compute(size_t num, SizeFactor_ *size_factors, const Diagnostics &amp;status, const Options &amp;options)</div><div class="ttdef"><b>Definition</b> sanitize_size_factors.hpp:203</div></div>
-<div class="ttc" id="astructscran_1_1sanitize__size__factors_1_1Options_html"><div class="ttname"><a href="structscran_1_1sanitize__size__factors_1_1Options.html">scran::sanitize_size_factors::Options</a></div><div class="ttdoc">Default parameters.</div><div class="ttdef"><b>Definition</b> sanitize_size_factors.hpp:157</div></div>
-<div class="ttc" id="astructscran_1_1sanitize__size__factors_1_1Options_html_aea15dd95caf27c024bbc0afd8b44aa86"><div class="ttname"><a href="structscran_1_1sanitize__size__factors_1_1Options.html#aea15dd95caf27c024bbc0afd8b44aa86">scran::sanitize_size_factors::Options::handle_zero</a></div><div class="ttdeci">HandleAction handle_zero</div><div class="ttdef"><b>Definition</b> sanitize_size_factors.hpp:169</div></div>
-</div><!-- fragment --><p>Finally, we convert our a <a href="https://github.com/tatami-inc/tatami"><code>tatami::Matrix</code></a> of counts to a log-transformed normalized matrix:</p>
-<div class="fragment"><div class="line">scran::normalize_counts::Options lopts;</div>
-<div class="line"><span class="keyword">auto</span> logcounts = scran::normalize_counts::compute(counts, size_factors, lopt);</div>
-</div><!-- fragment --><p>Check out the <a href="https://libscran.github.io/normalize_counts">reference documentation</a> for more details.</p>
+</div><!-- fragment --><p>Finally, we convert our <a href="https://github.com/tatami-inc/tatami"><code>tatami::Matrix</code></a> of counts into a log-transformed normalized matrix:</p>
+<div class="fragment"><div class="line">scran_norm::NormalizeCountsOptions lopts;</div>
+<div class="line"><span class="keyword">auto</span> logcounts = scran_norm::normalize_counts(counts, size_factors, lopt);</div>
+</div><!-- fragment --><p>Check out the <a href="https://libscran.github.io/scran_norm">reference documentation</a> for more details.</p>
 <h1>Building projects</h1>
-<p>This repository is part of the broader <a href="https://github.com/libscran/libscran"><b>libscran</b></a> library, so users are recommended to use the latter in their projects. <b>libscran</b> developers should just use CMake with <code>FetchContent</code>:</p>
+<h2>CMake with <code>FetchContent</code></h2>
+<p>If you're using CMake, you just need to add something like this to your <code>CMakeLists.txt</code>:</p>
 <div class="fragment"><div class="line">include(FetchContent)</div>
 <div class="line"> </div>
 <div class="line">FetchContent_Declare(</div>
-<div class="line">  scran_normalize_counts </div>
-<div class="line">  GIT_REPOSITORY https://github.com/libscran/normalize_counts</div>
+<div class="line">  scran_norm</div>
+<div class="line">  GIT_REPOSITORY https://github.com/libscran/scran_norm</div>
 <div class="line">  GIT_TAG master # or any version of interest</div>
 <div class="line">)</div>
 <div class="line"> </div>
-<div class="line">FetchContent_MakeAvailable(scran_normalize_counts)</div>
-<div class="line"> </div>
-<div class="line"># For executables:</div>
-<div class="line">target_link_libraries(myexe scran_normalize_counts)</div>
+<div class="line">FetchContent_MakeAvailable(scran_norm)</div>
+</div><!-- fragment --><p>Then you can link to <b>scran_norm</b> to make the headers available during compilation:</p>
+<div class="fragment"><div class="line"># For executables:</div>
+<div class="line">target_link_libraries(myexe libscran::scran_norm)</div>
 <div class="line"> </div>
 <div class="line"># For libaries</div>
-<div class="line">target_link_libraries(mylib INTERFACE scran_normalize_counts)</div>
-</div><!-- fragment --> </div></div><!-- PageDoc -->
+<div class="line">target_link_libraries(mylib INTERFACE libscran::scran_norm)</div>
+</div><!-- fragment --><h2>CMake with <code>find_package()</code></h2>
+<div class="fragment"><div class="line">find_package(libscran_scran_norm CONFIG REQUIRED)</div>
+<div class="line">target_link_libraries(mylib INTERFACE libscran::scran_norm)</div>
+</div><!-- fragment --><p>To install the library, use:</p>
+<div class="fragment"><div class="line">mkdir build &amp;&amp; cd build</div>
+<div class="line">cmake .. -DSCRAN_NORM_TESTS=OFF</div>
+<div class="line">cmake --build . --target install</div>
+</div><!-- fragment --><p>By default, this will use <code>FetchContent</code> to fetch all external dependencies. If you want to install them manually, use <code>-DSCRAN_NORM_FETCH_EXTERN=OFF</code>. See the tags in <a href="extern/CMakeLists.txt"><code>extern/CMakeLists.txt</code></a> to find compatible versions of each dependency.</p>
+<h2>Manual</h2>
+<p>If you're not using CMake, the simple approach is to just copy the files in <code>include/</code> - either directly or with Git submodules - and include their path during compilation with, e.g., GCC's <code>-I</code>. This requires the external dependencies listed in <a href="extern/CMakeLists.txt"><code>extern/CMakeLists.txt</code></a>, which also need to be made available during compilation. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
