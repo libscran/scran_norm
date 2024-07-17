@@ -9,27 +9,12 @@
  * @brief Sanitize invalid size factors.
  */
 
-namespace scran {
+namespace scran_norm {
 
 /**
- * @namespace scran::sanitize_size_factors
- * @brief Sanitize invalid size factors.
- *
- * Replace zero, missing or infinite values in the size factor array so that it can be used to compute well-defined normalized values.
- * Such size factors can occasionally arise if, e.g., insufficient quality control was performed upstream.
- * Check out the documentation in `Options` to see what placeholder value is used for each type of invalid size factor.
- *
- * In general, sanitization should occur after calls to `center_size_factors::compute()`, `choose_pseudo_count::compute()`, 
- * or any function that computes a statistic based on the distribution of size factors.
- * This ensures that the results of those functions are not affected by the placeholder values used to replace the invalid size factors.
- * As a rule of thumb, `sanitize_size_factors::compute()` should be called just before passing those size factors to `log_normalize_counts::compute()`.
+ * @brief Diagnostics for the size factors.
  */
-namespace sanitize_size_factors {
-
-/**
- * @brief Validity of size factors.
- */
-struct Diagnostics {
+struct SizeFactorDiagnostics {
     /**
      * Whether negative factors were detected.
      */
@@ -57,7 +42,7 @@ struct Diagnostics {
 namespace internal {
 
 template<typename SizeFactor_>
-bool is_invalid(SizeFactor_ sf, Diagnostics& output) {
+bool is_invalid(SizeFactor_ sf, SizeFactorDiagnostics& output) {
     if (sf < 0) {
         output.has_negative = true;
         return true;
@@ -134,8 +119,8 @@ double find_largest_valid_factor(size_t num, const SizeFactor_* size_factors) {
  * @return Validation results, indicating whether any zero or non-finite size factors exist.
  */
 template<typename SizeFactor_>
-Diagnostics check(size_t num, const SizeFactor_* size_factors) {
-    Diagnostics output;
+SizeFactorDiagnostics check_size_factor_sanity(size_t num, const SizeFactor_* size_factors) {
+    SizeFactorDiagnostics output;
     for (size_t i = 0; i < num; ++i) {
         internal::is_invalid(size_factors[i], output);
     }
@@ -149,12 +134,12 @@ Diagnostics check(size_t num, const SizeFactor_* size_factors) {
  * - `ERROR`: throw an error.
  * - `SANITIZE`: fix each invalid size factor.
  */
-enum class HandleAction : char { IGNORE, ERROR, SANITIZE };
+enum class SanitizeAction : char { IGNORE, ERROR, SANITIZE };
 
 /**
- * @brief Default parameters.
+ * @brief Options for `sanitize_size_factors()`.
  */
-struct Options {
+struct SanitizeSizeFactorsOptions {
     /**
      * How should we handle zero size factors?
      * If `SANITIZE`, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid).
@@ -166,47 +151,56 @@ struct Options {
      * We also need to handle cases where a zero size factor may be generated from a cell with non-zero rows, e.g., with `MedianSizeFactors`.
      * By using a "relatively small" replacement value, we ensure that the normalized values reflect the extremity of the scaling.
      */
-    HandleAction handle_zero = HandleAction::ERROR;
+    SanitizeAction handle_zero = SanitizeAction::ERROR;
 
     /**
      * How should we handle negative size factors?
      * If `SANITIZE`, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid).
      * This approach follows the same logic as `set_handle_zero()`, though negative size factors are quite unusual.
      */
-    HandleAction handle_negative = HandleAction::ERROR;
+    SanitizeAction handle_negative = SanitizeAction::ERROR;
 
     /**
      * How should we handle NaN size factors?
      * If `SANITIZE, NaN size factors will be automatically set to 1, meaning that scaling is a no-op.
      */
-    HandleAction handle_nan = HandleAction::ERROR;
+    SanitizeAction handle_nan = SanitizeAction::ERROR;
 
     /**
      * How should we handle infinite size factors?
      * If `SANITIZE`, infinite size factors will be automatically set to the largest valid size factor (or 1, if all size factors are invalid).
      * This ensures that any normalized values will be, at least, finite; the choice of a relatively large replacement value reflects the extremity of the scaling.
      */
-    HandleAction handle_infinite = HandleAction::ERROR;
+    SanitizeAction handle_infinite = SanitizeAction::ERROR;
 };
 
 /**
+ * Replace zero, missing or infinite values in the size factor array so that it can be used to compute well-defined normalized values.
+ * Such size factors can occasionally arise if, e.g., insufficient quality control was performed upstream.
+ * Check out the documentation in `SanitizeSizeFactorsOptions` to see what placeholder value is used for each type of invalid size factor.
+ *
+ * In general, sanitization should occur after calls to `center_size_factors()`, `choose_pseudo_count()`, 
+ * or any function that computes a statistic based on the distribution of size factors.
+ * This ensures that the results of those functions are not affected by the placeholder values used to replace the invalid size factors.
+ * As a rule of thumb, `sanitize_size_factors()` should be called just before passing those size factors to `normalize_counts()`.
+ *
  * @tparam SizeFactor_ Floating-point type for the size factors.
  *
  * @param num Number of size factors.
  * @param[in,out] size_factors Pointer to an array of positive size factors of length `n`.
  * On output, invalid size factors are replaced.
  * @param status A pre-computed object indicating whether invalid size factors are present in `size_factors`.
- * This can be useful if this information is already provided by, e.g., `check()` or `center_size_factors::compute()`.
+ * This can be useful if this information is already provided by, e.g., `check_size_factor_sanity()` or `center_size_factors()`.
  * @param options Further options.
  */
 template<typename SizeFactor_>
-void compute(size_t num, SizeFactor_* size_factors, const Diagnostics& status, const Options& options) {
+void sanitize_size_factors(size_t num, SizeFactor_* size_factors, const SizeFactorDiagnostics& status, const SanitizeSizeFactorsOptions& options) {
     SizeFactor_ smallest = -1;
 
     if (status.has_negative) {
-        if (options.handle_negative == HandleAction::ERROR) {
+        if (options.handle_negative == SanitizeAction::ERROR) {
             throw std::runtime_error("detected negative size factor");
-        } else if (options.handle_negative == HandleAction::SANITIZE) {
+        } else if (options.handle_negative == SanitizeAction::SANITIZE) {
             smallest = internal::find_smallest_valid_factor(num, size_factors);
             for (size_t i = 0; i < num; ++i) {
                 auto& s = size_factors[i];
@@ -218,9 +212,9 @@ void compute(size_t num, SizeFactor_* size_factors, const Diagnostics& status, c
     }
 
     if (status.has_zero) {
-        if (options.handle_zero == HandleAction::ERROR) {
+        if (options.handle_zero == SanitizeAction::ERROR) {
             throw std::runtime_error("detected size factor of zero");
-        } else if (options.handle_zero == HandleAction::SANITIZE) {
+        } else if (options.handle_zero == SanitizeAction::SANITIZE) {
             if (smallest < 0) {
                 smallest = internal::find_smallest_valid_factor(num, size_factors);
             }
@@ -234,9 +228,9 @@ void compute(size_t num, SizeFactor_* size_factors, const Diagnostics& status, c
     }
 
     if (status.has_nan) {
-        if (options.handle_nan == HandleAction::ERROR) {
+        if (options.handle_nan == SanitizeAction::ERROR) {
             throw std::runtime_error("detected NaN size factor");
-        } else if (options.handle_nan == HandleAction::SANITIZE) {
+        } else if (options.handle_nan == SanitizeAction::SANITIZE) {
             for (size_t i = 0; i < num; ++i) {
                 auto& s = size_factors[i];
                 if (std::isnan(s)) {
@@ -247,9 +241,9 @@ void compute(size_t num, SizeFactor_* size_factors, const Diagnostics& status, c
     }
 
     if (status.has_infinite) {
-        if (options.handle_infinite == HandleAction::ERROR) {
+        if (options.handle_infinite == SanitizeAction::ERROR) {
             throw std::runtime_error("detected infinite size factor");
-        } else if (options.handle_infinite == HandleAction::SANITIZE) {
+        } else if (options.handle_infinite == SanitizeAction::SANITIZE) {
             auto largest = internal::find_largest_valid_factor(num, size_factors);
             for (size_t i = 0; i < num; ++i) {
                 auto& s = size_factors[i];
@@ -262,6 +256,8 @@ void compute(size_t num, SizeFactor_* size_factors, const Diagnostics& status, c
 }
 
 /**
+ * Overload of `sanitize_size_factors()` that calls `check_size_factor_sanity()` internally.
+ *
  * @tparam SizeFactor_ Floating-point type for the size factors.
  *
  * @param num Number of size factors.
@@ -269,15 +265,13 @@ void compute(size_t num, SizeFactor_* size_factors, const Diagnostics& status, c
  * On output, invalid size factors are replaced.
  * @param options Further options.
  *
- * @return An object whether each type of invalid size factors is present in `size_factors`.
+ * @return An object indicating whether each type of invalid size factors is present in `size_factors`.
  */
 template<typename SizeFactor_>
-Diagnostics compute(size_t num, SizeFactor_* size_factors, const Options& options) {
-    auto output = check(num, size_factors);
-    compute(num, size_factors, output, options);
+SizeFactorDiagnostics sanitize_size_factors(size_t num, SizeFactor_* size_factors, const SanitizeSizeFactorsOptions& options) {
+    auto output = check_size_factor_sanity(num, size_factors);
+    sanitize_size_factors(num, size_factors, output, options);
     return output;
-}
-
 }
 
 }

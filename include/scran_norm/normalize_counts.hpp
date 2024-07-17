@@ -1,5 +1,5 @@
-#ifndef SCRAN_NORMALIZE_COUNTS_HPP
-#define SCRAN_NORMALIZE_COUNTS_HPP
+#ifndef SCRAN_NORM_NORMALIZE_COUNTS_HPP
+#define SCRAN_NORM_NORMALIZE_COUNTS_HPP
 
 #include <type_traits>
 #include <vector>
@@ -12,35 +12,18 @@
  * @brief Normalize and log-transform counts.
  */
 
-namespace scran {
+namespace scran_norm {
 
 /**
- * @namespace scran::normalize_counts
- * @brief Normalize and log-transform counts.
- *
- * Given a count matrix and a set of size factors, compute log-transformed normalized expression values.
- * Each cell's counts are divided by the cell's size factor, to account for differences in capture efficiency and sequencing depth across cells.
- * The normalized values are then log-transformed so that downstream analyses focus on the relative rather than absolute differences in expression;
- * this process also provides some measure of variance stabilization.
- * These operations are done in a delayed manner using the `tatami::DelayedUnaryIsometricOperation` class.
- *
- * The simplest and most common method for defining size factors is to use the centered library sizes, see `center_size_factors` for details.
- * This removes scaling biases caused by sequencing depth, etc. between cells,
- * while the centering preserves the scale of the counts in the (log-)normalized expression values.
- * That said, users can define size factors from any method of their choice (e.g., median-based normalization, TMM) as long as they are positive for all cells.
+ * @brief Options for `normalize_counts()`.
  */
-namespace normalize_counts {
-
-/**
- * @brief Options for `compute()`.
- */
-struct Options {
+struct NormalizeCountsOptions {
     /**
      * Pseudo-count to add to each value prior to log-transformation.
      * All values should be positive to ensure that log-transformed values are finite.
      * The default value of 1 preserves sparsity in the log-count matrix.
      * Larger values shrink the differences between cells towards zero, reducing variance at the cost of increasing bias.
-     * Ignored if `log = false`.
+     * Ignored if `NormalizeCountsOptions::log = false`.
      */
     double pseudo_count = 1;
 
@@ -66,6 +49,17 @@ struct Options {
 };
 
 /**
+ * Given a count matrix and a set of size factors, compute log-transformed normalized expression values.
+ * Each cell's counts are divided by the cell's size factor, to account for differences in capture efficiency and sequencing depth across cells.
+ * The normalized values are then log-transformed so that downstream analyses focus on the relative rather than absolute differences in expression;
+ * this process also provides some measure of variance stabilization.
+ * These operations are done in a delayed manner using the `tatami::DelayedUnaryIsometricOperation` class.
+ *
+ * The simplest and most common method for defining size factors is to use the centered library sizes, see `center_size_factors` for details.
+ * This removes scaling biases caused by sequencing depth, etc. between cells,
+ * while the centering preserves the scale of the counts in the (log-)normalized expression values.
+ * That said, users can define size factors from any method of their choice (e.g., median-based normalization, TMM) as long as they are positive for all cells.
+ *
  * @tparam OutputValue_ Floating-point type for the output matrix.
  * @tparam InputValue_ Data type for the input matrix.
  * @tparam InputIndex_ Integer type for the input matrix.
@@ -80,8 +74,12 @@ struct Options {
  * @return Matrix of normalized expression values.
  * These are log-transformed if `Options::log = true`.
  */
-template<typename OutputValue_ = double, typename InputValue_ = double, typename Index_ = int, class SizeFactors_ = std::vector<double> >
-std::shared_ptr<tatami::Matrix<OutputValue_, Index_> > compute(std::shared_ptr<const tatami::Matrix<InputValue_, Index_> > counts, SizeFactors_ size_factors, const Options& options) {
+template<typename OutputValue_ = double, typename InputValue_, typename Index_, class SizeFactors_>
+std::shared_ptr<tatami::Matrix<OutputValue_, Index_> > normalize_counts(
+    std::shared_ptr<const tatami::Matrix<InputValue_, Index_> > counts, 
+    SizeFactors_ size_factors, 
+    const NormalizeCountsOptions& options) 
+{
     auto current_pseudo = options.pseudo_count;
     if (options.preserve_sparsity && current_pseudo != 1 && options.log) {
         for (auto& x : size_factors) { 
@@ -123,15 +121,18 @@ std::shared_ptr<tatami::Matrix<OutputValue_, Index_> > compute(std::shared_ptr<c
 /**
  * @cond
  */
-template<typename OutputValue_ = double, typename InputValue_ = double, typename Index_ = int, class SizeFactors_ = std::vector<double> >
-std::shared_ptr<tatami::Matrix<OutputValue_, Index_> > compute(std::shared_ptr<tatami::Matrix<InputValue_, Index_> > counts, SizeFactors_ size_factors, const Options& options) {
-    return compute(std::shared_ptr<const tatami::Matrix<InputValue_, Index_> >(std::move(counts)), std::move(size_factors), options);
+// Overload for template deduction.
+template<typename OutputValue_ = double, typename InputValue_, typename Index_, class SizeFactors_>
+std::shared_ptr<tatami::Matrix<OutputValue_, Index_> > normalize_counts(
+    std::shared_ptr<tatami::Matrix<InputValue_, Index_> > counts,
+    SizeFactors_ size_factors,
+    const NormalizeCountsOptions& options)
+{
+    return normalize_counts(std::shared_ptr<const tatami::Matrix<InputValue_, Index_> >(std::move(counts)), std::move(size_factors), options);
 }
 /**
  * @cond
  */
-
-}
 
 }
 

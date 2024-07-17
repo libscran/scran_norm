@@ -1,8 +1,8 @@
 # Normalize scaling biases in count data
 
-![Unit tests](https://github.com/libscran/normalize_counts/actions/workflows/run-tests.yaml/badge.svg)
-![Documentation](https://github.com/libscran/normalize_counts/actions/workflows/doxygenate.yaml/badge.svg)
-[![Codecov](https://codecov.io/gh/libscran/normalize_counts/graph/badge.svg?token=JWV0I4WJX2)](https://codecov.io/gh/libscran/normalize_counts)
+![Unit tests](https://github.com/libscran/scran_norm/actions/workflows/run-tests.yaml/badge.svg)
+![Documentation](https://github.com/libscran/scran_norm/actions/workflows/doxygenate.yaml/badge.svg)
+[![Codecov](https://codecov.io/gh/libscran/scran_norm/graph/badge.svg?token=JWV0I4WJX2)](https://codecov.io/gh/libscran/scran_norm)
 
 ## Overview
 
@@ -18,11 +18,13 @@ Given a measure of the per-cell scaling bias - for example, the sum of counts fo
 we can convert them into centered size factors:
 
 ```cpp
+#include "scran_norm/scran_norm.hpp"
+
 // Assuming that counts is a std::shared_ptr<tatami::Matrix>
 std::vector<double> bias = tatami_stats::sums::by_column(counts.get()); 
 
-scran::center_size_factors::Options copt;
-scran::center_size_factors::compute(bias.size(), bias.data(), NULL, copt);
+scran_norm::CenterSizeFacotrsOptions copt;
+scran_norm::center_size_factors(bias.size(), bias.data(), NULL, copt);
 
 // 'bias' is now centered at unity and can be used as size factors.
 auto& size_factors = bias;
@@ -32,7 +34,7 @@ Alternatively, in the presence of blocks, we adjust our centering so that the me
 This avoids inflated variances from applying small size factors to low-coverage blocks.
 
 ```cpp
-scran::center_size_factors::compute_blocked(
+scran_norm::center_size_factors_blocked(
     bias.size(), 
     bias.data(), 
     block.data(), 
@@ -45,42 +47,70 @@ If our size factors might contain invalid values (i.e., zero, negative, or non-f
 we can sanitize them prior to the construction of the log-normalized matrix:
 
 ```cpp
-scran::sanitize_size_factors::Options sopt;
-opt.handle_zero = scran::sanitize_size_factors::HandleAction::SANITIZE;
-opt.handle_infinite = scran::sanitize_size_factors::HandleAction::SANITIZE;
-scran::sanitize_size_factors::compute(size_factors.size(), size_factors.data(), sopt);
+scran_norm::SanitizeSizeFactorsOptions sopt;
+sopt.handle_zero = scran_norm::SanitizeAction::SANITIZE;
+sopt.handle_infinite = scran_norm::SanitizeAction::SANITIZE;
+scran_norm::sanitize_size_factors(size_factors.size(), size_factors.data(), sopt);
 // Gets rid of any zero and infinite values in 'size_factors'.
 ```
 
-Finally, we convert our a [`tatami::Matrix`](https://github.com/tatami-inc/tatami) of counts to a log-transformed normalized matrix:
+Finally, we convert our [`tatami::Matrix`](https://github.com/tatami-inc/tatami) of counts into a log-transformed normalized matrix:
 
 ```cpp
-scran::normalize_counts::Options lopts;
-auto logcounts = scran::normalize_counts::compute(counts, size_factors, lopt);
+scran_norm::NormalizeCountsOptions lopts;
+auto logcounts = scran_norm::normalize_counts(counts, size_factors, lopt);
 ```
 
-Check out the [reference documentation](https://libscran.github.io/normalize_counts) for more details.
+Check out the [reference documentation](https://libscran.github.io/scran_norm) for more details.
 
 ## Building projects
 
-This repository is part of the broader [**libscran**](https://github.com/libscran/libscran) library,
-so users are recommended to use the latter in their projects.
-**libscran** developers should just use CMake with `FetchContent`:
+### CMake with `FetchContent`
+
+If you're using CMake, you just need to add something like this to your `CMakeLists.txt`:
 
 ```cmake
 include(FetchContent)
 
 FetchContent_Declare(
-  scran_normalize_counts 
-  GIT_REPOSITORY https://github.com/libscran/normalize_counts
+  scran_norm
+  GIT_REPOSITORY https://github.com/libscran/scran_norm
   GIT_TAG master # or any version of interest
 )
 
-FetchContent_MakeAvailable(scran_normalize_counts)
+FetchContent_MakeAvailable(scran_norm)
+```
 
+Then you can link to **scran_norm** to make the headers available during compilation:
+
+```cmake
 # For executables:
-target_link_libraries(myexe scran_normalize_counts)
+target_link_libraries(myexe libscran::scran_norm)
 
 # For libaries
-target_link_libraries(mylib INTERFACE scran_normalize_counts)
+target_link_libraries(mylib INTERFACE libscran::scran_norm)
 ```
+
+### CMake with `find_package()`
+
+```cmake
+find_package(libscran_scran_norm CONFIG REQUIRED)
+target_link_libraries(mylib INTERFACE libscran::scran_norm)
+```
+
+To install the library, use:
+
+```sh
+mkdir build && cd build
+cmake .. -DSCRAN_NORM_TESTS=OFF
+cmake --build . --target install
+```
+
+By default, this will use `FetchContent` to fetch all external dependencies.
+If you want to install them manually, use `-DSCRAN_NORM_FETCH_EXTERN=OFF`.
+See the tags in [`extern/CMakeLists.txt`](extern/CMakeLists.txt) to find compatible versions of each dependency.
+
+### Manual
+
+If you're not using CMake, the simple approach is to just copy the files in `include/` - either directly or with Git submodules - and include their path during compilation with, e.g., GCC's `-I`.
+This requires the external dependencies listed in [`extern/CMakeLists.txt`](extern/CMakeLists.txt), which also need to be made available during compilation.
