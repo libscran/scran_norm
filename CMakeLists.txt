@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
 
 project(scran_nrom
-    VERSION 1.0.0
-    DESCRIPTION "Normalization of single-cell expression data"
+    VERSION 0.1.0
+    DESCRIPTION "Scaling normalization of single-cell data"
     LANGUAGES CXX)
 
 include(GNUInstallDirs)
