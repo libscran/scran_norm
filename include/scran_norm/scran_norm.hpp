@@ -1,18 +1,18 @@
-#ifndef SCRAN_SCRAN_HPP
-#define SCRAN_SCRAN_HPP
+#ifndef SCRAN_NORM_HPP
+#define SCRAN_NORM_HPP
 
 #include "center_size_factors.hpp"
 #include "choose_pseudo_count.hpp"
 #include "normalize_counts.hpp"
 
 /**
- * @file scran.hpp
- * @brief Methods for single-cell analysis.
+ * @file scran_norm.hpp
+ * @brief Scaling normalization of single-cell data.
  */
 
 /**
  * @namespace scran
- * @brief Methods for single-cell analysis.
+ * @brief Scaling normalization of single-cell data.
  */
 namespace scran {}
 

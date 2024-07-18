@@ -131,7 +131,7 @@ std::shared_ptr<tatami::Matrix<OutputValue_, Index_> > normalize_counts(
     return normalize_counts(std::shared_ptr<const tatami::Matrix<InputValue_, Index_> >(std::move(counts)), std::move(size_factors), options);
 }
 /**
- * @cond
+ * @endcond
  */
 
 }

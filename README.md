@@ -1,4 +1,4 @@
-# Normalize scaling biases in count data
+# Scaling normalization of single-cell count data
 
 ![Unit tests](https://github.com/libscran/scran_norm/actions/workflows/run-tests.yaml/badge.svg)
 ![Documentation](https://github.com/libscran/scran_norm/actions/workflows/doxygenate.yaml/badge.svg)
