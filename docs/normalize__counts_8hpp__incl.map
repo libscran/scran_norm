@@ -1,0 +1,11 @@
+<map id="scran_norm/normalize_counts.hpp" name="scran_norm/normalize_counts.hpp">
+<area shape="rect" id="Node000001" title="Normalize and log&#45;transform counts." alt="" coords="108,5,256,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,87,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,49,81,88,78,84,147,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="111,94,168,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,48,156,81,151,79,169,45"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="192,94,260,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="195,45,214,79,210,82,191,48"/>
+<area shape="rect" id="Node000005" href="/github/workspace/docs/tatami.tag$tatami_8hpp.html" title=" " alt="" coords="284,94,405,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="224,44,307,84,305,89,221,49"/>
+</map>

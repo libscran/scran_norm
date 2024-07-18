@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -71,7 +78,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>scran_norm</b></li><li class="navelem"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacescran__norm.html">scran_norm</a></li><li class="navelem"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -82,24 +89,24 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Options for <code><a class="el" href="sanitize__size__factors_8hpp.html#a16132309197e8d7a1d7d238a3685deda">sanitize_size_factors()</a></code>.  
+<p>Options for <code><a class="el" href="namespacescran__norm.html#a16132309197e8d7a1d7d238a3685deda">sanitize_size_factors()</a></code>.  
  <a href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="sanitize__size__factors_8hpp_source.html">sanitize_size_factors.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a341805c7650ee93db13050621d1505d6" id="r_a341805c7650ee93db13050621d1505d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sanitize__size__factors_8hpp.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#a341805c7650ee93db13050621d1505d6">handle_zero</a> = SanitizeAction::ERROR</td></tr>
+<tr class="memitem:a341805c7650ee93db13050621d1505d6" id="r_a341805c7650ee93db13050621d1505d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacescran__norm.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#a341805c7650ee93db13050621d1505d6">handle_zero</a> = SanitizeAction::ERROR</td></tr>
 <tr class="separator:a341805c7650ee93db13050621d1505d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ac9d4c7ee89bc43920abfb1bf34dfdf" id="r_a7ac9d4c7ee89bc43920abfb1bf34dfdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sanitize__size__factors_8hpp.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#a7ac9d4c7ee89bc43920abfb1bf34dfdf">handle_negative</a> = SanitizeAction::ERROR</td></tr>
+<tr class="memitem:a7ac9d4c7ee89bc43920abfb1bf34dfdf" id="r_a7ac9d4c7ee89bc43920abfb1bf34dfdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacescran__norm.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#a7ac9d4c7ee89bc43920abfb1bf34dfdf">handle_negative</a> = SanitizeAction::ERROR</td></tr>
 <tr class="separator:a7ac9d4c7ee89bc43920abfb1bf34dfdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50a3b186d5c6a430dfa4dce137c88372" id="r_a50a3b186d5c6a430dfa4dce137c88372"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sanitize__size__factors_8hpp.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#a50a3b186d5c6a430dfa4dce137c88372">handle_nan</a> = SanitizeAction::ERROR</td></tr>
+<tr class="memitem:a50a3b186d5c6a430dfa4dce137c88372" id="r_a50a3b186d5c6a430dfa4dce137c88372"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacescran__norm.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#a50a3b186d5c6a430dfa4dce137c88372">handle_nan</a> = SanitizeAction::ERROR</td></tr>
 <tr class="separator:a50a3b186d5c6a430dfa4dce137c88372"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaf0c77542462c508c14c30994e8d07d" id="r_acaf0c77542462c508c14c30994e8d07d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sanitize__size__factors_8hpp.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#acaf0c77542462c508c14c30994e8d07d">handle_infinite</a> = SanitizeAction::ERROR</td></tr>
+<tr class="memitem:acaf0c77542462c508c14c30994e8d07d" id="r_acaf0c77542462c508c14c30994e8d07d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacescran__norm.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#acaf0c77542462c508c14c30994e8d07d">handle_infinite</a> = SanitizeAction::ERROR</td></tr>
 <tr class="separator:acaf0c77542462c508c14c30994e8d07d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Options for <code><a class="el" href="sanitize__size__factors_8hpp.html#a16132309197e8d7a1d7d238a3685deda">sanitize_size_factors()</a></code>. </p>
+<div class="textblock"><p>Options for <code><a class="el" href="namespacescran__norm.html#a16132309197e8d7a1d7d238a3685deda">sanitize_size_factors()</a></code>. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a341805c7650ee93db13050621d1505d6" name="a341805c7650ee93db13050621d1505d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a341805c7650ee93db13050621d1505d6">&#9670;&#160;</a></span>handle_zero</h2>
@@ -108,7 +115,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="sanitize__size__factors_8hpp.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a> scran_norm::SanitizeSizeFactorsOptions::handle_zero = SanitizeAction::ERROR</td>
+          <td class="memname"><a class="el" href="namespacescran__norm.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a> scran_norm::SanitizeSizeFactorsOptions::handle_zero = SanitizeAction::ERROR</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -125,11 +132,11 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="sanitize__size__factors_8hpp.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a> scran_norm::SanitizeSizeFactorsOptions::handle_negative = SanitizeAction::ERROR</td>
+          <td class="memname"><a class="el" href="namespacescran__norm.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a> scran_norm::SanitizeSizeFactorsOptions::handle_negative = SanitizeAction::ERROR</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>How should we handle negative size factors? If <code>SANITIZE</code>, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid). This approach follows the same logic as <code>set_handle_zero()</code>, though negative size factors are quite unusual. </p>
+<p>How should we handle negative size factors? If <code>SANITIZE</code>, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid), following the same logic as <code><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#a341805c7650ee93db13050621d1505d6">SanitizeSizeFactorsOptions::handle_zero</a></code>. </p>
 
 </div>
 </div>
@@ -140,7 +147,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="sanitize__size__factors_8hpp.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a> scran_norm::SanitizeSizeFactorsOptions::handle_nan = SanitizeAction::ERROR</td>
+          <td class="memname"><a class="el" href="namespacescran__norm.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a> scran_norm::SanitizeSizeFactorsOptions::handle_nan = SanitizeAction::ERROR</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -155,7 +162,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="sanitize__size__factors_8hpp.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a> scran_norm::SanitizeSizeFactorsOptions::handle_infinite = SanitizeAction::ERROR</td>
+          <td class="memname"><a class="el" href="namespacescran__norm.html#a946ecb96a14f7df7cd0d5be4599766d2">SanitizeAction</a> scran_norm::SanitizeSizeFactorsOptions::handle_infinite = SanitizeAction::ERROR</td>
         </tr>
       </table>
 </div><div class="memdoc">

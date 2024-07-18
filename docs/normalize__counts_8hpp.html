@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>scran_norm: scran_norm/choose_pseudo_count.hpp File Reference</title>
+<title>scran_norm: scran_norm/normalize_counts.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,43 +86,49 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">choose_pseudo_count.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">normalize_counts.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Choose a pseudo-count for log-transformation.  
+<p>Normalize and log-transform counts.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &quot;<a class="elRef" href="https://tatami-inc.github.io/tatami/tatami_8hpp.html">tatami/tatami.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for choose_pseudo_count.hpp:</div>
+Include dependency graph for normalize_counts.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="choose__pseudo__count_8hpp__incl.png" border="0" usemap="#ascran__norm_2choose__pseudo__count_8hpp" alt=""/></div>
-<map name="ascran__norm_2choose__pseudo__count_8hpp" id="ascran__norm_2choose__pseudo__count_8hpp">
-<area shape="rect" title="Choose a pseudo&#45;count for log&#45;transformation." alt="" coords="5,5,190,46"/>
-<area shape="rect" title=" " alt="" coords="16,94,91,120"/>
-<area shape="poly" title=" " alt="" coords="89,48,70,82,65,79,84,45"/>
-<area shape="rect" title=" " alt="" coords="114,94,172,120"/>
-<area shape="poly" title=" " alt="" coords="111,45,131,79,126,82,106,48"/>
+<div class="center"><img src="normalize__counts_8hpp__incl.png" border="0" usemap="#ascran__norm_2normalize__counts_8hpp" alt=""/></div>
+<map name="ascran__norm_2normalize__counts_8hpp" id="ascran__norm_2normalize__counts_8hpp">
+<area shape="rect" title="Normalize and log&#45;transform counts." alt="" coords="108,5,256,46"/>
+<area shape="rect" title=" " alt="" coords="5,94,87,120"/>
+<area shape="poly" title=" " alt="" coords="149,49,81,88,78,84,147,44"/>
+<area shape="rect" title=" " alt="" coords="111,94,168,120"/>
+<area shape="poly" title=" " alt="" coords="174,48,156,81,151,79,169,45"/>
+<area shape="rect" title=" " alt="" coords="192,94,260,120"/>
+<area shape="poly" title=" " alt="" coords="195,45,214,79,210,82,191,48"/>
+<area shape="rect" target="_parent" href="https://tatami-inc.github.io/tatami/tatami_8hpp.html" title=" " alt="" coords="284,94,405,120"/>
+<area shape="poly" title=" " alt="" coords="224,44,307,84,305,89,221,49"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="choose__pseudo__count_8hpp__dep__incl.png" border="0" usemap="#ascran__norm_2choose__pseudo__count_8hppdep" alt=""/></div>
-<map name="ascran__norm_2choose__pseudo__count_8hppdep" id="ascran__norm_2choose__pseudo__count_8hppdep">
-<area shape="rect" title="Choose a pseudo&#45;count for log&#45;transformation." alt="" coords="6,5,190,46"/>
+<div class="center"><img src="normalize__counts_8hpp__dep__incl.png" border="0" usemap="#ascran__norm_2normalize__counts_8hppdep" alt=""/></div>
+<map name="ascran__norm_2normalize__counts_8hppdep" id="ascran__norm_2normalize__counts_8hppdep">
+<area shape="rect" title="Normalize and log&#45;transform counts." alt="" coords="24,5,172,46"/>
 <area shape="rect" href="scran__norm_8hpp.html" title="Scaling normalization of single&#45;cell data." alt="" coords="5,94,191,120"/>
 <area shape="poly" title=" " alt="" coords="101,62,101,93,95,93,95,62"/>
 </map>
 </div>
 </div>
-<p><a href="choose__pseudo__count_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="normalize__counts_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">scran_norm::ChoosePseudoCountOptions</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="namespacescran__norm.html#a8948eac81e727615b19195686c81f666">choose_pseudo_count()</a></code>.  <a href="structscran__norm_1_1ChoosePseudoCountOptions.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1NormalizeCountsOptions.html">scran_norm::NormalizeCountsOptions</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">normalize_counts()</a></code>.  <a href="structscran__norm_1_1NormalizeCountsOptions.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -133,15 +139,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa12e0ead5f0365bd2c525b9597ed933d" id="r_aa12e0ead5f0365bd2c525b9597ed933d"><td class="memTemplParams" colspan="2">template&lt;typename Float_ &gt; </td></tr>
-<tr class="memitem:aa12e0ead5f0365bd2c525b9597ed933d"><td class="memTemplItemLeft" align="right" valign="top">Float_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#aa12e0ead5f0365bd2c525b9597ed933d">scran_norm::choose_pseudo_count_raw</a> (size_t num, Float_ *size_factors, const <a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">ChoosePseudoCountOptions</a> &amp;options)</td></tr>
-<tr class="separator:aa12e0ead5f0365bd2c525b9597ed933d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8948eac81e727615b19195686c81f666" id="r_a8948eac81e727615b19195686c81f666"><td class="memTemplParams" colspan="2">template&lt;typename Float_ &gt; </td></tr>
-<tr class="memitem:a8948eac81e727615b19195686c81f666"><td class="memTemplItemLeft" align="right" valign="top">Float_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a8948eac81e727615b19195686c81f666">scran_norm::choose_pseudo_count</a> (size_t num, const Float_ *size_factors, const <a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">ChoosePseudoCountOptions</a> &amp;options)</td></tr>
-<tr class="separator:a8948eac81e727615b19195686c81f666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a141ebdc51024210f4c27902446fa4169" id="r_a141ebdc51024210f4c27902446fa4169"><td class="memTemplParams" colspan="2">template&lt;typename OutputValue_  = double, typename InputValue_ , typename Index_ , class SizeFactors_ &gt; </td></tr>
+<tr class="memitem:a141ebdc51024210f4c27902446fa4169"><td class="memTemplItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="elRef" href="https://tatami-inc.github.io/tatami/classtatami_1_1Matrix.html">tatami::Matrix</a>&lt; OutputValue_, Index_ &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">scran_norm::normalize_counts</a> (std::shared_ptr&lt; const <a class="elRef" href="https://tatami-inc.github.io/tatami/classtatami_1_1Matrix.html">tatami::Matrix</a>&lt; InputValue_, Index_ &gt; &gt; counts, SizeFactors_ size_factors, const <a class="el" href="structscran__norm_1_1NormalizeCountsOptions.html">NormalizeCountsOptions</a> &amp;options)</td></tr>
+<tr class="separator:a141ebdc51024210f4c27902446fa4169"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Choose a pseudo-count for log-transformation. </p>
+<div class="textblock"><p>Normalize and log-transform counts. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

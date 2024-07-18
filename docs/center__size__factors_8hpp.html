@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -77,6 +84,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">center_size_factors.hpp File Reference</div></div>
@@ -131,12 +139,18 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">scran_norm::CenterSizeFactorsOptions</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="center__size__factors_8hpp.html#a91783332304c92e0e02696d2e9358549">center_size_factors()</a></code> and <code><a class="el" href="center__size__factors_8hpp.html#ac59a8b6eca7e5c8d71cd21352b4ff393">center_size_factors_blocked()</a></code>.  <a href="structscran__norm_1_1CenterSizeFactorsOptions.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="namespacescran__norm.html#a91783332304c92e0e02696d2e9358549">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#ac59a8b6eca7e5c8d71cd21352b4ff393">center_size_factors_blocked()</a></code>.  <a href="structscran__norm_1_1CenterSizeFactorsOptions.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacescran__norm" id="r_namespacescran__norm"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html">scran_norm</a></td></tr>
+<tr class="memdesc:namespacescran__norm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scaling normalization of single-cell data. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a47460312428a74877116e789da012aba" id="r_a47460312428a74877116e789da012aba"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="center__size__factors_8hpp.html#a47460312428a74877116e789da012aba">scran_norm::CenterBlockMode</a> : char { <b>PER_BLOCK</b>
+<tr class="memitem:a47460312428a74877116e789da012aba" id="r_a47460312428a74877116e789da012aba"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a47460312428a74877116e789da012aba">scran_norm::CenterBlockMode</a> : char { <b>PER_BLOCK</b>
 , <b>LOWEST</b>
  }</td></tr>
 <tr class="separator:a47460312428a74877116e789da012aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,298 +158,21 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a01f3a3610590fb1286c4b7c8d0eb01c5" id="r_a01f3a3610590fb1286c4b7c8d0eb01c5"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
-<tr class="memitem:a01f3a3610590fb1286c4b7c8d0eb01c5"><td class="memTemplItemLeft" align="right" valign="top">SizeFactor_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="center__size__factors_8hpp.html#a01f3a3610590fb1286c4b7c8d0eb01c5">scran_norm::center_size_factors_mean</a> (size_t num, const SizeFactor_ *size_factors, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="memitem:a01f3a3610590fb1286c4b7c8d0eb01c5"><td class="memTemplItemLeft" align="right" valign="top">SizeFactor_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a01f3a3610590fb1286c4b7c8d0eb01c5">scran_norm::center_size_factors_mean</a> (size_t num, const SizeFactor_ *size_factors, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
 <tr class="separator:a01f3a3610590fb1286c4b7c8d0eb01c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91783332304c92e0e02696d2e9358549" id="r_a91783332304c92e0e02696d2e9358549"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
-<tr class="memitem:a91783332304c92e0e02696d2e9358549"><td class="memTemplItemLeft" align="right" valign="top">SizeFactor_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="center__size__factors_8hpp.html#a91783332304c92e0e02696d2e9358549">scran_norm::center_size_factors</a> (size_t num, SizeFactor_ *size_factors, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="memitem:a91783332304c92e0e02696d2e9358549"><td class="memTemplItemLeft" align="right" valign="top">SizeFactor_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a91783332304c92e0e02696d2e9358549">scran_norm::center_size_factors</a> (size_t num, SizeFactor_ *size_factors, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
 <tr class="separator:a91783332304c92e0e02696d2e9358549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af26c4087475faf7ba8a31d16a70669de" id="r_af26c4087475faf7ba8a31d16a70669de"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ , typename Block_ &gt; </td></tr>
-<tr class="memitem:af26c4087475faf7ba8a31d16a70669de"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; SizeFactor_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="center__size__factors_8hpp.html#af26c4087475faf7ba8a31d16a70669de">scran_norm::center_size_factors_blocked_mean</a> (size_t num, const SizeFactor_ *size_factors, const Block_ *block, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="memitem:af26c4087475faf7ba8a31d16a70669de"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; SizeFactor_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#af26c4087475faf7ba8a31d16a70669de">scran_norm::center_size_factors_blocked_mean</a> (size_t num, const SizeFactor_ *size_factors, const Block_ *block, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
 <tr class="separator:af26c4087475faf7ba8a31d16a70669de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac59a8b6eca7e5c8d71cd21352b4ff393" id="r_ac59a8b6eca7e5c8d71cd21352b4ff393"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ , typename Block_ &gt; </td></tr>
-<tr class="memitem:ac59a8b6eca7e5c8d71cd21352b4ff393"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; SizeFactor_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="center__size__factors_8hpp.html#ac59a8b6eca7e5c8d71cd21352b4ff393">scran_norm::center_size_factors_blocked</a> (size_t num, SizeFactor_ *size_factors, const Block_ *block, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="memitem:ac59a8b6eca7e5c8d71cd21352b4ff393"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; SizeFactor_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#ac59a8b6eca7e5c8d71cd21352b4ff393">scran_norm::center_size_factors_blocked</a> (size_t num, SizeFactor_ *size_factors, const Block_ *block, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
 <tr class="separator:ac59a8b6eca7e5c8d71cd21352b4ff393"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Center size factors prior to scaling normalization. </p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a47460312428a74877116e789da012aba" name="a47460312428a74877116e789da012aba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47460312428a74877116e789da012aba">&#9670;&#160;</a></span>CenterBlockMode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="center__size__factors_8hpp.html#a47460312428a74877116e789da012aba">scran_norm::CenterBlockMode</a> : char</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Strategy for handling blocks when centering size factors, see <code>CenterSizeFactorsOptions::block_mode</code> for details. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a01f3a3610590fb1286c4b7c8d0eb01c5" name="a01f3a3610590fb1286c4b7c8d0eb01c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01f3a3610590fb1286c4b7c8d0eb01c5">&#9670;&#160;</a></span>center_size_factors_mean()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SizeFactor_ &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">SizeFactor_ scran_norm::center_size_factors_mean </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const SizeFactor_ *&#160;</td>
-          <td class="paramname"><em>size_factors</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *&#160;</td>
-          <td class="paramname"><em>diagnostics</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;&#160;</td>
-          <td class="paramname"><em>options</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Compute the mean size factor but do not scale the size factors themselves.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">SizeFactor_</td><td>Floating-point type for the size factors.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">num</td><td>Number of cells. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size_factors</td><td>Pointer to an array of length <code>num</code>, containing the size factor for each cell. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">diagnostics</td><td>Diagnostics for invalid size factors. This is only used if <code>CenterSizeFactorsOptions::ignore_invalid = true</code>, in which case it is filled with invalid diagnostics for values in <code>size_factors</code>. It can also be NULL, in which case it is ignored. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">options</td><td>Further options.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The mean size factor, to be used to divide each element of <code>size_factors</code>. </dd></dl>
-
-</div>
-</div>
-<a id="a91783332304c92e0e02696d2e9358549" name="a91783332304c92e0e02696d2e9358549"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91783332304c92e0e02696d2e9358549">&#9670;&#160;</a></span>center_size_factors()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SizeFactor_ &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">SizeFactor_ scran_norm::center_size_factors </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeFactor_ *&#160;</td>
-          <td class="paramname"><em>size_factors</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *&#160;</td>
-          <td class="paramname"><em>diagnostics</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;&#160;</td>
-          <td class="paramname"><em>options</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>When centering, we scale all size factors so that their mean is equal to 1. The aim is to ensure that the normalized expression values are on roughly the same scale as the original counts. This simplifies interpretation and ensures that any added pseudo-count prior to log-transformation has a predictable shrinkage effect. In general, size factors should be centered before calling <code>normalize_counts()</code>.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">SizeFactor_</td><td>Floating-point type for the size factors.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">num</td><td>Number of cells. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">size_factors</td><td>Pointer to an array of length <code>num</code>, containing the size factor for each cell. On output, this contains centered size factors. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">diagnostics</td><td>Diagnostics for invalid size factors. This is only used if <code>CenterSizeFactorsOptions::ignore_invalid = true</code>, in which case it is filled with invalid diagnostics for values in <code>size_factors</code>. It can also be NULL, in which case it is ignored. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">options</td><td>Further options.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The mean size factor. </dd></dl>
-
-</div>
-</div>
-<a id="af26c4087475faf7ba8a31d16a70669de" name="af26c4087475faf7ba8a31d16a70669de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af26c4087475faf7ba8a31d16a70669de">&#9670;&#160;</a></span>center_size_factors_blocked_mean()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SizeFactor_ , typename Block_ &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; SizeFactor_ &gt; scran_norm::center_size_factors_blocked_mean </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const SizeFactor_ *&#160;</td>
-          <td class="paramname"><em>size_factors</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Block_ *&#160;</td>
-          <td class="paramname"><em>block</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *&#160;</td>
-          <td class="paramname"><em>diagnostics</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;&#160;</td>
-          <td class="paramname"><em>options</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Compute the mean size factor for each block, but do not scale the size factors themselves.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">SizeFactor_</td><td>Floating-point type for the size factors. </td></tr>
-    <tr><td class="paramname">Block_</td><td>Integer type for the block assignments.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">num</td><td>Number of cells. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size_factors</td><td>Pointer to an array of length <code>num</code>, containing the size factor for each cell. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">block</td><td>Pointer to an array of length <code>num</code>, containing the block assignment for each cell. Each assignment should be an integer in <picture><source srcset="form_0_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$[0, N)$" src="form_0.png"/></picture> where <picture><source srcset="form_1_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N$" src="form_1.png"/></picture> is the total number of blocks. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">diagnostics</td><td>Diagnostics for invalid size factors. This is only used if <code>CenterSizeFactorsOptions::ignore_invalid = true</code>, in which case it is filled with invalid diagnostics for values in <code>size_factors</code>. It can also be NULL, in which case it is ignored. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">options</td><td>Further options.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Vector of length <picture><source srcset="form_1_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N$" src="form_1.png"/></picture> containing the mean size factor for each block, to be used to scale the size factors in each block. </dd></dl>
-
-</div>
-</div>
-<a id="ac59a8b6eca7e5c8d71cd21352b4ff393" name="ac59a8b6eca7e5c8d71cd21352b4ff393"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac59a8b6eca7e5c8d71cd21352b4ff393">&#9670;&#160;</a></span>center_size_factors_blocked()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SizeFactor_ , typename Block_ &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; SizeFactor_ &gt; scran_norm::center_size_factors_blocked </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeFactor_ *&#160;</td>
-          <td class="paramname"><em>size_factors</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Block_ *&#160;</td>
-          <td class="paramname"><em>block</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *&#160;</td>
-          <td class="paramname"><em>diagnostics</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;&#160;</td>
-          <td class="paramname"><em>options</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Center size factors within each block, using the strategy specified in <code>CenterSizeFactorsOptions::block_mode</code>.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">SizeFactor_</td><td>Floating-point type for the size factors. </td></tr>
-    <tr><td class="paramname">Block_</td><td>Integer type for the block assignments.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">num</td><td>Number of cells. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size_factors</td><td>Pointer to an array of length <code>num</code>, containing the size factor for each cell. On output, this contains size factors that are centered according to <code>CenterSizeFactorsOptions::block_mode</code>. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">block</td><td>Pointer to an array of length <code>num</code>, containing the block assignment for each cell. Each assignment should be an integer in <picture><source srcset="form_0_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$[0, N)$" src="form_0.png"/></picture> where <picture><source srcset="form_1_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N$" src="form_1.png"/></picture> is the total number of blocks. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">diagnostics</td><td>Diagnostics for invalid size factors. This is only used if <code>CenterSizeFactorsOptions::ignore_invalid = true</code>, in which case it is filled with invalid diagnostics for values in <code>size_factors</code>. It can also be NULL, in which case it is ignored. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">options</td><td>Further options.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Vector of length <picture><source srcset="form_1_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N$" src="form_1.png"/></picture> containing the mean size factor for each block. </dd></dl>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

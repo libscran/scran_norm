@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -71,7 +78,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>scran_norm</b></li><li class="navelem"><a class="el" href="structscran__norm_1_1NormalizeCountsOptions.html">NormalizeCountsOptions</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacescran__norm.html">scran_norm</a></li><li class="navelem"><a class="el" href="structscran__norm_1_1NormalizeCountsOptions.html">NormalizeCountsOptions</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -82,7 +89,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Options for <code>normalize_counts()</code>.  
+<p>Options for <code><a class="el" href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">normalize_counts()</a></code>.  
  <a href="structscran__norm_1_1NormalizeCountsOptions.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="normalize__counts_8hpp_source.html">normalize_counts.hpp</a>&gt;</code></p>
@@ -99,7 +106,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a041c9ac7344203670564b9cdf99523da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Options for <code>normalize_counts()</code>. </p>
+<div class="textblock"><p>Options for <code><a class="el" href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">normalize_counts()</a></code>. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a3744450b615ed684b641ab552fa289db" name="a3744450b615ed684b641ab552fa289db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3744450b615ed684b641ab552fa289db">&#9670;&#160;</a></span>pseudo_count</h2>
@@ -127,7 +134,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Whether to preserve sparsity for non-unity pseudo-counts. If true, we multiply the size factors by the <code>pseudo_count</code> and add 1 before log-transformation. This does not change the differences between entries of the resulting matrix, and adding <code><a class="el" href="structscran__norm_1_1NormalizeCountsOptions.html#a69a9473da69f8b86ba73b4b800a1268b">log(pseudo_count)</a></code> will recover the expected log-count values. Ignored if <code>log = false</code>. </p>
+<p>Whether to preserve sparsity for non-unity pseudo-counts. If true, we multiply the size factors by the <code>pseudo_count</code> and add 1 before log-transformation. This does not change the differences between entries of the resulting matrix, and adding <code><a class="el" href="structscran__norm_1_1NormalizeCountsOptions.html#a69a9473da69f8b86ba73b4b800a1268b">log(pseudo_count)</a></code> will recover the expected log-count values. Ignored if <code><a class="el" href="structscran__norm_1_1NormalizeCountsOptions.html#a69a9473da69f8b86ba73b4b800a1268b">NormalizeCountsOptions::log</a> = false</code>. </p>
 
 </div>
 </div>
@@ -157,7 +164,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Base for the log-transformation. Only used if <code>Options::log = true</code>. </p>
+<p>Base for the log-transformation. Only used if <code><a class="el" href="structscran__norm_1_1NormalizeCountsOptions.html#a69a9473da69f8b86ba73b4b800a1268b">NormalizeCountsOptions::log</a> = true</code>. </p>
 
 </div>
 </div>

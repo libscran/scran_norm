@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['sanitize_5fsize_5ffactors_0',['sanitize_size_factors',['../sanitize__size__factors_8hpp.html#a8fe5b2dd6df09a56fbe0094fea4e4697',1,'scran_norm::sanitize_size_factors(size_t num, SizeFactor_ *size_factors, const SanitizeSizeFactorsOptions &amp;options)'],['../sanitize__size__factors_8hpp.html#a16132309197e8d7a1d7d238a3685deda',1,'scran_norm::sanitize_size_factors(size_t num, SizeFactor_ *size_factors, const SizeFactorDiagnostics &amp;status, const SanitizeSizeFactorsOptions &amp;options)']]],
+  ['sanitize_5fsize_5ffactors_0',['sanitize_size_factors',['../namespacescran__norm.html#a8fe5b2dd6df09a56fbe0094fea4e4697',1,'scran_norm::sanitize_size_factors(size_t num, SizeFactor_ *size_factors, const SanitizeSizeFactorsOptions &amp;options)'],['../namespacescran__norm.html#a16132309197e8d7a1d7d238a3685deda',1,'scran_norm::sanitize_size_factors(size_t num, SizeFactor_ *size_factors, const SizeFactorDiagnostics &amp;status, const SanitizeSizeFactorsOptions &amp;options)']]],
   ['sanitize_5fsize_5ffactors_2ehpp_1',['sanitize_size_factors.hpp',['../sanitize__size__factors_8hpp.html',1,'']]],
-  ['sanitizeaction_2',['SanitizeAction',['../sanitize__size__factors_8hpp.html#a946ecb96a14f7df7cd0d5be4599766d2',1,'scran_norm']]],
+  ['sanitizeaction_2',['SanitizeAction',['../namespacescran__norm.html#a946ecb96a14f7df7cd0d5be4599766d2',1,'scran_norm']]],
   ['sanitizesizefactorsoptions_3',['SanitizeSizeFactorsOptions',['../structscran__norm_1_1SanitizeSizeFactorsOptions.html',1,'scran_norm']]],
   ['scaling_20normalization_20of_20single_20cell_20count_20data_4',['Scaling normalization of single-cell count data',['../index.html',1,'']]],
-  ['scran_5',['scran',['../namespacescran.html',1,'']]],
+  ['scran_5fnorm_5',['scran_norm',['../namespacescran__norm.html',1,'']]],
   ['scran_5fnorm_2ehpp_6',['scran_norm.hpp',['../scran__norm_8hpp.html',1,'']]],
   ['single_20cell_20count_20data_7',['Scaling normalization of single-cell count data',['../index.html',1,'']]],
   ['size_8',['size',['https://tatami-inc.github.io/tatami/classtatami_1_1SomeNumericArray.html#ada2335bab3c287700c1888ae1cb1d73f',1,'tatami::SomeNumericArray::size()'],['https://tatami-inc.github.io/tatami/classtatami_1_1ArrayView.html#a7983c151067c852f6382b76661937dfd',1,'tatami::ArrayView::size()']]],

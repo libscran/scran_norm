@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -71,7 +78,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>scran_norm</b></li><li class="navelem"><a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacescran__norm.html">scran_norm</a></li><li class="navelem"><a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -82,20 +89,20 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Options for <code><a class="el" href="center__size__factors_8hpp.html#a91783332304c92e0e02696d2e9358549">center_size_factors()</a></code> and <code><a class="el" href="center__size__factors_8hpp.html#ac59a8b6eca7e5c8d71cd21352b4ff393">center_size_factors_blocked()</a></code>.  
+<p>Options for <code><a class="el" href="namespacescran__norm.html#a91783332304c92e0e02696d2e9358549">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#ac59a8b6eca7e5c8d71cd21352b4ff393">center_size_factors_blocked()</a></code>.  
  <a href="structscran__norm_1_1CenterSizeFactorsOptions.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="center__size__factors_8hpp_source.html">center_size_factors.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a03777fea5bdfc1f386a60a88470e3422" id="r_a03777fea5bdfc1f386a60a88470e3422"><td class="memItemLeft" align="right" valign="top"><a class="el" href="center__size__factors_8hpp.html#a47460312428a74877116e789da012aba">CenterBlockMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html#a03777fea5bdfc1f386a60a88470e3422">block_mode</a> = CenterBlockMode::LOWEST</td></tr>
+<tr class="memitem:a03777fea5bdfc1f386a60a88470e3422" id="r_a03777fea5bdfc1f386a60a88470e3422"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacescran__norm.html#a47460312428a74877116e789da012aba">CenterBlockMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html#a03777fea5bdfc1f386a60a88470e3422">block_mode</a> = CenterBlockMode::LOWEST</td></tr>
 <tr class="separator:a03777fea5bdfc1f386a60a88470e3422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09be0c48d2af10b0975c95b4f4ffa6cc" id="r_a09be0c48d2af10b0975c95b4f4ffa6cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html#a09be0c48d2af10b0975c95b4f4ffa6cc">ignore_invalid</a> = true</td></tr>
 <tr class="separator:a09be0c48d2af10b0975c95b4f4ffa6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Options for <code><a class="el" href="center__size__factors_8hpp.html#a91783332304c92e0e02696d2e9358549">center_size_factors()</a></code> and <code><a class="el" href="center__size__factors_8hpp.html#ac59a8b6eca7e5c8d71cd21352b4ff393">center_size_factors_blocked()</a></code>. </p>
+<div class="textblock"><p>Options for <code><a class="el" href="namespacescran__norm.html#a91783332304c92e0e02696d2e9358549">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#ac59a8b6eca7e5c8d71cd21352b4ff393">center_size_factors_blocked()</a></code>. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a03777fea5bdfc1f386a60a88470e3422" name="a03777fea5bdfc1f386a60a88470e3422"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03777fea5bdfc1f386a60a88470e3422">&#9670;&#160;</a></span>block_mode</h2>
@@ -104,12 +111,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="center__size__factors_8hpp.html#a47460312428a74877116e789da012aba">CenterBlockMode</a> scran_norm::CenterSizeFactorsOptions::block_mode = CenterBlockMode::LOWEST</td>
+          <td class="memname"><a class="el" href="namespacescran__norm.html#a47460312428a74877116e789da012aba">CenterBlockMode</a> scran_norm::CenterSizeFactorsOptions::block_mode = CenterBlockMode::LOWEST</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Strategy for handling blocks in <code>compute_blocked()</code>.</p>
-<p>With the <code>PER_BLOCK</code> strategy, size factors are scaled separately for each block so that they have a mean of 1 within each block. The scaled size factors are identical to those obtained by separate invocations of <code><a class="el" href="center__size__factors_8hpp.html#a91783332304c92e0e02696d2e9358549">center_size_factors()</a></code> on the size factors for each block. This can be desirable to ensure consistency with independent analyses of each block - otherwise, the centering would depend on the size factors across all blocks. However, any systematic differences in the size factors between blocks are lost, i.e., systematic changes in coverage between blocks will not be normalized.</p>
+<p>With the <code>PER_BLOCK</code> strategy, size factors are scaled separately for each block so that they have a mean of 1 within each block. The scaled size factors are identical to those obtained by separate invocations of <code><a class="el" href="namespacescran__norm.html#a91783332304c92e0e02696d2e9358549">center_size_factors()</a></code> on the size factors for each block. This can be desirable to ensure consistency with independent analyses of each block - otherwise, the centering would depend on the size factors across all blocks. However, any systematic differences in the size factors between blocks are lost, i.e., systematic changes in coverage between blocks will not be normalized.</p>
 <p>With the <code>LOWEST</code> strategy, we compute the mean size factor for each block and we divide all size factors by the minimum mean. In effect, we normalize across blocks by downscale all blocks to match the coverage of the lowest-coverage block. This is useful for datasets with highly heterogeneous coverage of different blocks as it avoids egregious upscaling of low-coverage blocks. (By contrast, downscaling is always safe as it simply discards information across all blocks by shrinking log-fold changes towards zero at low expression.) </p>
 
 </div>
@@ -126,7 +133,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Whether to ignore invalid size factors when computing the mean size factor. Size factors of infinity and NaN or those with non-positive values may occur in datasets that have not been properly filtered to remove low-quality cells. If such values might be present, we can check for and ignore them during the mean calculations.</p>
-<p>Note that this setting does not actually remove any of the invalid size factors. If these are present, users should call <code><a class="el" href="sanitize__size__factors_8hpp.html#a16132309197e8d7a1d7d238a3685deda">sanitize_size_factors()</a></code> after centering. The <code>diagnostics</code> value in <code><a class="el" href="center__size__factors_8hpp.html#a91783332304c92e0e02696d2e9358549">center_size_factors()</a></code> and <code><a class="el" href="center__size__factors_8hpp.html#ac59a8b6eca7e5c8d71cd21352b4ff393">center_size_factors_blocked()</a></code> can be used to determine whether such a call is necessary. (In general, sanitization should be performed after centering so that the replacement size factors do not interfere with the mean calculations.)</p>
+<p>Note that this setting does not actually remove any of the invalid size factors. If these are present, users should call <code><a class="el" href="namespacescran__norm.html#a16132309197e8d7a1d7d238a3685deda">sanitize_size_factors()</a></code> after centering. The <code>diagnostics</code> value in <code><a class="el" href="namespacescran__norm.html#a91783332304c92e0e02696d2e9358549">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#ac59a8b6eca7e5c8d71cd21352b4ff393">center_size_factors_blocked()</a></code> can be used to determine whether such a call is necessary. (In general, sanitization should be performed after centering so that the replacement size factors do not interfere with the mean calculations.)</p>
 <p>If users know that invalid size factors cannot be present, they can set this flag to false for greater efficiency. </p>
 
 </div>

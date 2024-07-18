@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -77,6 +84,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">sanitize_size_factors.hpp File Reference</div></div>
@@ -120,12 +128,18 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diagnostics for the size factors.  <a href="structscran__norm_1_1SizeFactorDiagnostics.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">scran_norm::SanitizeSizeFactorsOptions</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="sanitize__size__factors_8hpp.html#a16132309197e8d7a1d7d238a3685deda">sanitize_size_factors()</a></code>.  <a href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="namespacescran__norm.html#a16132309197e8d7a1d7d238a3685deda">sanitize_size_factors()</a></code>.  <a href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacescran__norm" id="r_namespacescran__norm"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html">scran_norm</a></td></tr>
+<tr class="memdesc:namespacescran__norm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scaling normalization of single-cell data. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a946ecb96a14f7df7cd0d5be4599766d2" id="r_a946ecb96a14f7df7cd0d5be4599766d2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sanitize__size__factors_8hpp.html#a946ecb96a14f7df7cd0d5be4599766d2">scran_norm::SanitizeAction</a> : char { <b>IGNORE</b>
+<tr class="memitem:a946ecb96a14f7df7cd0d5be4599766d2" id="r_a946ecb96a14f7df7cd0d5be4599766d2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a946ecb96a14f7df7cd0d5be4599766d2">scran_norm::SanitizeAction</a> : char { <b>IGNORE</b>
 , <b>ERROR</b>
 , <b>SANITIZE</b>
  }</td></tr>
@@ -134,204 +148,18 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8af1b1c1e7124933e4335f82fd41f027" id="r_a8af1b1c1e7124933e4335f82fd41f027"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
-<tr class="memitem:a8af1b1c1e7124933e4335f82fd41f027"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sanitize__size__factors_8hpp.html#a8af1b1c1e7124933e4335f82fd41f027">scran_norm::check_size_factor_sanity</a> (size_t num, const SizeFactor_ *size_factors)</td></tr>
+<tr class="memitem:a8af1b1c1e7124933e4335f82fd41f027"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a8af1b1c1e7124933e4335f82fd41f027">scran_norm::check_size_factor_sanity</a> (size_t num, const SizeFactor_ *size_factors)</td></tr>
 <tr class="separator:a8af1b1c1e7124933e4335f82fd41f027"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16132309197e8d7a1d7d238a3685deda" id="r_a16132309197e8d7a1d7d238a3685deda"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
-<tr class="memitem:a16132309197e8d7a1d7d238a3685deda"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sanitize__size__factors_8hpp.html#a16132309197e8d7a1d7d238a3685deda">scran_norm::sanitize_size_factors</a> (size_t num, SizeFactor_ *size_factors, const <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> &amp;status, const <a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="memitem:a16132309197e8d7a1d7d238a3685deda"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a16132309197e8d7a1d7d238a3685deda">scran_norm::sanitize_size_factors</a> (size_t num, SizeFactor_ *size_factors, const <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> &amp;status, const <a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a> &amp;options)</td></tr>
 <tr class="separator:a16132309197e8d7a1d7d238a3685deda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fe5b2dd6df09a56fbe0094fea4e4697" id="r_a8fe5b2dd6df09a56fbe0094fea4e4697"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
-<tr class="memitem:a8fe5b2dd6df09a56fbe0094fea4e4697"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="sanitize__size__factors_8hpp.html#a8fe5b2dd6df09a56fbe0094fea4e4697">scran_norm::sanitize_size_factors</a> (size_t num, SizeFactor_ *size_factors, const <a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="memitem:a8fe5b2dd6df09a56fbe0094fea4e4697"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a8fe5b2dd6df09a56fbe0094fea4e4697">scran_norm::sanitize_size_factors</a> (size_t num, SizeFactor_ *size_factors, const <a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a> &amp;options)</td></tr>
 <tr class="separator:a8fe5b2dd6df09a56fbe0094fea4e4697"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sanitize invalid size factors. </p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a946ecb96a14f7df7cd0d5be4599766d2" name="a946ecb96a14f7df7cd0d5be4599766d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a946ecb96a14f7df7cd0d5be4599766d2">&#9670;&#160;</a></span>SanitizeAction</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="sanitize__size__factors_8hpp.html#a946ecb96a14f7df7cd0d5be4599766d2">scran_norm::SanitizeAction</a> : char</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>How invalid size factors should be handled:</p>
-<ul>
-<li><code>IGNORE</code>: ignore invalid size factors with no error or change.</li>
-<li><code>ERROR</code>: throw an error.</li>
-<li><code>SANITIZE</code>: fix each invalid size factor. </li>
-</ul>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a8af1b1c1e7124933e4335f82fd41f027" name="a8af1b1c1e7124933e4335f82fd41f027"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8af1b1c1e7124933e4335f82fd41f027">&#9670;&#160;</a></span>check_size_factor_sanity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SizeFactor_ &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">SizeFactorDiagnostics scran_norm::check_size_factor_sanity </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const SizeFactor_ *&#160;</td>
-          <td class="paramname"><em>size_factors</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Check whether there are any invalid size factors. Size factors are only technically valid if they are finite and positive.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">SizeFactor_</td><td>Floating-point type for the size factors.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">num</td><td>Number of size factors. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size_factors</td><td>Pointer to an array of size factors of length <code>num</code>.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Validation results, indicating whether any zero or non-finite size factors exist. </dd></dl>
-
-</div>
-</div>
-<a id="a16132309197e8d7a1d7d238a3685deda" name="a16132309197e8d7a1d7d238a3685deda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16132309197e8d7a1d7d238a3685deda">&#9670;&#160;</a></span>sanitize_size_factors() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SizeFactor_ &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void scran_norm::sanitize_size_factors </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeFactor_ *&#160;</td>
-          <td class="paramname"><em>size_factors</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> &amp;&#160;</td>
-          <td class="paramname"><em>status</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a> &amp;&#160;</td>
-          <td class="paramname"><em>options</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Replace zero, missing or infinite values in the size factor array so that it can be used to compute well-defined normalized values. Such size factors can occasionally arise if, e.g., insufficient quality control was performed upstream. Check out the documentation in <code>SanitizeSizeFactorsOptions</code> to see what placeholder value is used for each type of invalid size factor.</p>
-<p>In general, sanitization should occur after calls to <code>center_size_factors()</code>, <code>choose_pseudo_count()</code>, or any function that computes a statistic based on the distribution of size factors. This ensures that the results of those functions are not affected by the placeholder values used to replace the invalid size factors. As a rule of thumb, <code>sanitize_size_factors()</code> should be called just before passing those size factors to <code>normalize_counts()</code>.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">SizeFactor_</td><td>Floating-point type for the size factors.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">num</td><td>Number of size factors. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">size_factors</td><td>Pointer to an array of positive size factors of length <code>n</code>. On output, invalid size factors are replaced. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">status</td><td>A pre-computed object indicating whether invalid size factors are present in <code>size_factors</code>. This can be useful if this information is already provided by, e.g., <code>check_size_factor_sanity()</code> or <code>center_size_factors()</code>. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">options</td><td>Further options. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8fe5b2dd6df09a56fbe0094fea4e4697" name="a8fe5b2dd6df09a56fbe0094fea4e4697"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fe5b2dd6df09a56fbe0094fea4e4697">&#9670;&#160;</a></span>sanitize_size_factors() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SizeFactor_ &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">SizeFactorDiagnostics scran_norm::sanitize_size_factors </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SizeFactor_ *&#160;</td>
-          <td class="paramname"><em>size_factors</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a> &amp;&#160;</td>
-          <td class="paramname"><em>options</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Overload of <code>sanitize_size_factors()</code> that calls <code>check_size_factor_sanity()</code> internally.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">SizeFactor_</td><td>Floating-point type for the size factors.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">num</td><td>Number of size factors. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">size_factors</td><td>Pointer to an array of positive size factors of length <code>n</code>. On output, invalid size factors are replaced. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">options</td><td>Further options.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>An object indicating whether each type of invalid size factors is present in <code>size_factors</code>. </dd></dl>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

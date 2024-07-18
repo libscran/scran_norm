@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -85,31 +92,35 @@ $(function() {
 <div class="line">std::vector&lt;double&gt; bias = tatami_stats::sums::by_column(counts.get()); </div>
 <div class="line"> </div>
 <div class="line">scran_norm::CenterSizeFacotrsOptions copt;</div>
-<div class="line">scran_norm::center_size_factors(bias.size(), bias.data(), NULL, copt);</div>
+<div class="line"><a class="code hl_function" href="namespacescran__norm.html#a91783332304c92e0e02696d2e9358549">scran_norm::center_size_factors</a>(bias.size(), bias.data(), NULL, copt);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// &#39;bias&#39; is now centered at unity and can be used as size factors.</span></div>
 <div class="line"><span class="keyword">auto</span>&amp; size_factors = bias;</div>
+<div class="ttc" id="anamespacescran__norm_html_a91783332304c92e0e02696d2e9358549"><div class="ttname"><a href="namespacescran__norm.html#a91783332304c92e0e02696d2e9358549">scran_norm::center_size_factors</a></div><div class="ttdeci">SizeFactor_ center_size_factors(size_t num, SizeFactor_ *size_factors, SizeFactorDiagnostics *diagnostics, const CenterSizeFactorsOptions &amp;options)</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:120</div></div>
 <div class="ttc" id="ascran__norm_8hpp_html"><div class="ttname"><a href="scran__norm_8hpp.html">scran_norm.hpp</a></div><div class="ttdoc">Scaling normalization of single-cell data.</div></div>
 </div><!-- fragment --><p>Alternatively, in the presence of blocks, we adjust our centering so that the mean size factor in each block is no less than 1. This avoids inflated variances from applying small size factors to low-coverage blocks.</p>
-<div class="fragment"><div class="line">scran_norm::center_size_factors_blocked(</div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="namespacescran__norm.html#ac59a8b6eca7e5c8d71cd21352b4ff393">scran_norm::center_size_factors_blocked</a>(</div>
 <div class="line">    bias.size(), </div>
 <div class="line">    bias.data(), </div>
 <div class="line">    block.data(), </div>
 <div class="line">    NULL, </div>
 <div class="line">    copt</div>
 <div class="line">);</div>
+<div class="ttc" id="anamespacescran__norm_html_ac59a8b6eca7e5c8d71cd21352b4ff393"><div class="ttname"><a href="namespacescran__norm.html#ac59a8b6eca7e5c8d71cd21352b4ff393">scran_norm::center_size_factors_blocked</a></div><div class="ttdeci">std::vector&lt; SizeFactor_ &gt; center_size_factors_blocked(size_t num, SizeFactor_ *size_factors, const Block_ *block, SizeFactorDiagnostics *diagnostics, const CenterSizeFactorsOptions &amp;options)</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:202</div></div>
 </div><!-- fragment --><p>If our size factors might contain invalid values (i.e., zero, negative, or non-finite), we can sanitize them prior to the construction of the log-normalized matrix:</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">scran_norm::SanitizeSizeFactorsOptions</a> sopt;</div>
 <div class="line">sopt.<a class="code hl_variable" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#a341805c7650ee93db13050621d1505d6">handle_zero</a> = scran_norm::SanitizeAction::SANITIZE;</div>
 <div class="line">sopt.<a class="code hl_variable" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#acaf0c77542462c508c14c30994e8d07d">handle_infinite</a> = scran_norm::SanitizeAction::SANITIZE;</div>
-<div class="line">scran_norm::sanitize_size_factors(size_factors.size(), size_factors.data(), sopt);</div>
+<div class="line"><a class="code hl_function" href="namespacescran__norm.html#a16132309197e8d7a1d7d238a3685deda">scran_norm::sanitize_size_factors</a>(size_factors.size(), size_factors.data(), sopt);</div>
 <div class="line"><span class="comment">// Gets rid of any zero and infinite values in &#39;size_factors&#39;.</span></div>
+<div class="ttc" id="anamespacescran__norm_html_a16132309197e8d7a1d7d238a3685deda"><div class="ttname"><a href="namespacescran__norm.html#a16132309197e8d7a1d7d238a3685deda">scran_norm::sanitize_size_factors</a></div><div class="ttdeci">void sanitize_size_factors(size_t num, SizeFactor_ *size_factors, const SizeFactorDiagnostics &amp;status, const SanitizeSizeFactorsOptions &amp;options)</div><div class="ttdef"><b>Definition</b> sanitize_size_factors.hpp:197</div></div>
 <div class="ttc" id="astructscran__norm_1_1SanitizeSizeFactorsOptions_html"><div class="ttname"><a href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">scran_norm::SanitizeSizeFactorsOptions</a></div><div class="ttdoc">Options for sanitize_size_factors().</div><div class="ttdef"><b>Definition</b> sanitize_size_factors.hpp:142</div></div>
 <div class="ttc" id="astructscran__norm_1_1SanitizeSizeFactorsOptions_html_a341805c7650ee93db13050621d1505d6"><div class="ttname"><a href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#a341805c7650ee93db13050621d1505d6">scran_norm::SanitizeSizeFactorsOptions::handle_zero</a></div><div class="ttdeci">SanitizeAction handle_zero</div><div class="ttdef"><b>Definition</b> sanitize_size_factors.hpp:154</div></div>
 <div class="ttc" id="astructscran__norm_1_1SanitizeSizeFactorsOptions_html_acaf0c77542462c508c14c30994e8d07d"><div class="ttname"><a href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#acaf0c77542462c508c14c30994e8d07d">scran_norm::SanitizeSizeFactorsOptions::handle_infinite</a></div><div class="ttdeci">SanitizeAction handle_infinite</div><div class="ttdef"><b>Definition</b> sanitize_size_factors.hpp:174</div></div>
 </div><!-- fragment --><p>Finally, we convert our <a href="https://github.com/tatami-inc/tatami"><code>tatami::Matrix</code></a> of counts into a log-transformed normalized matrix:</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structscran__norm_1_1NormalizeCountsOptions.html">scran_norm::NormalizeCountsOptions</a> lopts;</div>
-<div class="line"><span class="keyword">auto</span> logcounts = scran_norm::normalize_counts(counts, size_factors, lopt);</div>
+<div class="line"><span class="keyword">auto</span> logcounts = <a class="code hl_function" href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">scran_norm::normalize_counts</a>(counts, size_factors, lopt);</div>
+<div class="ttc" id="anamespacescran__norm_html_a141ebdc51024210f4c27902446fa4169"><div class="ttname"><a href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">scran_norm::normalize_counts</a></div><div class="ttdeci">std::shared_ptr&lt; tatami::Matrix&lt; OutputValue_, Index_ &gt; &gt; normalize_counts(std::shared_ptr&lt; const tatami::Matrix&lt; InputValue_, Index_ &gt; &gt; counts, SizeFactors_ size_factors, const NormalizeCountsOptions &amp;options)</div><div class="ttdef"><b>Definition</b> normalize_counts.hpp:78</div></div>
 <div class="ttc" id="astructscran__norm_1_1NormalizeCountsOptions_html"><div class="ttname"><a href="structscran__norm_1_1NormalizeCountsOptions.html">scran_norm::NormalizeCountsOptions</a></div><div class="ttdoc">Options for normalize_counts().</div><div class="ttdef"><b>Definition</b> normalize_counts.hpp:20</div></div>
 </div><!-- fragment --><p>Check out the <a href="https://libscran.github.io/scran_norm">reference documentation</a> for more details.</p>
 <h1>Building projects</h1>
@@ -124,7 +135,7 @@ $(function() {
 <div class="line">)</div>
 <div class="line"> </div>
 <div class="line">FetchContent_MakeAvailable(scran_norm)</div>
-</div><!-- fragment --><p>Then you can link to <b>scran_norm</b> to make the headers available during compilation:</p>
+</div><!-- fragment --><p>Then you can link to <b><a class="el" href="namespacescran__norm.html" title="Scaling normalization of single-cell data.">scran_norm</a></b> to make the headers available during compilation:</p>
 <div class="fragment"><div class="line"># For executables:</div>
 <div class="line">target_link_libraries(myexe libscran::scran_norm)</div>
 <div class="line"> </div>

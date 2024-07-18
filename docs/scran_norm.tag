@@ -6,12 +6,21 @@
     <filename>center__size__factors_8hpp.html</filename>
     <includes id="sanitize__size__factors_8hpp" name="sanitize_size_factors.hpp" local="yes" import="no" module="no" objc="no">sanitize_size_factors.hpp</includes>
     <class kind="struct">scran_norm::CenterSizeFactorsOptions</class>
+    <namespace>scran_norm</namespace>
   </compound>
   <compound kind="file">
     <name>choose_pseudo_count.hpp</name>
     <path>scran_norm/</path>
     <filename>choose__pseudo__count_8hpp.html</filename>
     <class kind="struct">scran_norm::ChoosePseudoCountOptions</class>
+    <namespace>scran_norm</namespace>
+  </compound>
+  <compound kind="file">
+    <name>normalize_counts.hpp</name>
+    <path>scran_norm/</path>
+    <filename>normalize__counts_8hpp.html</filename>
+    <class kind="struct">scran_norm::NormalizeCountsOptions</class>
+    <namespace>scran_norm</namespace>
   </compound>
   <compound kind="file">
     <name>sanitize_size_factors.hpp</name>
@@ -19,6 +28,7 @@
     <filename>sanitize__size__factors_8hpp.html</filename>
     <class kind="struct">scran_norm::SizeFactorDiagnostics</class>
     <class kind="struct">scran_norm::SanitizeSizeFactorsOptions</class>
+    <namespace>scran_norm</namespace>
   </compound>
   <compound kind="file">
     <name>scran_norm.hpp</name>
@@ -26,7 +36,8 @@
     <filename>scran__norm_8hpp.html</filename>
     <includes id="center__size__factors_8hpp" name="center_size_factors.hpp" local="yes" import="no" module="no" objc="no">center_size_factors.hpp</includes>
     <includes id="choose__pseudo__count_8hpp" name="choose_pseudo_count.hpp" local="yes" import="no" module="no" objc="no">choose_pseudo_count.hpp</includes>
-    <namespace>scran</namespace>
+    <includes id="normalize__counts_8hpp" name="normalize_counts.hpp" local="yes" import="no" module="no" objc="no">normalize_counts.hpp</includes>
+    <namespace>scran_norm</namespace>
   </compound>
   <compound kind="struct">
     <name>scran_norm::CenterSizeFactorsOptions</name>
@@ -168,12 +179,102 @@
     </member>
   </compound>
   <compound kind="namespace">
-    <name>normalize_counts::hpp</name>
-    <filename>namespacenormalize__counts_1_1hpp.html</filename>
-  </compound>
-  <compound kind="namespace">
-    <name>scran</name>
-    <filename>namespacescran.html</filename>
+    <name>scran_norm</name>
+    <filename>namespacescran__norm.html</filename>
+    <class kind="struct">scran_norm::CenterSizeFactorsOptions</class>
+    <class kind="struct">scran_norm::ChoosePseudoCountOptions</class>
+    <class kind="struct">scran_norm::NormalizeCountsOptions</class>
+    <class kind="struct">scran_norm::SanitizeSizeFactorsOptions</class>
+    <class kind="struct">scran_norm::SizeFactorDiagnostics</class>
+    <member kind="enumeration">
+      <type></type>
+      <name>CenterBlockMode</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>a47460312428a74877116e789da012aba</anchor>
+      <arglist></arglist>
+      <enumvalue file="namespacescran__norm.html" anchor="a47460312428a74877116e789da012abaa9e73aef66b430ace3684865eb71cbbf3">PER_BLOCK</enumvalue>
+      <enumvalue file="namespacescran__norm.html" anchor="a47460312428a74877116e789da012abaa664626f39fdbfdb9cfe98285a9e161f9">LOWEST</enumvalue>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>SanitizeAction</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>a946ecb96a14f7df7cd0d5be4599766d2</anchor>
+      <arglist></arglist>
+      <enumvalue file="namespacescran__norm.html" anchor="a946ecb96a14f7df7cd0d5be4599766d2aa2e843feab94ef623fea888f07c28696">IGNORE</enumvalue>
+      <enumvalue file="namespacescran__norm.html" anchor="a946ecb96a14f7df7cd0d5be4599766d2abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</enumvalue>
+      <enumvalue file="namespacescran__norm.html" anchor="a946ecb96a14f7df7cd0d5be4599766d2a5c9ebeb2c005fca935ce86e3de8c7142">SANITIZE</enumvalue>
+    </member>
+    <member kind="function">
+      <type>SizeFactor_</type>
+      <name>center_size_factors_mean</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>a01f3a3610590fb1286c4b7c8d0eb01c5</anchor>
+      <arglist>(size_t num, const SizeFactor_ *size_factors, SizeFactorDiagnostics *diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
+    </member>
+    <member kind="function">
+      <type>SizeFactor_</type>
+      <name>center_size_factors</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>a91783332304c92e0e02696d2e9358549</anchor>
+      <arglist>(size_t num, SizeFactor_ *size_factors, SizeFactorDiagnostics *diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; SizeFactor_ &gt;</type>
+      <name>center_size_factors_blocked_mean</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>af26c4087475faf7ba8a31d16a70669de</anchor>
+      <arglist>(size_t num, const SizeFactor_ *size_factors, const Block_ *block, SizeFactorDiagnostics *diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; SizeFactor_ &gt;</type>
+      <name>center_size_factors_blocked</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>ac59a8b6eca7e5c8d71cd21352b4ff393</anchor>
+      <arglist>(size_t num, SizeFactor_ *size_factors, const Block_ *block, SizeFactorDiagnostics *diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
+    </member>
+    <member kind="function">
+      <type>Float_</type>
+      <name>choose_pseudo_count_raw</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>aa12e0ead5f0365bd2c525b9597ed933d</anchor>
+      <arglist>(size_t num, Float_ *size_factors, const ChoosePseudoCountOptions &amp;options)</arglist>
+    </member>
+    <member kind="function">
+      <type>Float_</type>
+      <name>choose_pseudo_count</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>a8948eac81e727615b19195686c81f666</anchor>
+      <arglist>(size_t num, const Float_ *size_factors, const ChoosePseudoCountOptions &amp;options)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::shared_ptr&lt; tatami::Matrix&lt; OutputValue_, Index_ &gt; &gt;</type>
+      <name>normalize_counts</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>a141ebdc51024210f4c27902446fa4169</anchor>
+      <arglist>(std::shared_ptr&lt; const tatami::Matrix&lt; InputValue_, Index_ &gt; &gt; counts, SizeFactors_ size_factors, const NormalizeCountsOptions &amp;options)</arglist>
+    </member>
+    <member kind="function">
+      <type>SizeFactorDiagnostics</type>
+      <name>check_size_factor_sanity</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>a8af1b1c1e7124933e4335f82fd41f027</anchor>
+      <arglist>(size_t num, const SizeFactor_ *size_factors)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>sanitize_size_factors</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>a16132309197e8d7a1d7d238a3685deda</anchor>
+      <arglist>(size_t num, SizeFactor_ *size_factors, const SizeFactorDiagnostics &amp;status, const SanitizeSizeFactorsOptions &amp;options)</arglist>
+    </member>
+    <member kind="function">
+      <type>SizeFactorDiagnostics</type>
+      <name>sanitize_size_factors</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>a8fe5b2dd6df09a56fbe0094fea4e4697</anchor>
+      <arglist>(size_t num, SizeFactor_ *size_factors, const SanitizeSizeFactorsOptions &amp;options)</arglist>
+    </member>
   </compound>
   <compound kind="page">
     <name>index</name>

@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -83,7 +90,7 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">normalize_counts.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SCRAN_NORM_NORMALIZE_COUNTS_HPP</span></div>
+<a href="normalize__counts_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SCRAN_NORM_NORMALIZE_COUNTS_HPP</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SCRAN_NORM_NORMALIZE_COUNTS_HPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
@@ -92,7 +99,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="codeRef" href="https://tatami-inc.github.io/tatami/tatami_8hpp.html">tatami/tatami.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span>scran_norm {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacescran__norm.html">scran_norm</a> {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structscran__norm_1_1NormalizeCountsOptions.html">   20</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structscran__norm_1_1NormalizeCountsOptions.html">NormalizeCountsOptions</a> {</div>
@@ -107,7 +114,8 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> OutputValue_ = <span class="keywordtype">double</span>, <span class="keyword">typename</span> InputValue_, <span class="keyword">typename</span> Index_, <span class="keyword">class</span> SizeFactors_&gt;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>std::shared_ptr&lt;tatami::Matrix&lt;OutputValue_, Index_&gt; &gt; normalize_counts(</div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">   78</a></span>std::shared_ptr&lt;tatami::Matrix&lt;OutputValue_, Index_&gt; &gt; <a class="code hl_function" href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">normalize_counts</a>(</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    std::shared_ptr&lt;<span class="keyword">const</span> <a class="code hl_classRef" href="https://tatami-inc.github.io/tatami/classtatami_1_1Matrix.html">tatami::Matrix&lt;InputValue_, Index_&gt;</a> &gt; counts, </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    SizeFactors_ size_factors, </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structscran__norm_1_1NormalizeCountsOptions.html">NormalizeCountsOptions</a>&amp; options) </div>
@@ -149,15 +157,16 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        );</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>};</div>
+</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">// Overload for template deduction.</span></div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> OutputValue_ = <span class="keywordtype">double</span>, <span class="keyword">typename</span> InputValue_, <span class="keyword">typename</span> Index_, <span class="keyword">class</span> SizeFactors_&gt;</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>std::shared_ptr&lt;tatami::Matrix&lt;OutputValue_, Index_&gt; &gt; normalize_counts(</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>std::shared_ptr&lt;tatami::Matrix&lt;OutputValue_, Index_&gt; &gt; <a class="code hl_function" href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">normalize_counts</a>(</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    std::shared_ptr&lt;<a class="code hl_classRef" href="https://tatami-inc.github.io/tatami/classtatami_1_1Matrix.html">tatami::Matrix&lt;InputValue_, Index_&gt;</a> &gt; counts,</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    SizeFactors_ size_factors,</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keyword">const</span> NormalizeCountsOptions&amp; options)</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordflow">return</span> normalize_counts(std::shared_ptr&lt;<span class="keyword">const</span> <a class="code hl_classRef" href="https://tatami-inc.github.io/tatami/classtatami_1_1Matrix.html">tatami::Matrix&lt;InputValue_, Index_&gt;</a> &gt;(std::move(counts)), std::move(size_factors), options);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">normalize_counts</a>(std::shared_ptr&lt;<span class="keyword">const</span> <a class="code hl_classRef" href="https://tatami-inc.github.io/tatami/classtatami_1_1Matrix.html">tatami::Matrix&lt;InputValue_, Index_&gt;</a> &gt;(std::move(counts)), std::move(size_factors), options);</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>}</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
@@ -165,6 +174,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclasstatami_1_1DelayedUnaryIsometricLog1p_html"><div class="ttname"><a href="https://tatami-inc.github.io/tatami/classtatami_1_1DelayedUnaryIsometricLog1p.html">tatami::DelayedUnaryIsometricLog1p</a></div></div>
 <div class="ttc" id="aclasstatami_1_1DelayedUnaryIsometricLog_html"><div class="ttname"><a href="https://tatami-inc.github.io/tatami/classtatami_1_1DelayedUnaryIsometricLog.html">tatami::DelayedUnaryIsometricLog</a></div></div>
 <div class="ttc" id="aclasstatami_1_1Matrix_html"><div class="ttname"><a href="https://tatami-inc.github.io/tatami/classtatami_1_1Matrix.html">tatami::Matrix</a></div></div>
+<div class="ttc" id="anamespacescran__norm_html"><div class="ttname"><a href="namespacescran__norm.html">scran_norm</a></div><div class="ttdoc">Scaling normalization of single-cell data.</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:18</div></div>
+<div class="ttc" id="anamespacescran__norm_html_a141ebdc51024210f4c27902446fa4169"><div class="ttname"><a href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">scran_norm::normalize_counts</a></div><div class="ttdeci">std::shared_ptr&lt; tatami::Matrix&lt; OutputValue_, Index_ &gt; &gt; normalize_counts(std::shared_ptr&lt; const tatami::Matrix&lt; InputValue_, Index_ &gt; &gt; counts, SizeFactors_ size_factors, const NormalizeCountsOptions &amp;options)</div><div class="ttdef"><b>Definition</b> normalize_counts.hpp:78</div></div>
 <div class="ttc" id="anamespacetatami_html_a6f23962ec258c833d2c28a8d19e12807"><div class="ttname"><a href="https://tatami-inc.github.io/tatami/namespacetatami.html#a6f23962ec258c833d2c28a8d19e12807">tatami::make_DelayedUnaryIsometricOperation</a></div><div class="ttdeci">std::shared_ptr&lt; Matrix&lt; OutputValue_, Index_ &gt; &gt; make_DelayedUnaryIsometricOperation(std::shared_ptr&lt; const Matrix&lt; InputValue_, Index_ &gt; &gt; matrix, Operation_ operation)</div></div>
 <div class="ttc" id="astructscran__norm_1_1NormalizeCountsOptions_html"><div class="ttname"><a href="structscran__norm_1_1NormalizeCountsOptions.html">scran_norm::NormalizeCountsOptions</a></div><div class="ttdoc">Options for normalize_counts().</div><div class="ttdef"><b>Definition</b> normalize_counts.hpp:20</div></div>
 <div class="ttc" id="astructscran__norm_1_1NormalizeCountsOptions_html_a041c9ac7344203670564b9cdf99523da"><div class="ttname"><a href="structscran__norm_1_1NormalizeCountsOptions.html#a041c9ac7344203670564b9cdf99523da">scran_norm::NormalizeCountsOptions::log_base</a></div><div class="ttdeci">double log_base</div><div class="ttdef"><b>Definition</b> normalize_counts.hpp:48</div></div>
