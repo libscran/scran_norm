@@ -155,8 +155,8 @@ struct SanitizeSizeFactorsOptions {
 
     /**
      * How should we handle negative size factors?
-     * If `SANITIZE`, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid).
-     * This approach follows the same logic as `set_handle_zero()`, though negative size factors are quite unusual.
+     * If `SANITIZE`, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid),
+     * following the same logic as `SanitizeSizeFactorsOptions::handle_zero`.
      */
     SanitizeAction handle_negative = SanitizeAction::ERROR;
 

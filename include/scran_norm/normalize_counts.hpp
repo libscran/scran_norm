@@ -8,7 +8,7 @@
 #include "tatami/tatami.hpp"
 
 /**
- * @namespace normalize_counts.hpp
+ * @file normalize_counts.hpp
  * @brief Normalize and log-transform counts.
  */
 
@@ -32,7 +32,7 @@ struct NormalizeCountsOptions {
      * If true, we multiply the size factors by the `pseudo_count` and add 1 before log-transformation.
      * This does not change the differences between entries of the resulting matrix,
      * and adding `log(pseudo_count)` will recover the expected log-count values.
-     * Ignored if `log = false`.
+     * Ignored if `NormalizeCountsOptions::log = false`.
      */
     bool preserve_sparsity = false;
 
@@ -43,7 +43,7 @@ struct NormalizeCountsOptions {
 
     /**
      * Base for the log-transformation.
-     * Only used if `Options::log = true`.
+     * Only used if `NormalizeCountsOptions::log = true`.
      */
     double log_base = 2;
 };
@@ -55,7 +55,7 @@ struct NormalizeCountsOptions {
  * this process also provides some measure of variance stabilization.
  * These operations are done in a delayed manner using the `tatami::DelayedUnaryIsometricOperation` class.
  *
- * The simplest and most common method for defining size factors is to use the centered library sizes, see `center_size_factors` for details.
+ * The simplest and most common method for defining size factors is to use the centered library sizes, see `center_size_factors()` for details.
  * This removes scaling biases caused by sequencing depth, etc. between cells,
  * while the centering preserves the scale of the counts in the (log-)normalized expression values.
  * That said, users can define size factors from any method of their choice (e.g., median-based normalization, TMM) as long as they are positive for all cells.
@@ -72,7 +72,7 @@ struct NormalizeCountsOptions {
  * @param options Further options.
  *
  * @return Matrix of normalized expression values.
- * These are log-transformed if `Options::log = true`.
+ * These are log-transformed if `NormalizeCountsOptions::log = true`.
  */
 template<typename OutputValue_ = double, typename InputValue_, typename Index_, class SizeFactors_>
 std::shared_ptr<tatami::Matrix<OutputValue_, Index_> > normalize_counts(

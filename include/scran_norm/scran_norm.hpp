@@ -11,9 +11,9 @@
  */
 
 /**
- * @namespace scran
+ * @namespace scran_norm
  * @brief Scaling normalization of single-cell data.
  */
-namespace scran {}
+namespace scran_norm {}
 
 #endif
