@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data_0',['data',['https://tatami-inc.github.io/tatami/classtatami_1_1ArrayView.html#a6a02f0144809d21ff20cc6018279f218',1,'tatami::ArrayView::data()'],['../index.html',1,'Normalize scaling biases in count data']]],
+  ['data_0',['data',['https://tatami-inc.github.io/tatami/classtatami_1_1ArrayView.html#a6a02f0144809d21ff20cc6018279f218',1,'tatami::ArrayView::data()'],['../index.html',1,'Scaling normalization of single-cell count data']]],
   ['delayedbinaryisometricarithmetic_1',['DelayedBinaryIsometricArithmetic',['https://tatami-inc.github.io/tatami/classtatami_1_1DelayedBinaryIsometricArithmetic.html',1,'tatami']]],
   ['delayedbinaryisometricboolean_2',['DelayedBinaryIsometricBoolean',['https://tatami-inc.github.io/tatami/structtatami_1_1DelayedBinaryIsometricBoolean.html',1,'tatami']]],
   ['delayedbinaryisometriccompare_3',['DelayedBinaryIsometricCompare',['https://tatami-inc.github.io/tatami/structtatami_1_1DelayedBinaryIsometricCompare.html',1,'tatami']]],

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['normalize_20scaling_20biases_20in_20count_20data_0',['Normalize scaling biases in count data',['../index.html',1,'']]]
+  ['scaling_20normalization_20of_20single_20cell_20count_20data_0',['Scaling normalization of single-cell count data',['../index.html',1,'']]],
+  ['single_20cell_20count_20data_1',['Scaling normalization of single-cell count data',['../index.html',1,'']]]
 ];
