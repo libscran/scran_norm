@@ -23,7 +23,7 @@ we can convert them into centered size factors:
 // Assuming that counts is a std::shared_ptr<tatami::Matrix>
 std::vector<double> bias = tatami_stats::sums::by_column(counts.get()); 
 
-scran_norm::CenterSizeFacotrsOptions copt;
+scran_norm::CenterSizeFactorsOptions copt;
 scran_norm::center_size_factors(bias.size(), bias.data(), NULL, copt);
 
 // 'bias' is now centered at unity and can be used as size factors.
