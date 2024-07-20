@@ -91,13 +91,14 @@ $(function() {
 <div class="line"><span class="comment">// Assuming that counts is a std::shared_ptr&lt;tatami::Matrix&gt;</span></div>
 <div class="line">std::vector&lt;double&gt; bias = tatami_stats::sums::by_column(counts.get()); </div>
 <div class="line"> </div>
-<div class="line">scran_norm::CenterSizeFacotrsOptions copt;</div>
+<div class="line"><a class="code hl_struct" href="structscran__norm_1_1CenterSizeFactorsOptions.html">scran_norm::CenterSizeFactorsOptions</a> copt;</div>
 <div class="line"><a class="code hl_function" href="namespacescran__norm.html#a91783332304c92e0e02696d2e9358549">scran_norm::center_size_factors</a>(bias.size(), bias.data(), NULL, copt);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// &#39;bias&#39; is now centered at unity and can be used as size factors.</span></div>
 <div class="line"><span class="keyword">auto</span>&amp; size_factors = bias;</div>
 <div class="ttc" id="anamespacescran__norm_html_a91783332304c92e0e02696d2e9358549"><div class="ttname"><a href="namespacescran__norm.html#a91783332304c92e0e02696d2e9358549">scran_norm::center_size_factors</a></div><div class="ttdeci">SizeFactor_ center_size_factors(size_t num, SizeFactor_ *size_factors, SizeFactorDiagnostics *diagnostics, const CenterSizeFactorsOptions &amp;options)</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:120</div></div>
 <div class="ttc" id="ascran__norm_8hpp_html"><div class="ttname"><a href="scran__norm_8hpp.html">scran_norm.hpp</a></div><div class="ttdoc">Scaling normalization of single-cell data.</div></div>
+<div class="ttc" id="astructscran__norm_1_1CenterSizeFactorsOptions_html"><div class="ttname"><a href="structscran__norm_1_1CenterSizeFactorsOptions.html">scran_norm::CenterSizeFactorsOptions</a></div><div class="ttdoc">Options for center_size_factors() and center_size_factors_blocked().</div><div class="ttdef"><b>Definition</b> center_size_factors.hpp:28</div></div>
 </div><!-- fragment --><p>Alternatively, in the presence of blocks, we adjust our centering so that the mean size factor in each block is no less than 1. This avoids inflated variances from applying small size factors to low-coverage blocks.</p>
 <div class="fragment"><div class="line"><a class="code hl_function" href="namespacescran__norm.html#ac59a8b6eca7e5c8d71cd21352b4ff393">scran_norm::center_size_factors_blocked</a>(</div>
 <div class="line">    bias.size(), </div>
@@ -120,7 +121,7 @@ $(function() {
 </div><!-- fragment --><p>Finally, we convert our <a href="https://github.com/tatami-inc/tatami"><code>tatami::Matrix</code></a> of counts into a log-transformed normalized matrix:</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structscran__norm_1_1NormalizeCountsOptions.html">scran_norm::NormalizeCountsOptions</a> lopts;</div>
 <div class="line"><span class="keyword">auto</span> logcounts = <a class="code hl_function" href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">scran_norm::normalize_counts</a>(counts, size_factors, lopt);</div>
-<div class="ttc" id="anamespacescran__norm_html_a141ebdc51024210f4c27902446fa4169"><div class="ttname"><a href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">scran_norm::normalize_counts</a></div><div class="ttdeci">std::shared_ptr&lt; tatami::Matrix&lt; OutputValue_, Index_ &gt; &gt; normalize_counts(std::shared_ptr&lt; const tatami::Matrix&lt; InputValue_, Index_ &gt; &gt; counts, SizeFactors_ size_factors, const NormalizeCountsOptions &amp;options)</div><div class="ttdef"><b>Definition</b> normalize_counts.hpp:78</div></div>
+<div class="ttc" id="anamespacescran__norm_html_a141ebdc51024210f4c27902446fa4169"><div class="ttname"><a href="namespacescran__norm.html#a141ebdc51024210f4c27902446fa4169">scran_norm::normalize_counts</a></div><div class="ttdeci">std::shared_ptr&lt; tatami::Matrix&lt; OutputValue_, Index_ &gt; &gt; normalize_counts(std::shared_ptr&lt; const tatami::Matrix&lt; InputValue_, Index_ &gt; &gt; counts, SizeFactors_ size_factors, const NormalizeCountsOptions &amp;options)</div><div class="ttdef"><b>Definition</b> normalize_counts.hpp:81</div></div>
 <div class="ttc" id="astructscran__norm_1_1NormalizeCountsOptions_html"><div class="ttname"><a href="structscran__norm_1_1NormalizeCountsOptions.html">scran_norm::NormalizeCountsOptions</a></div><div class="ttdoc">Options for normalize_counts().</div><div class="ttdef"><b>Definition</b> normalize_counts.hpp:20</div></div>
 </div><!-- fragment --><p>Check out the <a href="https://libscran.github.io/scran_norm">reference documentation</a> for more details.</p>
 <h1>Building projects</h1>
