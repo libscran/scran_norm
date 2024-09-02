@@ -18,7 +18,7 @@ var searchData=
   ['compareoperation_15',['CompareOperation',['https://tatami-inc.github.io/tatami/namespacetatami.html#a89475b46f681dd39b9926ced507240cc',1,'tatami']]],
   ['compress_5fsparse_5ftriplets_16',['compress_sparse_triplets',['https://tatami-inc.github.io/tatami/namespacetatami.html#a3b2756af73514cbf89b42f5abd7997cc',1,'tatami']]],
   ['compress_5fsparse_5ftriplets_2ehpp_17',['compress_sparse_triplets.hpp',['https://tatami-inc.github.io/tatami/compress__sparse__triplets_8hpp.html',1,'']]],
-  ['compressedsparsecolumnmatrix_18',['compressedsparsecolumnmatrix',['https://tatami-inc.github.io/tatami/classtatami_1_1CompressedSparseColumnMatrix.html#a4a7d2c1c47bbab5e0bdde48ad9ba9ec7',1,'tatami::CompressedSparseColumnMatrix::CompressedSparseColumnMatrix()'],['https://tatami-inc.github.io/tatami/classtatami_1_1CompressedSparseColumnMatrix.html',1,'tatami::CompressedSparseColumnMatrix&lt; typename Value_, typename Index_, class ValueStorage_, class IndexStorage_, class PointerStorage_ &gt;']]],
+  ['compressedsparsecolumnmatrix_18',['compressedsparsecolumnmatrix',['https://tatami-inc.github.io/tatami/classtatami_1_1CompressedSparseColumnMatrix.html',1,'tatami::CompressedSparseColumnMatrix&lt; typename Value_, typename Index_, class ValueStorage_, class IndexStorage_, class PointerStorage_ &gt;'],['https://tatami-inc.github.io/tatami/classtatami_1_1CompressedSparseColumnMatrix.html#a4a7d2c1c47bbab5e0bdde48ad9ba9ec7',1,'tatami::CompressedSparseColumnMatrix::CompressedSparseColumnMatrix()']]],
   ['compressedsparsecontents_19',['CompressedSparseContents',['https://tatami-inc.github.io/tatami/structtatami_1_1CompressedSparseContents.html',1,'tatami']]],
   ['compressedsparsematrix_20',['compressedsparsematrix',['https://tatami-inc.github.io/tatami/classtatami_1_1CompressedSparseMatrix.html#a83245ced768b530126c30a51849b48b5',1,'tatami::CompressedSparseMatrix::CompressedSparseMatrix()'],['https://tatami-inc.github.io/tatami/classtatami_1_1CompressedSparseMatrix.html',1,'tatami::CompressedSparseMatrix&lt; typename Value_, typename Index_, class ValueStorage_, class IndexStorage_, class PointerStorage_ &gt;']]],
   ['compressedsparsematrix_2ehpp_21',['CompressedSparseMatrix.hpp',['https://tatami-inc.github.io/tatami/CompressedSparseMatrix_8hpp.html',1,'']]],
@@ -37,5 +37,6 @@ var searchData=
   ['convert_5fto_5ffragmented_5fsparse_2ehpp_34',['convert_to_fragmented_sparse.hpp',['https://tatami-inc.github.io/tatami/convert__to__fragmented__sparse_8hpp.html',1,'']]],
   ['copy_2ehpp_35',['copy.hpp',['https://tatami-inc.github.io/tatami/copy_8hpp.html',1,'']]],
   ['copy_5fn_36',['copy_n',['https://tatami-inc.github.io/tatami/namespacetatami.html#ab52a806e3f13a68741a9e1f77dccab14',1,'tatami']]],
-  ['count_20data_37',['Scaling normalization of single-cell count data',['../index.html',1,'']]]
+  ['count_20data_37',['Scaling normalization of single-cell count data',['../index.html',1,'']]],
+  ['count_5fcompressed_5fsparse_5fnon_5fzeros_38',['count_compressed_sparse_non_zeros',['https://tatami-inc.github.io/tatami/namespacetatami.html#aedacbafb3041d3f5cafb2e87dacc1b7c',1,'tatami']]]
 ];
