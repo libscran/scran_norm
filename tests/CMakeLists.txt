@@ -8,37 +8,27 @@ FetchContent_MakeAvailable(scran_tests)
 
 enable_testing()
 
+add_executable(
+    libtest 
+    src/normalize_counts.cpp
+    src/sanitize_size_factors.cpp
+    src/center_size_factors.cpp
+    src/choose_pseudo_count.cpp
+)
+
+target_link_libraries(
+    libtest
+    scran_norm
+    scran_tests
+)
+
+target_compile_options(libtest PRIVATE -Wall -Werror -Wpedantic -Wextra)
+
 option(CODE_COVERAGE "Enable coverage testing" OFF)
-set(DO_CODE_COVERAGE OFF)
 if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    set(DO_CODE_COVERAGE ON)
+    target_compile_options(libtest PRIVATE -O0 -g --coverage)
+    target_link_options(libtest PRIVATE --coverage)
 endif()
 
 include(GoogleTest)
-
-macro(create_test name) 
-    add_executable(
-        ${name} 
-        src/normalize_counts.cpp
-        src/sanitize_size_factors.cpp
-        src/center_size_factors.cpp
-        src/choose_pseudo_count.cpp
-    )
-
-    target_link_libraries(
-        ${name}
-        scran_norm
-        scran_tests
-    )
-
-    target_compile_options(${name} PRIVATE -Wall -Werror -Wpedantic -Wextra)
-
-    if(DO_CODE_COVERAGE)
-        target_compile_options(${name} PRIVATE -O0 -g --coverage)
-        target_link_options(${name} PRIVATE --coverage)
-    endif()
-
-    gtest_discover_tests(${name})
-endmacro()
-
-create_test(libtest)
+gtest_discover_tests(libtest)
