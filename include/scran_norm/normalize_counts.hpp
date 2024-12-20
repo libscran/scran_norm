@@ -92,6 +92,10 @@ std::shared_ptr<tatami::Matrix<OutputValue_, Index_> > normalize_counts(
     }
 
     static_assert(std::is_floating_point<OutputValue_>::value);
+    if (static_cast<size_t>(size_factors.size()) != static_cast<size_t>(counts->ncol())) {
+        throw std::runtime_error("length of 'size_factors' should be equal to the number of columns of 'counts'");
+    }
+
     auto div = tatami::make_DelayedUnaryIsometricOperation<OutputValue_>(
         std::move(counts), 
         tatami::make_DelayedUnaryIsometricDivideVector<true, InputValue_, SizeFactors_>(

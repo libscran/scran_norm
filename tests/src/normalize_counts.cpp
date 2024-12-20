@@ -134,3 +134,8 @@ TEST_F(NormalizeCountsTest, NewType) {
 
     scran_tests::compare_almost_equal(expected, buffer);
 }
+
+TEST_F(NormalizeCountsTest, WrongLength) {
+    scran_norm::NormalizeCountsOptions opt;
+    scran_tests::expect_error([&]() { scran_norm::normalize_counts(mat, std::vector<double>(), opt); }, "equal to the number of columns");
+}
