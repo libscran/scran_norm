@@ -10,5 +10,6 @@ var searchData=
   ['has_5finfinite_7',['has_infinite',['../structscran__norm_1_1SizeFactorDiagnostics.html#a64441d7a301e3abe3dc3d09500fe5054',1,'scran_norm::SizeFactorDiagnostics']]],
   ['has_5fnan_8',['has_nan',['../structscran__norm_1_1SizeFactorDiagnostics.html#aa901ac740808328911adc4ad4f35ce14',1,'scran_norm::SizeFactorDiagnostics']]],
   ['has_5fnegative_9',['has_negative',['../structscran__norm_1_1SizeFactorDiagnostics.html#a3832be287c812e130bb4e54683c08dc0',1,'scran_norm::SizeFactorDiagnostics']]],
-  ['has_5fzero_10',['has_zero',['../structscran__norm_1_1SizeFactorDiagnostics.html#aa4e63c1414f0365451ab0ff0d5f2e060',1,'scran_norm::SizeFactorDiagnostics']]]
+  ['has_5fzero_10',['has_zero',['../structscran__norm_1_1SizeFactorDiagnostics.html#aa4e63c1414f0365451ab0ff0d5f2e060',1,'scran_norm::SizeFactorDiagnostics']]],
+  ['helper_5finterface_2ehpp_11',['helper_interface.hpp',['https://tatami-inc.github.io/tatami/binary_2helper__interface_8hpp.html',1,'(Global Namespace)'],['https://tatami-inc.github.io/tatami/unary_2helper__interface_8hpp.html',1,'(Global Namespace)']]]
 ];

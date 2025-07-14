@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['ignore_5finvalid_0',['ignore_invalid',['../structscran__norm_1_1CenterSizeFactorsOptions.html#a09be0c48d2af10b0975c95b4f4ffa6cc',1,'scran_norm::CenterSizeFactorsOptions']]],
-  ['index_1',['index',['https://tatami-inc.github.io/tatami/structtatami_1_1CompressedSparseContents.html#a5b30cd6415c0e3cfd91b31590f16bc58',1,'tatami::CompressedSparseContents::index'],['https://tatami-inc.github.io/tatami/structtatami_1_1FragmentedSparseContents.html#a8c1a2bebb066b64451576dc356877091',1,'tatami::FragmentedSparseContents::index'],['https://tatami-inc.github.io/tatami/structtatami_1_1SparseRange.html#af61bafe43fadb90cee6162ac79bfdd3d',1,'tatami::SparseRange::index']]],
-  ['is_5fbasic_2',['is_basic',['https://tatami-inc.github.io/tatami/classtatami_1_1DelayedBinaryIsometricMockAdvanced.html#a2ca2a93a291efa4af6e19782ea16dea9',1,'tatami::DelayedBinaryIsometricMockAdvanced::is_basic'],['https://tatami-inc.github.io/tatami/classtatami_1_1DelayedBinaryIsometricMockBasic.html#a106cb2d03c2ab7fa0a6a2a7d10c5e0ea',1,'tatami::DelayedBinaryIsometricMockBasic::is_basic'],['https://tatami-inc.github.io/tatami/classtatami_1_1DelayedUnaryIsometricMockAdvanced.html#a2f82879f68e6672d7c33d0d3afdf831a',1,'tatami::DelayedUnaryIsometricMockAdvanced::is_basic'],['https://tatami-inc.github.io/tatami/classtatami_1_1DelayedUnaryIsometricMockBasic.html#af5af229c77cd59875fe2cd3f31079c45',1,'tatami::DelayedUnaryIsometricMockBasic::is_basic']]]
+  ['handle_5finfinite_0',['handle_infinite',['../structscran__norm_1_1SanitizeSizeFactorsOptions.html#acaf0c77542462c508c14c30994e8d07d',1,'scran_norm::SanitizeSizeFactorsOptions']]],
+  ['handle_5fnan_1',['handle_nan',['../structscran__norm_1_1SanitizeSizeFactorsOptions.html#a50a3b186d5c6a430dfa4dce137c88372',1,'scran_norm::SanitizeSizeFactorsOptions']]],
+  ['handle_5fnegative_2',['handle_negative',['../structscran__norm_1_1SanitizeSizeFactorsOptions.html#a7ac9d4c7ee89bc43920abfb1bf34dfdf',1,'scran_norm::SanitizeSizeFactorsOptions']]],
+  ['handle_5fzero_3',['handle_zero',['../structscran__norm_1_1SanitizeSizeFactorsOptions.html#a341805c7650ee93db13050621d1505d6',1,'scran_norm::SanitizeSizeFactorsOptions']]],
+  ['has_5finfinite_4',['has_infinite',['../structscran__norm_1_1SizeFactorDiagnostics.html#a64441d7a301e3abe3dc3d09500fe5054',1,'scran_norm::SizeFactorDiagnostics']]],
+  ['has_5fnan_5',['has_nan',['../structscran__norm_1_1SizeFactorDiagnostics.html#aa901ac740808328911adc4ad4f35ce14',1,'scran_norm::SizeFactorDiagnostics']]],
+  ['has_5fnegative_6',['has_negative',['../structscran__norm_1_1SizeFactorDiagnostics.html#a3832be287c812e130bb4e54683c08dc0',1,'scran_norm::SizeFactorDiagnostics']]],
+  ['has_5fzero_7',['has_zero',['../structscran__norm_1_1SizeFactorDiagnostics.html#aa4e63c1414f0365451ab0ff0d5f2e060',1,'scran_norm::SizeFactorDiagnostics']]]
 ];

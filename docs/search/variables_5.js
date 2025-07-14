@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['number_0',['number',['https://tatami-inc.github.io/tatami/structtatami_1_1SparseRange.html#a8b959e01323bdbe112a6432b3c51a038',1,'tatami::SparseRange']]]
+  ['max_5fbias_0',['max_bias',['../structscran__norm_1_1ChoosePseudoCountOptions.html#ac5d2757a9c6bdf790ee4a9007cba4938',1,'scran_norm::ChoosePseudoCountOptions']]],
+  ['min_5fvalue_1',['min_value',['../structscran__norm_1_1ChoosePseudoCountOptions.html#acc819b9b63b9f1781a8bc70173912df2',1,'scran_norm::ChoosePseudoCountOptions']]]
 ];
