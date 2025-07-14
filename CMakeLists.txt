@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 project(scran_norm
-    VERSION 0.1.1
+    VERSION 0.2.0
     DESCRIPTION "Scaling normalization of single-cell data"
     LANGUAGES CXX)
 
@@ -22,8 +22,8 @@ option(SCRAN_NORM_FETCH_EXTERN "Automatically fetch scran_norm's external depend
 if(SCRAN_NORM_FETCH_EXTERN)
     add_subdirectory(extern)
 else()
-    find_package(tatami_tatami 3.0.0 CONFIG REQUIRED)
-    find_package(tatami_tatami_stats 1.0.0 CONFIG REQUIRED)
+    find_package(tatami_tatami 4.0.0 CONFIG REQUIRED)
+    find_package(tatami_tatami_stats 2.0.0 CONFIG REQUIRED)
 endif()
 
 target_link_libraries(scran_norm INTERFACE tatami::tatami tatami::tatami_stats)
