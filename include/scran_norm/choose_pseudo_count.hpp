@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <vector>
+#include <cstddef>
 
 /**
  * @file choose_pseudo_count.hpp
@@ -40,9 +41,9 @@ struct ChoosePseudoCountOptions {
 namespace internal {
 
 template<typename Float_>
-Float_ find_quantile(Float_ quantile, size_t n, Float_* ptr) {
+Float_ find_quantile(Float_ quantile, std::size_t n, Float_* ptr) {
     double raw = static_cast<double>(n - 1) * quantile;
-    size_t index = std::ceil(raw);
+    std::size_t index = std::ceil(raw);
     std::nth_element(ptr, ptr + index, ptr + n);
     double upper = *(ptr + index);
     std::nth_element(ptr, ptr + index - 1, ptr + index);
@@ -84,14 +85,14 @@ Float_ find_quantile(Float_ quantile, size_t n, Float_* ptr) {
  * @return The suggested pseudo-count to control the log-transformation-induced bias below the specified threshold.
  */
 template<typename Float_>
-Float_ choose_pseudo_count_raw(size_t num, Float_* size_factors, const ChoosePseudoCountOptions& options) {
+Float_ choose_pseudo_count_raw(std::size_t num, Float_* size_factors, const ChoosePseudoCountOptions& options) {
     if (num <= 1) {
         return options.min_value;
     }
 
     // Avoid problems with zeros.
-    size_t counter = 0;
-    for (size_t i = 0; i < num; ++i) {
+    decltype(num) counter = 0;
+    for (decltype(num) i = 0; i < num; ++i) {
         auto val = size_factors[i];
         if (std::isfinite(val) && val > 0) {
             if (i != counter) {
@@ -132,7 +133,7 @@ Float_ choose_pseudo_count_raw(size_t num, Float_* size_factors, const ChoosePse
  * @return The suggested pseudo-count to control the log-transformation-induced bias below the specified threshold.
  */
 template<typename Float_>
-Float_ choose_pseudo_count(size_t num, const Float_* size_factors, const ChoosePseudoCountOptions& options) {
+Float_ choose_pseudo_count(std::size_t num, const Float_* size_factors, const ChoosePseudoCountOptions& options) {
     std::vector<Float_> buffer(size_factors, size_factors + num);
     return choose_pseudo_count_raw(num, buffer.data(), options);
 }
