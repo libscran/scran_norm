@@ -110,16 +110,19 @@ $(function(){ initResizable(false); });
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;cstddef&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for sanitize_size_factors.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="sanitize__size__factors_8hpp__incl.png" border="0" usemap="#ascran__norm_2sanitize__size__factors_8hpp" alt=""/></div>
 <map name="ascran__norm_2sanitize__size__factors_8hpp" id="ascran__norm_2sanitize__size__factors_8hpp">
-<area shape="rect" title="Sanitize invalid size factors." alt="" coords="11,5,148,46"/>
+<area shape="rect" title="Sanitize invalid size factors." alt="" coords="57,5,195,46"/>
 <area shape="rect" title=" " alt="" coords="5,94,63,120"/>
-<area shape="poly" title=" " alt="" coords="70,48,51,82,46,79,66,45"/>
+<area shape="poly" title=" " alt="" coords="105,48,61,86,58,82,102,44"/>
 <area shape="rect" title=" " alt="" coords="87,94,165,120"/>
-<area shape="poly" title=" " alt="" coords="93,45,113,79,109,82,89,48"/>
+<area shape="poly" title=" " alt="" coords="129,46,129,78,123,78,123,46"/>
+<area shape="rect" title=" " alt="" coords="188,94,253,120"/>
+<area shape="poly" title=" " alt="" coords="151,44,196,82,193,86,148,48"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -143,7 +146,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diagnostics for the size factors.  <a href="structscran__norm_1_1SizeFactorDiagnostics.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">scran_norm::SanitizeSizeFactorsOptions</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="namespacescran__norm.html#a16132309197e8d7a1d7d238a3685deda">sanitize_size_factors()</a></code>.  <a href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="namespacescran__norm.html#a8a11e667d469056d3cc4cffc83919679">sanitize_size_factors()</a></code>.  <a href="structscran__norm_1_1SanitizeSizeFactorsOptions.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -162,15 +165,15 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8af1b1c1e7124933e4335f82fd41f027" id="r_a8af1b1c1e7124933e4335f82fd41f027"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
-<tr class="memitem:a8af1b1c1e7124933e4335f82fd41f027"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a8af1b1c1e7124933e4335f82fd41f027">scran_norm::check_size_factor_sanity</a> (size_t num, const SizeFactor_ *size_factors)</td></tr>
-<tr class="separator:a8af1b1c1e7124933e4335f82fd41f027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16132309197e8d7a1d7d238a3685deda" id="r_a16132309197e8d7a1d7d238a3685deda"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
-<tr class="memitem:a16132309197e8d7a1d7d238a3685deda"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a16132309197e8d7a1d7d238a3685deda">scran_norm::sanitize_size_factors</a> (size_t num, SizeFactor_ *size_factors, const <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> &amp;status, const <a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a> &amp;options)</td></tr>
-<tr class="separator:a16132309197e8d7a1d7d238a3685deda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fe5b2dd6df09a56fbe0094fea4e4697" id="r_a8fe5b2dd6df09a56fbe0094fea4e4697"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
-<tr class="memitem:a8fe5b2dd6df09a56fbe0094fea4e4697"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a8fe5b2dd6df09a56fbe0094fea4e4697">scran_norm::sanitize_size_factors</a> (size_t num, SizeFactor_ *size_factors, const <a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a> &amp;options)</td></tr>
-<tr class="separator:a8fe5b2dd6df09a56fbe0094fea4e4697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a0b0cde738baef49f7dddc4a219339e" id="r_a8a0b0cde738baef49f7dddc4a219339e"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
+<tr class="memitem:a8a0b0cde738baef49f7dddc4a219339e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a8a0b0cde738baef49f7dddc4a219339e">scran_norm::check_size_factor_sanity</a> (std::size_t num, const SizeFactor_ *size_factors)</td></tr>
+<tr class="separator:a8a0b0cde738baef49f7dddc4a219339e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a11e667d469056d3cc4cffc83919679" id="r_a8a11e667d469056d3cc4cffc83919679"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
+<tr class="memitem:a8a11e667d469056d3cc4cffc83919679"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a8a11e667d469056d3cc4cffc83919679">scran_norm::sanitize_size_factors</a> (std::size_t num, SizeFactor_ *size_factors, const <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> &amp;status, const <a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="separator:a8a11e667d469056d3cc4cffc83919679"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a818f57e1db936fd28df8e9c0cd96d333" id="r_a818f57e1db936fd28df8e9c0cd96d333"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
+<tr class="memitem:a818f57e1db936fd28df8e9c0cd96d333"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a818f57e1db936fd28df8e9c0cd96d333">scran_norm::sanitize_size_factors</a> (std::size_t num, SizeFactor_ *size_factors, const <a class="el" href="structscran__norm_1_1SanitizeSizeFactorsOptions.html">SanitizeSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="separator:a818f57e1db936fd28df8e9c0cd96d333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sanitize invalid size factors. </p>

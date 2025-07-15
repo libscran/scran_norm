@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sanitize_5fsize_5ffactors_0',['sanitize_size_factors',['../namespacescran__norm.html#a16132309197e8d7a1d7d238a3685deda',1,'scran_norm::sanitize_size_factors(size_t num, SizeFactor_ *size_factors, const SizeFactorDiagnostics &amp;status, const SanitizeSizeFactorsOptions &amp;options)'],['../namespacescran__norm.html#a8fe5b2dd6df09a56fbe0094fea4e4697',1,'scran_norm::sanitize_size_factors(size_t num, SizeFactor_ *size_factors, const SanitizeSizeFactorsOptions &amp;options)']]],
+  ['sanitize_5fsize_5ffactors_0',['sanitize_size_factors',['../namespacescran__norm.html#a8a11e667d469056d3cc4cffc83919679',1,'scran_norm::sanitize_size_factors(std::size_t num, SizeFactor_ *size_factors, const SizeFactorDiagnostics &amp;status, const SanitizeSizeFactorsOptions &amp;options)'],['../namespacescran__norm.html#a818f57e1db936fd28df8e9c0cd96d333',1,'scran_norm::sanitize_size_factors(std::size_t num, SizeFactor_ *size_factors, const SanitizeSizeFactorsOptions &amp;options)']]],
   ['sanitize_5fsize_5ffactors_2ehpp_1',['sanitize_size_factors.hpp',['../sanitize__size__factors_8hpp.html',1,'']]],
   ['sanitizeaction_2',['SanitizeAction',['../namespacescran__norm.html#a946ecb96a14f7df7cd0d5be4599766d2',1,'scran_norm']]],
   ['sanitizesizefactorsoptions_3',['SanitizeSizeFactorsOptions',['../structscran__norm_1_1SanitizeSizeFactorsOptions.html',1,'scran_norm']]],

@@ -1,7 +1,9 @@
 <map id="scran_norm/sanitize_size_factors.hpp" name="scran_norm/sanitize_size_factors.hpp">
-<area shape="rect" id="Node000001" title="Sanitize invalid size factors." alt="" coords="11,5,148,46"/>
+<area shape="rect" id="Node000001" title="Sanitize invalid size factors." alt="" coords="57,5,195,46"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,94,63,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,48,51,82,46,79,66,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,48,61,86,58,82,102,44"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="87,94,165,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="93,45,113,79,109,82,89,48"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="129,46,129,78,123,78,123,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="188,94,253,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="151,44,196,82,193,86,148,48"/>
 </map>
