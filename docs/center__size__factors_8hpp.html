@@ -108,38 +108,42 @@ $(function(){ initResizable(false); });
 
 <p>Center size factors prior to scaling normalization.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;tatami_stats/tatami_stats.hpp&quot;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;numeric&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
+<code>#include &quot;tatami_stats/tatami_stats.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="sanitize__size__factors_8hpp_source.html">sanitize_size_factors.hpp</a>&quot;</code><br />
+<code>#include &quot;utils.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for center_size_factors.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="center__size__factors_8hpp__incl.png" border="0" usemap="#ascran__norm_2center__size__factors_8hpp" alt=""/></div>
 <map name="ascran__norm_2center__size__factors_8hpp" id="ascran__norm_2center__size__factors_8hpp">
-<area shape="rect" title="Center size factors prior to scaling normalization." alt="" coords="294,5,453,46"/>
-<area shape="rect" title=" " alt="" coords="5,94,139,135"/>
-<area shape="poly" title=" " alt="" coords="305,49,154,92,152,87,304,44"/>
-<area shape="rect" title=" " alt="" coords="163,102,221,127"/>
-<area shape="poly" title=" " alt="" coords="333,49,232,97,230,92,331,44"/>
-<area shape="rect" title=" " alt="" coords="245,102,312,127"/>
-<area shape="poly" title=" " alt="" coords="354,48,304,93,301,89,350,45"/>
-<area shape="rect" title=" " alt="" coords="336,102,410,127"/>
-<area shape="poly" title=" " alt="" coords="376,47,376,86,371,86,371,47"/>
-<area shape="rect" title=" " alt="" coords="434,102,515,127"/>
-<area shape="poly" title=" " alt="" coords="398,44,451,90,448,94,395,49"/>
-<area shape="rect" title=" " alt="" coords="538,183,603,208"/>
-<area shape="poly" title=" " alt="" coords="449,44,492,64,530,92,544,109,554,129,568,166,563,168,549,131,539,112,526,96,489,68,447,49"/>
+<area shape="rect" title="Center size factors prior to scaling normalization." alt="" coords="276,5,435,46"/>
+<area shape="rect" title=" " alt="" coords="5,102,63,127"/>
+<area shape="poly" title=" " alt="" coords="276,44,179,66,76,97,73,98,71,93,75,91,178,61,275,39"/>
+<area shape="rect" title=" " alt="" coords="87,102,154,127"/>
+<area shape="poly" title=" " alt="" coords="298,49,167,96,164,98,162,93,165,92,297,44"/>
+<area shape="rect" title=" " alt="" coords="178,102,252,127"/>
+<area shape="poly" title=" " alt="" coords="325,49,249,96,246,91,322,44"/>
+<area shape="rect" title=" " alt="" coords="276,102,357,127"/>
+<area shape="poly" title=" " alt="" coords="349,48,331,89,326,86,344,45"/>
+<area shape="rect" title=" " alt="" coords="419,183,484,208"/>
+<area shape="poly" title=" " alt="" coords="369,45,439,168,435,170,364,48"/>
+<area shape="rect" title=" " alt="" coords="433,94,566,135"/>
+<area shape="poly" title=" " alt="" coords="389,44,455,84,453,88,387,49"/>
 <area shape="rect" href="sanitize__size__factors_8hpp.html" title="Sanitize invalid size factors." alt="" coords="590,102,756,127"/>
-<area shape="poly" title=" " alt="" coords="443,44,617,94,616,99,441,49"/>
-<area shape="poly" title=" " alt="" coords="659,130,600,175,597,171,656,125"/>
-<area shape="rect" title=" " alt="" coords="635,183,693,208"/>
-<area shape="poly" title=" " alt="" coords="675,128,670,168,665,167,669,127"/>
-<area shape="rect" title=" " alt="" coords="717,183,795,208"/>
-<area shape="poly" title=" " alt="" coords="688,126,734,170,730,174,684,130"/>
+<area shape="poly" title=" " alt="" coords="428,44,614,94,612,99,427,49"/>
+<area shape="rect" title=" " alt="" coords="751,183,821,208"/>
+<area shape="poly" title=" " alt="" coords="435,27,526,33,624,44,712,63,745,76,769,92,781,109,788,128,791,167,786,167,783,130,777,111,765,96,743,81,710,68,623,49,525,38,435,32"/>
+<area shape="poly" title=" " alt="" coords="639,130,499,180,497,175,638,125"/>
+<area shape="rect" title=" " alt="" coords="557,183,615,208"/>
+<area shape="poly" title=" " alt="" coords="661,130,612,174,609,170,658,126"/>
+<area shape="rect" title=" " alt="" coords="639,183,717,208"/>
+<area shape="poly" title=" " alt="" coords="676,127,679,167,674,167,671,128"/>
+<area shape="poly" title=" " alt="" coords="691,125,758,172,755,176,688,130"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -158,7 +162,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">scran_norm::CenterSizeFactorsOptions</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="namespacescran__norm.html#a3372a946cd32279365750da44c9b73b0">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#a3a314dcf0ab9814281a0a5722fdc8f76">center_size_factors_blocked()</a></code>.  <a href="structscran__norm_1_1CenterSizeFactorsOptions.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="namespacescran__norm.html#ae0b40602ff6f3055967e45baf6f87045">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#a21e07ff4768b277f66109b0983190c53">center_size_factors_blocked()</a></code>.  <a href="structscran__norm_1_1CenterSizeFactorsOptions.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -176,18 +180,18 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae7035a67942632b2561bd173df536d55" id="r_ae7035a67942632b2561bd173df536d55"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
-<tr class="memitem:ae7035a67942632b2561bd173df536d55"><td class="memTemplItemLeft" align="right" valign="top">SizeFactor_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#ae7035a67942632b2561bd173df536d55">scran_norm::center_size_factors_mean</a> (std::size_t num, const SizeFactor_ *size_factors, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
-<tr class="separator:ae7035a67942632b2561bd173df536d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3372a946cd32279365750da44c9b73b0" id="r_a3372a946cd32279365750da44c9b73b0"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
-<tr class="memitem:a3372a946cd32279365750da44c9b73b0"><td class="memTemplItemLeft" align="right" valign="top">SizeFactor_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a3372a946cd32279365750da44c9b73b0">scran_norm::center_size_factors</a> (std::size_t num, SizeFactor_ *size_factors, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
-<tr class="separator:a3372a946cd32279365750da44c9b73b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6215ef17363653f188feddddfda5ec61" id="r_a6215ef17363653f188feddddfda5ec61"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ , typename Block_ &gt; </td></tr>
-<tr class="memitem:a6215ef17363653f188feddddfda5ec61"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; SizeFactor_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a6215ef17363653f188feddddfda5ec61">scran_norm::center_size_factors_blocked_mean</a> (std::size_t num, const SizeFactor_ *size_factors, const Block_ *block, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
-<tr class="separator:a6215ef17363653f188feddddfda5ec61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a314dcf0ab9814281a0a5722fdc8f76" id="r_a3a314dcf0ab9814281a0a5722fdc8f76"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ , typename Block_ &gt; </td></tr>
-<tr class="memitem:a3a314dcf0ab9814281a0a5722fdc8f76"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; SizeFactor_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a3a314dcf0ab9814281a0a5722fdc8f76">scran_norm::center_size_factors_blocked</a> (std::size_t num, SizeFactor_ *size_factors, const Block_ *block, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
-<tr class="separator:a3a314dcf0ab9814281a0a5722fdc8f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64768b22ec88efcc18740c760e3fbd3a" id="r_a64768b22ec88efcc18740c760e3fbd3a"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
+<tr class="memitem:a64768b22ec88efcc18740c760e3fbd3a"><td class="memTemplItemLeft" align="right" valign="top">SizeFactor_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a64768b22ec88efcc18740c760e3fbd3a">scran_norm::center_size_factors_mean</a> (const std::size_t num, const SizeFactor_ *const size_factors, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *const diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="separator:a64768b22ec88efcc18740c760e3fbd3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b40602ff6f3055967e45baf6f87045" id="r_ae0b40602ff6f3055967e45baf6f87045"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
+<tr class="memitem:ae0b40602ff6f3055967e45baf6f87045"><td class="memTemplItemLeft" align="right" valign="top">SizeFactor_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#ae0b40602ff6f3055967e45baf6f87045">scran_norm::center_size_factors</a> (const std::size_t num, SizeFactor_ *const size_factors, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *const diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="separator:ae0b40602ff6f3055967e45baf6f87045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8537dadb0f8b98ccec77a87d44b1b1b1" id="r_a8537dadb0f8b98ccec77a87d44b1b1b1"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ , typename Block_ &gt; </td></tr>
+<tr class="memitem:a8537dadb0f8b98ccec77a87d44b1b1b1"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; SizeFactor_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a8537dadb0f8b98ccec77a87d44b1b1b1">scran_norm::center_size_factors_blocked_mean</a> (const std::size_t num, const SizeFactor_ *const size_factors, const Block_ *const block, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *const diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="separator:a8537dadb0f8b98ccec77a87d44b1b1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21e07ff4768b277f66109b0983190c53" id="r_a21e07ff4768b277f66109b0983190c53"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ , typename Block_ &gt; </td></tr>
+<tr class="memitem:a21e07ff4768b277f66109b0983190c53"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; SizeFactor_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a21e07ff4768b277f66109b0983190c53">scran_norm::center_size_factors_blocked</a> (const std::size_t num, SizeFactor_ *const size_factors, const Block_ *const block, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *const diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
+<tr class="separator:a21e07ff4768b277f66109b0983190c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Center size factors prior to scaling normalization. </p>

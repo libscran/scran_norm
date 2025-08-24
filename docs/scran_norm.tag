@@ -209,43 +209,43 @@
       <type>SizeFactor_</type>
       <name>center_size_factors_mean</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>ae7035a67942632b2561bd173df536d55</anchor>
-      <arglist>(std::size_t num, const SizeFactor_ *size_factors, SizeFactorDiagnostics *diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
+      <anchor>a64768b22ec88efcc18740c760e3fbd3a</anchor>
+      <arglist>(const std::size_t num, const SizeFactor_ *const size_factors, SizeFactorDiagnostics *const diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>SizeFactor_</type>
       <name>center_size_factors</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a3372a946cd32279365750da44c9b73b0</anchor>
-      <arglist>(std::size_t num, SizeFactor_ *size_factors, SizeFactorDiagnostics *diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
+      <anchor>ae0b40602ff6f3055967e45baf6f87045</anchor>
+      <arglist>(const std::size_t num, SizeFactor_ *const size_factors, SizeFactorDiagnostics *const diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; SizeFactor_ &gt;</type>
       <name>center_size_factors_blocked_mean</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a6215ef17363653f188feddddfda5ec61</anchor>
-      <arglist>(std::size_t num, const SizeFactor_ *size_factors, const Block_ *block, SizeFactorDiagnostics *diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
+      <anchor>a8537dadb0f8b98ccec77a87d44b1b1b1</anchor>
+      <arglist>(const std::size_t num, const SizeFactor_ *const size_factors, const Block_ *const block, SizeFactorDiagnostics *const diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; SizeFactor_ &gt;</type>
       <name>center_size_factors_blocked</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a3a314dcf0ab9814281a0a5722fdc8f76</anchor>
-      <arglist>(std::size_t num, SizeFactor_ *size_factors, const Block_ *block, SizeFactorDiagnostics *diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
+      <anchor>a21e07ff4768b277f66109b0983190c53</anchor>
+      <arglist>(const std::size_t num, SizeFactor_ *const size_factors, const Block_ *const block, SizeFactorDiagnostics *const diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>Float_</type>
       <name>choose_pseudo_count_raw</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a0e311674d7fa3c14c98ff1b1a26fd690</anchor>
-      <arglist>(std::size_t num, Float_ *size_factors, const ChoosePseudoCountOptions &amp;options)</arglist>
+      <anchor>a623bf6b4aed9b0f05f0b85a44962205a</anchor>
+      <arglist>(std::size_t num, Float_ *const size_factors, const ChoosePseudoCountOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>Float_</type>
       <name>choose_pseudo_count</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a82f91b2b742458b80e9d765f140e6223</anchor>
-      <arglist>(std::size_t num, const Float_ *size_factors, const ChoosePseudoCountOptions &amp;options)</arglist>
+      <anchor>a37205f65b305106aeb9902b1ba4e4043</anchor>
+      <arglist>(const std::size_t num, const Float_ *const size_factors, const ChoosePseudoCountOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>std::shared_ptr&lt; tatami::Matrix&lt; OutputValue_, Index_ &gt; &gt;</type>
@@ -258,22 +258,22 @@
       <type>SizeFactorDiagnostics</type>
       <name>check_size_factor_sanity</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a8a0b0cde738baef49f7dddc4a219339e</anchor>
-      <arglist>(std::size_t num, const SizeFactor_ *size_factors)</arglist>
+      <anchor>a80034f4d92ab790c59098c46b5d4f1b2</anchor>
+      <arglist>(const std::size_t num, const SizeFactor_ *const size_factors)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>sanitize_size_factors</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a8a11e667d469056d3cc4cffc83919679</anchor>
-      <arglist>(std::size_t num, SizeFactor_ *size_factors, const SizeFactorDiagnostics &amp;status, const SanitizeSizeFactorsOptions &amp;options)</arglist>
+      <anchor>a57131d1a4d08f8b505a5597f44827c85</anchor>
+      <arglist>(const std::size_t num, SizeFactor_ *const size_factors, const SizeFactorDiagnostics &amp;status, const SanitizeSizeFactorsOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>SizeFactorDiagnostics</type>
       <name>sanitize_size_factors</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a818f57e1db936fd28df8e9c0cd96d333</anchor>
-      <arglist>(std::size_t num, SizeFactor_ *size_factors, const SanitizeSizeFactorsOptions &amp;options)</arglist>
+      <anchor>a2e7ace5b998fc48cf816d1aa0552f41d</anchor>
+      <arglist>(const std::size_t num, SizeFactor_ *const size_factors, const SanitizeSizeFactorsOptions &amp;options)</arglist>
     </member>
   </compound>
   <compound kind="page">

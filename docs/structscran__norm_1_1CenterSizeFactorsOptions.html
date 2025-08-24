@@ -104,7 +104,7 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p>Options for <code><a class="el" href="namespacescran__norm.html#a3372a946cd32279365750da44c9b73b0">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#a3a314dcf0ab9814281a0a5722fdc8f76">center_size_factors_blocked()</a></code>.  
+<p>Options for <code><a class="el" href="namespacescran__norm.html#ae0b40602ff6f3055967e45baf6f87045">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#a21e07ff4768b277f66109b0983190c53">center_size_factors_blocked()</a></code>.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="center__size__factors_8hpp_source.html">center_size_factors.hpp</a>&gt;</code></p>
@@ -117,7 +117,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a09be0c48d2af10b0975c95b4f4ffa6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Options for <code><a class="el" href="namespacescran__norm.html#a3372a946cd32279365750da44c9b73b0">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#a3a314dcf0ab9814281a0a5722fdc8f76">center_size_factors_blocked()</a></code>. </p>
+<div class="textblock"><p>Options for <code><a class="el" href="namespacescran__norm.html#ae0b40602ff6f3055967e45baf6f87045">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#a21e07ff4768b277f66109b0983190c53">center_size_factors_blocked()</a></code>. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a03777fea5bdfc1f386a60a88470e3422" name="a03777fea5bdfc1f386a60a88470e3422"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03777fea5bdfc1f386a60a88470e3422">&#9670;&#160;</a></span>block_mode</h2>
@@ -130,9 +130,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Strategy for handling blocks in <code><a class="el" href="namespacescran__norm.html#a3a314dcf0ab9814281a0a5722fdc8f76">center_size_factors_blocked()</a></code>.</p>
-<p>With the <code>PER_BLOCK</code> strategy, size factors are scaled separately for each block so that they have a mean of 1 within each block. The scaled size factors are identical to those obtained by separate invocations of <code><a class="el" href="namespacescran__norm.html#a3372a946cd32279365750da44c9b73b0">center_size_factors()</a></code> on the size factors for each block. This can be desirable to ensure consistency with independent analyses of each block - otherwise, the centering would depend on the size factors in other blocks. However, any systematic differences in the size factors between blocks are lost, i.e., systematic changes in coverage between blocks will not be normalized.</p>
-<p>With the <code>LOWEST</code> strategy, we compute the mean size factor for each block and we divide all size factors by the lowest mean. Here, our normalization strategy involves downscaling all blocks to match the coverage of the lowest-coverage block. This is useful for datasets with highly variable coverage between different blocks as it avoids egregious upscaling of low-coverage blocks. Specifically, strong upscaling allows the log-transformation to ignore any shrinkage from the pseudo-count. This is problematic as it inflates differences between cells at log-values derived from low counts, increasing noise and overstating log-fold changes. Downscaling is safer as it allows the pseudo-count to shrink the log-differences between cells towards zero at low counts, effectively sacrificing some information in the higher-coverage batches so that they can be compared to the low-coverage batches (which is preferable to exaggerating the informativeness of the latter for comparison to the former). </p>
+<p>Strategy for handling blocks in <code><a class="el" href="namespacescran__norm.html#a21e07ff4768b277f66109b0983190c53">center_size_factors_blocked()</a></code>.</p>
+<p>With the <code>PER_BLOCK</code> strategy, size factors are scaled separately for each block so that they have a mean of 1 within each block. The scaled size factors are identical to those obtained by separate invocations of <code><a class="el" href="namespacescran__norm.html#ae0b40602ff6f3055967e45baf6f87045">center_size_factors()</a></code> on the size factors for each block. This can be desirable to ensure consistency with independent analyses of each block - otherwise, the centering would depend on the size factors in other blocks. However, any systematic differences in the size factors between blocks are lost, i.e., systematic changes in coverage between blocks will not be normalized.</p>
+<p>With the <code>LOWEST</code> strategy, we compute the mean size factor for each block and we divide all size factors in all blocks by the lowest of the per-block means. Here, our normalization strategy involves downscaling all blocks to match the coverage of the lowest-coverage block. This is useful for datasets with big differences in coverage between blocks as it avoids egregious upscaling of low-coverage blocks. Specifically, strong upscaling allows the log-transformation to ignore any shrinkage from the pseudo-count. This is problematic as it inflates differences between cells at log-values derived from low counts, increasing noise and overstating log-fold changes. Downscaling is safer as it allows the pseudo-count to shrink the log-differences between cells towards zero at low counts, effectively sacrificing some information in the higher-coverage batches so that they can be compared to the low-coverage batches (which is preferable to exaggerating the informativeness of the latter for comparison to the former). </p>
 
 </div>
 </div>
@@ -148,7 +148,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Whether to ignore invalid size factors when computing the mean size factor. Size factors of infinity and NaN or those with non-positive values may occur in datasets that have not been properly filtered to remove low-quality cells. If such values might be present, we can check for and ignore them during the mean calculations.</p>
-<p>Note that this setting does not actually remove any of the invalid size factors. If these are present, users should call <code><a class="el" href="namespacescran__norm.html#a8a11e667d469056d3cc4cffc83919679">sanitize_size_factors()</a></code> after centering. The <code>diagnostics</code> value in <code><a class="el" href="namespacescran__norm.html#a3372a946cd32279365750da44c9b73b0">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#a3a314dcf0ab9814281a0a5722fdc8f76">center_size_factors_blocked()</a></code> can be used to determine whether such a call is necessary. (In general, sanitization should be performed after centering so that the replacement size factors do not interfere with the mean calculations.)</p>
+<p>Note that this setting does not actually remove any of the invalid size factors. If these are present, users should call <code><a class="el" href="namespacescran__norm.html#a57131d1a4d08f8b505a5597f44827c85">sanitize_size_factors()</a></code> after centering. The <code>diagnostics</code> value in <code><a class="el" href="namespacescran__norm.html#ae0b40602ff6f3055967e45baf6f87045">center_size_factors()</a></code> and <code><a class="el" href="namespacescran__norm.html#a21e07ff4768b277f66109b0983190c53">center_size_factors_blocked()</a></code> can be used to determine whether such a call is necessary. (In general, sanitization should be performed after centering so that the replacement size factors do not interfere with the mean calculations.)</p>
 <p>If users know that invalid size factors cannot be present, they can set this flag to false for greater efficiency. </p>
 
 </div>

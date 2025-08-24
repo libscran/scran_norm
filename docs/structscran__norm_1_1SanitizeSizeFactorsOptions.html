@@ -104,7 +104,7 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p>Options for <code><a class="el" href="namespacescran__norm.html#a8a11e667d469056d3cc4cffc83919679">sanitize_size_factors()</a></code>.  
+<p>Options for <code><a class="el" href="namespacescran__norm.html#a57131d1a4d08f8b505a5597f44827c85">sanitize_size_factors()</a></code>.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="sanitize__size__factors_8hpp_source.html">sanitize_size_factors.hpp</a>&gt;</code></p>
@@ -121,7 +121,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:acaf0c77542462c508c14c30994e8d07d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Options for <code><a class="el" href="namespacescran__norm.html#a8a11e667d469056d3cc4cffc83919679">sanitize_size_factors()</a></code>. </p>
+<div class="textblock"><p>Options for <code><a class="el" href="namespacescran__norm.html#a57131d1a4d08f8b505a5597f44827c85">sanitize_size_factors()</a></code>. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a341805c7650ee93db13050621d1505d6" name="a341805c7650ee93db13050621d1505d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a341805c7650ee93db13050621d1505d6">&#9670;&#160;</a></span>handle_zero</h2>
@@ -134,9 +134,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>How should we handle zero size factors? If <code>SANITIZE</code>, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid).</p>
-<p>This approach is motivated by the observation that size factors of zero are typically generated from all-zero cells. By replacing the size factor with a finite value, we ensure that any all-zero cells are represented by all-zero columns in the normalized matrix, which is a reasonable outcome if those cells cannot be filtered out during upstream quality control.</p>
-<p>We also need to handle cases where a zero size factor may be generated from a cell with non-zero rows, e.g., with <code>MedianSizeFactors</code>. By using a "relatively small" replacement value, we ensure that the normalized values reflect the extremity of the scaling. </p>
+<p>How should we handle size factors of zero?</p>
+<p>If set to <code>SANITIZE</code>, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid). This approach is motivated by the observation that size factors of zero are typically generated from all-zero cells. By replacing the size factor with a finite value, we ensure that any all-zero cells are represented by all-zero columns in the normalized matrix, which is a reasonable outcome if those cells cannot be filtered out during upstream quality control. We also need to handle cases where a zero size factor may be generated from a cell with non-zero rows, e.g., with <code>MedianSizeFactors</code>. By using a "relatively small" replacement value, we ensure that the normalized values reflect the extremity of the scaling. </p>
 
 </div>
 </div>
@@ -151,7 +150,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>How should we handle negative size factors? If <code>SANITIZE</code>, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid), following the same logic as <code><a class="el" href="#a341805c7650ee93db13050621d1505d6">SanitizeSizeFactorsOptions::handle_zero</a></code>. </p>
+<p>How should we handle negative size factors?</p>
+<p>If set to <code>SANITIZE</code>, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid), following the same logic as <code><a class="el" href="#a341805c7650ee93db13050621d1505d6">SanitizeSizeFactorsOptions::handle_zero</a></code>. </p>
 
 </div>
 </div>
@@ -166,7 +166,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>How should we handle NaN size factors? If `SANITIZE, NaN size factors will be automatically set to 1, meaning that scaling is a no-op. </p>
+<p>How should we handle NaN size factors?</p>
+<p>If set to `SANITIZE, NaN size factors will be automatically set to 1, meaning that scaling is a no-op. </p>
 
 </div>
 </div>
@@ -181,7 +182,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>How should we handle infinite size factors? If <code>SANITIZE</code>, infinite size factors will be automatically set to the largest valid size factor (or 1, if all size factors are invalid). This ensures that any normalized values will be, at least, finite; the choice of a relatively large replacement value reflects the extremity of the scaling. </p>
+<p>How should we handle infinite size factors?</p>
+<p>If set to <code>SANITIZE</code>, infinite size factors will be automatically set to the largest valid size factor (or 1, if all size factors are invalid). This ensures that any normalized values will be, at least, finite; the choice of a relatively large replacement value reflects the extremity of the scaling. </p>
 
 </div>
 </div>
