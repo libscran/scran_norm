@@ -5,6 +5,8 @@
 #include <vector>
 #include <cstddef>
 
+#include "utils.hpp"
+
 /**
  * @file choose_pseudo_count.hpp
  * @brief Choose a pseudo-count for log-transformation.
@@ -89,15 +91,15 @@ Float_ find_quantile(Float_ quantile, std::size_t n, Float_* ptr) {
  * @return The suggested pseudo-count to control the log-transformation-induced bias below the specified threshold.
  */
 template<typename Float_>
-Float_ choose_pseudo_count_raw(std::size_t num, Float_* size_factors, const ChoosePseudoCountOptions& options) {
+Float_ choose_pseudo_count_raw(std::size_t num, Float_* const size_factors, const ChoosePseudoCountOptions& options) {
     if (num <= 1) {
         return options.min_value;
     }
 
     // Avoid problems with zeros.
-    decltype(num) counter = 0;
-    for (decltype(num) i = 0; i < num; ++i) {
-        auto val = size_factors[i];
+    decltype(I(num)) counter = 0;
+    for (decltype(I(num)) i = 0; i < num; ++i) {
+        const auto val = size_factors[i];
         if (std::isfinite(val) && val > 0) {
             if (i != counter) {
                 size_factors[counter] = val;
@@ -111,7 +113,7 @@ Float_ choose_pseudo_count_raw(std::size_t num, Float_* size_factors, const Choo
         return options.min_value;
     }
 
-    double lower_sf, upper_sf;
+    Float_ lower_sf, upper_sf;
     if (options.quantile == 0) {
         lower_sf = *std::min_element(size_factors, size_factors + num);
         upper_sf = *std::max_element(size_factors, size_factors + num);
@@ -121,7 +123,7 @@ Float_ choose_pseudo_count_raw(std::size_t num, Float_* size_factors, const Choo
     }
 
     // Very confusing formulation in Equation 3, but whatever.
-    Float_ pseudo_count = (1.0 / lower_sf - 1.0 / upper_sf) / (8 * options.max_bias);
+    const Float_ pseudo_count = (1.0 / lower_sf - 1.0 / upper_sf) / (8 * options.max_bias);
 
     return std::max(options.min_value, pseudo_count);
 }
@@ -139,7 +141,7 @@ Float_ choose_pseudo_count_raw(std::size_t num, Float_* size_factors, const Choo
  * @return The suggested pseudo-count to control the log-transformation-induced bias below the specified threshold.
  */
 template<typename Float_>
-Float_ choose_pseudo_count(std::size_t num, const Float_* size_factors, const ChoosePseudoCountOptions& options) {
+Float_ choose_pseudo_count(const std::size_t num, const Float_* const size_factors, const ChoosePseudoCountOptions& options) {
     std::vector<Float_> buffer(size_factors, size_factors + num);
     return choose_pseudo_count_raw(num, buffer.data(), options);
 }

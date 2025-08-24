@@ -1,15 +1,16 @@
 #ifndef SCRAN_NORM_CENTER_SIZE_FACTORS_HPP
 #define SCRAN_NORM_CENTER_SIZE_FACTORS_HPP
 
-#include "tatami_stats/tatami_stats.hpp"
-
 #include <vector>
 #include <numeric>
 #include <algorithm>
 #include <type_traits>
 #include <cstddef>
 
+#include "tatami_stats/tatami_stats.hpp"
+
 #include "sanitize_size_factors.hpp"
+#include "utils.hpp"
 
 /**
  * @file center_size_factors.hpp
@@ -76,16 +77,16 @@ struct CenterSizeFactorsOptions {
  * @return The mean size factor, to be used to divide each element of `size_factors`.
  */
 template<typename SizeFactor_>
-SizeFactor_ center_size_factors_mean(std::size_t num, const SizeFactor_* size_factors, SizeFactorDiagnostics* diagnostics, const CenterSizeFactorsOptions& options) {
+SizeFactor_ center_size_factors_mean(const std::size_t num, const SizeFactor_* const size_factors, SizeFactorDiagnostics* const diagnostics, const CenterSizeFactorsOptions& options) {
     static_assert(std::is_floating_point<SizeFactor_>::value);
     SizeFactor_ mean = 0;
-    decltype(num) denom = 0;
+    decltype(I(num)) denom = 0;
 
     if (options.ignore_invalid) {
         SizeFactorDiagnostics tmpdiag;
         auto& diag = (diagnostics == NULL ? tmpdiag : *diagnostics);
-        for (decltype(num) i = 0; i < num; ++i) {
-            auto val = size_factors[i];
+        for (decltype(I(num)) i = 0; i < num; ++i) {
+            const auto val = size_factors[i];
             if (!internal::is_invalid(val, diag)) {
                 mean += val;
                 ++denom;
@@ -122,10 +123,10 @@ SizeFactor_ center_size_factors_mean(std::size_t num, const SizeFactor_* size_fa
  * @return The mean size factor.
  */
 template<typename SizeFactor_>
-SizeFactor_ center_size_factors(std::size_t num, SizeFactor_* size_factors, SizeFactorDiagnostics* diagnostics, const CenterSizeFactorsOptions& options) {
-    auto mean = center_size_factors_mean(num, size_factors, diagnostics, options);
+SizeFactor_ center_size_factors(const std::size_t num, SizeFactor_* const size_factors, SizeFactorDiagnostics* const diagnostics, const CenterSizeFactorsOptions& options) {
+    const auto mean = center_size_factors_mean(num, size_factors, diagnostics, options);
     if (mean) {
-        for (decltype(num) i = 0; i < num; ++i){
+        for (decltype(I(num)) i = 0; i < num; ++i){
             size_factors[i] /= mean;
         }
     }
@@ -152,32 +153,38 @@ SizeFactor_ center_size_factors(std::size_t num, SizeFactor_* size_factors, Size
  * to be used to scale the size factors in each block.
  */
 template<typename SizeFactor_, typename Block_>
-std::vector<SizeFactor_> center_size_factors_blocked_mean(std::size_t num, const SizeFactor_* size_factors, const Block_* block, SizeFactorDiagnostics* diagnostics, const CenterSizeFactorsOptions& options) {
+std::vector<SizeFactor_> center_size_factors_blocked_mean(
+    const std::size_t num,
+    const SizeFactor_* const size_factors,
+    const Block_* const block,
+    SizeFactorDiagnostics* const diagnostics,
+    const CenterSizeFactorsOptions& options)
+{
     static_assert(std::is_floating_point<SizeFactor_>::value);
-    auto ngroups = tatami_stats::total_groups(block, num);
+    const auto ngroups = tatami_stats::total_groups(block, num);
     auto group_mean = sanisizer::create<std::vector<SizeFactor_> >(ngroups);
-    auto group_num = sanisizer::create<std::vector<decltype(num)> >(ngroups);
+    auto group_num = sanisizer::create<std::vector<decltype(I(num))> >(ngroups);
 
     if (options.ignore_invalid) {
         SizeFactorDiagnostics tmpdiag;
         auto& diag = (diagnostics == NULL ? tmpdiag : *diagnostics);
-        for (decltype(num) i = 0; i < num; ++i) {
-            auto val = size_factors[i];
+        for (decltype(I(num)) i = 0; i < num; ++i) {
+            const auto val = size_factors[i];
             if (!internal::is_invalid(val, diag)) {
-                auto b = block[i];
+                const auto b = block[i];
                 group_mean[b] += val;
                 ++(group_num[b]);
             }
         }
     } else {
-        for (decltype(num) i = 0; i < num; ++i) {
-            auto b = block[i];
+        for (decltype(I(num)) i = 0; i < num; ++i) {
+            const auto b = block[i];
             group_mean[b] += size_factors[i];
             ++(group_num[b]);
         }
     }
 
-    for (decltype(ngroups) g = 0; g < ngroups; ++g) {
+    for (decltype(I(ngroups)) g = 0; g < ngroups; ++g) {
         if (group_num[g]) {
             group_mean[g] /= group_num[g];
         }
@@ -206,11 +213,17 @@ std::vector<SizeFactor_> center_size_factors_blocked_mean(std::size_t num, const
  * @return Vector of length \f$N\f$ containing the mean size factor for each block.
  */
 template<typename SizeFactor_, typename Block_>
-std::vector<SizeFactor_> center_size_factors_blocked(std::size_t num, SizeFactor_* size_factors, const Block_* block, SizeFactorDiagnostics* diagnostics, const CenterSizeFactorsOptions& options) {
-    auto group_mean = center_size_factors_blocked_mean(num, size_factors, block, diagnostics, options);
+std::vector<SizeFactor_> center_size_factors_blocked(
+    const std::size_t num,
+    SizeFactor_* const size_factors,
+    const Block_* const block,
+    SizeFactorDiagnostics* const diagnostics,
+    const CenterSizeFactorsOptions& options)
+{
+    const auto group_mean = center_size_factors_blocked_mean(num, size_factors, block, diagnostics, options);
 
     if (options.block_mode == CenterBlockMode::PER_BLOCK) {
-        for (decltype(num) i = 0; i < num; ++i) {
+        for (decltype(I(num)) i = 0; i < num; ++i) {
             const auto& div = group_mean[block[i]];
             if (div) {
                 size_factors[i] /= div;
@@ -220,7 +233,7 @@ std::vector<SizeFactor_> center_size_factors_blocked(std::size_t num, SizeFactor
     } else if (options.block_mode == CenterBlockMode::LOWEST) {
         SizeFactor_ min = 0;
         bool found = false;
-        for (auto m : group_mean) {
+        for (const auto m : group_mean) {
             // Ignore groups with means of zeros, either because they're full
             // of zeros themselves or they have no cells associated with them.
             if (m) {
@@ -232,7 +245,7 @@ std::vector<SizeFactor_> center_size_factors_blocked(std::size_t num, SizeFactor
         }
 
         if (min > 0) {
-            for (decltype(num) i = 0; i < num; ++i) {
+            for (decltype(I(num)) i = 0; i < num; ++i) {
                 size_factors[i] /= min;
             }
         }
