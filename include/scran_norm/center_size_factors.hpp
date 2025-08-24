@@ -35,9 +35,9 @@ struct CenterSizeFactorsOptions {
      * This can be desirable to ensure consistency with independent analyses of each block - otherwise, the centering would depend on the size factors in other blocks.
      * However, any systematic differences in the size factors between blocks are lost, i.e., systematic changes in coverage between blocks will not be normalized.
      * 
-     * With the `LOWEST` strategy, we compute the mean size factor for each block and we divide all size factors by the lowest mean.
+     * With the `LOWEST` strategy, we compute the mean size factor for each block and we divide all size factors in all blocks by the lowest of the per-block means.
      * Here, our normalization strategy involves downscaling all blocks to match the coverage of the lowest-coverage block.
-     * This is useful for datasets with highly variable coverage between different blocks as it avoids egregious upscaling of low-coverage blocks.
+     * This is useful for datasets with big differences in coverage between blocks as it avoids egregious upscaling of low-coverage blocks.
      * Specifically, strong upscaling allows the log-transformation to ignore any shrinkage from the pseudo-count.
      * This is problematic as it inflates differences between cells at log-values derived from low counts, increasing noise and overstating log-fold changes. 
      * Downscaling is safer as it allows the pseudo-count to shrink the log-differences between cells towards zero at low counts,
@@ -64,13 +64,13 @@ struct CenterSizeFactorsOptions {
 /**
  * Compute the mean size factor but do not scale the size factors themselves.
  *
- * @tparam SizeFactor_ Floating-point type for the size factors.
+ * @tparam SizeFactor_ Floating-point type of the size factors.
  *
  * @param num Number of cells.
  * @param[in] size_factors Pointer to an array of length `num`, containing the size factor for each cell.
  * @param[out] diagnostics Diagnostics for invalid size factors.
- * This is only used if `CenterSizeFactorsOptions::ignore_invalid = true`, in which case it is filled with invalid diagnostics for values in `size_factors`.
- * It can also be NULL, in which case it is ignored.
+ * This is only used if `CenterSizeFactorsOptions::ignore_invalid = true`, in which case it is filled with diagnostics for invalid values in `size_factors`.
+ * It can also be `NULL`, in which case it is ignored.
  * @param options Further options.
  *
  * @return The mean size factor, to be used to divide each element of `size_factors`.
@@ -104,19 +104,19 @@ SizeFactor_ center_size_factors_mean(std::size_t num, const SizeFactor_* size_fa
 }
 
 /**
- * When centering, we scale all size factors so that their mean is equal to 1.
+ * Centering the size factors involves scaling all of the size factors so that the mean across cells is equal to 1.
  * The aim is to ensure that the normalized expression values are on roughly the same scale as the original counts.
- * This simplifies interpretation and ensures that any added pseudo-count prior to log-transformation has a predictable shrinkage effect.
+ * This simplifies interpretation and ensures that any pseudo-count added prior to log-transformation has a predictable shrinkage effect.
  * In general, size factors should be centered before calling `normalize_counts()`.
  * 
- * @tparam SizeFactor_ Floating-point type for the size factors.
+ * @tparam SizeFactor_ Floating-point type of the size factors.
  *
  * @param num Number of cells.
  * @param[in,out] size_factors Pointer to an array of length `num`, containing the size factor for each cell.
- * On output, this contains centered size factors.
+ * On output, this contains the centered size factors.
  * @param[out] diagnostics Diagnostics for invalid size factors.
- * This is only used if `CenterSizeFactorsOptions::ignore_invalid = true`, in which case it is filled with invalid diagnostics for values in `size_factors`.
- * It can also be NULL, in which case it is ignored.
+ * This is only used if `CenterSizeFactorsOptions::ignore_invalid = true`, in which case it is filled with diagnostics for invalid values in `size_factors`.
+ * It can also be `NULL`, in which case it is ignored.
  * @param options Further options.
  *
  * @return The mean size factor.
@@ -134,8 +134,9 @@ SizeFactor_ center_size_factors(std::size_t num, SizeFactor_* size_factors, Size
 
 /**
  * Compute the mean size factor for each block, but do not scale the size factors themselves.
+ * This is the blocked version of `center_size_factors_mean()`.
  *
- * @tparam SizeFactor_ Floating-point type for the size factors.
+ * @tparam SizeFactor_ Floating-point type of the size factors.
  * @tparam Block_ Integer type for the block assignments.
  *
  * @param num Number of cells.
@@ -143,8 +144,8 @@ SizeFactor_ center_size_factors(std::size_t num, SizeFactor_* size_factors, Size
  * @param[in] block Pointer to an array of length `num`, containing the block assignment for each cell.
  * Each assignment should be an integer in \f$[0, N)\f$ where \f$N\f$ is the total number of blocks.
  * @param[out] diagnostics Diagnostics for invalid size factors.
- * This is only used if `CenterSizeFactorsOptions::ignore_invalid = true`, in which case it is filled with invalid diagnostics for values in `size_factors`.
- * It can also be NULL, in which case it is ignored.
+ * This is only used if `CenterSizeFactorsOptions::ignore_invalid = true`, in which case it is filled with diagnostics for invalid values in `size_factors`.
+ * It can also be `NULL`, in which case it is ignored.
  * @param options Further options.
  *
  * @return Vector of length \f$N\f$ containing the mean size factor for each block,
@@ -186,9 +187,10 @@ std::vector<SizeFactor_> center_size_factors_blocked_mean(std::size_t num, const
 }
 
 /**
- * Center size factors within each block, using the strategy specified in `CenterSizeFactorsOptions::block_mode`.
+ * Center size factors within each block to obtain interpretable values after normalization, as discussed in `center_size_factors()`.
+ * The exact strategy for handling blocks is controlled by `CenterSizeFactorsOptions::block_mode`.
  *
- * @tparam SizeFactor_ Floating-point type for the size factors.
+ * @tparam SizeFactor_ Floating-point type of the size factors.
  * @tparam Block_ Integer type for the block assignments.
  *
  * @param num Number of cells.

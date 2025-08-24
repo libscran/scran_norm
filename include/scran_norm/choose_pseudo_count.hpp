@@ -19,12 +19,13 @@ struct ChoosePseudoCountOptions {
     /**
      * Quantile to use for finding the smallest/largest size factors.
      * Setting this to zero will use the observed minimum and maximum, though this is usually too extreme in practice.
-     * The default is to take the 5th and 95th percentile, yielding a range that is still representative of most cells.
+     * The default is to take the 5th and 95th percentile to obtain a range that is representative of most cells.
      */
     double quantile = 0.05;
 
     /**
-     * Acceptable upper bound on the log-transformation bias.
+     * Acceptable upper bound on the log2-transformation bias.
+     * This represents the bias in the log2-fold changes between the cells with the smallest and largest size factors.
      */
     double max_bias = 0.1;
 
@@ -60,14 +61,15 @@ Float_ find_quantile(Float_ quantile, std::size_t n, Float_* ptr) {
  * Choose a pseudo-count for log-transformation (see `NormalizeCountsOptions::pseudo_count`) that aims to control the transformation-induced bias.
  * Specifically, the log-transform can introduce spurious differences in the expected log-normalized expression between cells with very different size factors (Lun, 2018).
  * This bias can be mitigated by increasing the pseudo-count, which effectively shrinks all log-expression values towards the zero-expression baseline.
- * The increased shrinkage is strongest at low counts where the transformation bias is most pronounced, while large counts are mostly unaffected.
+ * The increased shrinkage is strongest at low counts where the transformation bias is most pronounced.
+ * At large counts, the shrinkage has less effect as the log-fold change is driven by the data.
  *
- * In practice, the log-transformation bias is modest in datasets where there are stronger sources of variation.
+ * The log-transformation bias is typically modest in datasets where there are stronger sources of variation.
  * When observed, it manifests as a library size-dependent trend in the log-normalized expression values.
  * This is difficult to regress out without also removing biology that is associated with, e.g., total RNA content;
  * rather, a simpler solution is to increase the pseudo-count to suppress the bias.
  *
- * No centering is performed by this function, so the size factors should be passed through `center_size_factors()` before calling functions here.
+ * No centering is performed by this function, so the size factors should be passed through `center_size_factors()` before calling this function.
  * Invalid size factors (e.g., zero, negative, non-finite) are automatically ignored, so prior sanitization should not be performed -
  * this ensures that we do not include the replacement values in the various quantile calculations.
  *
@@ -75,6 +77,8 @@ Float_ find_quantile(Float_ quantile, std::size_t n, Float_* ptr) {
  * Lun ATL (2018).
  * Overcoming systematic errors caused by log-transformation of normalized single-cell RNA sequencing data.
  * _biorXiv_ doi:10.1101/404962
+ *
+ * @tparam Float_ Floating-point type of the size factors.
  *
  * @param num Number of size factors.
  * @param[in] size_factors Pointer to an array of size factors of length `num`.
@@ -124,6 +128,8 @@ Float_ choose_pseudo_count_raw(std::size_t num, Float_* size_factors, const Choo
 
 /**
  * This function just wraps `choose_pseudo_count_raw()` with the automatic creation of a writeable buffer for the size factors.
+ *
+ * @tparam Float_ Floating-point type of the size factors.
  *
  * @param num Number of size factors.
  * @param[in] size_factors Pointer to an array of size factors of length `n`.

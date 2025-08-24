@@ -110,9 +110,9 @@ double find_largest_valid_factor(std::size_t num, const SizeFactor_* size_factor
 
 /**
  * Check whether there are any invalid size factors.
- * Size factors are only technically valid if they are finite and positive.
+ * Size factors are only valid if they are finite and positive.
  *
- * @tparam SizeFactor_ Floating-point type for the size factors.
+ * @tparam SizeFactor_ Floating-point type of the size factors.
  *
  * @param num Number of size factors.
  * @param[in] size_factors Pointer to an array of size factors of length `num`.
@@ -142,13 +142,12 @@ enum class SanitizeAction : char { IGNORE, ERROR, SANITIZE };
  */
 struct SanitizeSizeFactorsOptions {
     /**
-     * How should we handle zero size factors?
-     * If `SANITIZE`, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid).
+     * How should we handle size factors of zero?
      *
+     * If set to `SANITIZE`, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid).
      * This approach is motivated by the observation that size factors of zero are typically generated from all-zero cells.
      * By replacing the size factor with a finite value, we ensure that any all-zero cells are represented by all-zero columns in the normalized matrix,
      * which is a reasonable outcome if those cells cannot be filtered out during upstream quality control.
-     *
      * We also need to handle cases where a zero size factor may be generated from a cell with non-zero rows, e.g., with `MedianSizeFactors`.
      * By using a "relatively small" replacement value, we ensure that the normalized values reflect the extremity of the scaling.
      */
@@ -156,36 +155,38 @@ struct SanitizeSizeFactorsOptions {
 
     /**
      * How should we handle negative size factors?
-     * If `SANITIZE`, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid),
+     *
+     * If set to `SANITIZE`, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid),
      * following the same logic as `SanitizeSizeFactorsOptions::handle_zero`.
      */
     SanitizeAction handle_negative = SanitizeAction::ERROR;
 
     /**
      * How should we handle NaN size factors?
-     * If `SANITIZE, NaN size factors will be automatically set to 1, meaning that scaling is a no-op.
+     *
+     * If set to `SANITIZE, NaN size factors will be automatically set to 1, meaning that scaling is a no-op.
      */
     SanitizeAction handle_nan = SanitizeAction::ERROR;
 
     /**
      * How should we handle infinite size factors?
-     * If `SANITIZE`, infinite size factors will be automatically set to the largest valid size factor (or 1, if all size factors are invalid).
+     *
+     * If set to `SANITIZE`, infinite size factors will be automatically set to the largest valid size factor (or 1, if all size factors are invalid).
      * This ensures that any normalized values will be, at least, finite; the choice of a relatively large replacement value reflects the extremity of the scaling.
      */
     SanitizeAction handle_infinite = SanitizeAction::ERROR;
 };
 
 /**
- * Replace zero, missing or infinite values in the size factor array so that it can be used to compute well-defined normalized values.
+ * Replace zero, missing or infinite values in the size factor array so that they can be used to compute well-defined normalized values in `normalize_counts()`.
  * Such size factors can occasionally arise if, e.g., insufficient quality control was performed upstream.
  * Check out the documentation in `SanitizeSizeFactorsOptions` to see what placeholder value is used for each type of invalid size factor.
  *
- * In general, sanitization should occur after calls to `center_size_factors()`, `choose_pseudo_count()`, 
- * or any function that computes a statistic based on the distribution of size factors.
+ * In general, sanitization should occur after calls to `center_size_factors()`, `choose_pseudo_count()`, or any function that computes a statistic based on the distribution of size factors.
  * This ensures that the results of those functions are not affected by the placeholder values used to replace the invalid size factors.
  * As a rule of thumb, `sanitize_size_factors()` should be called just before passing those size factors to `normalize_counts()`.
  *
- * @tparam SizeFactor_ Floating-point type for the size factors.
+ * @tparam SizeFactor_ Floating-point type of the size factors.
  *
  * @param num Number of size factors.
  * @param[in,out] size_factors Pointer to an array of positive size factors of length `n`.
@@ -259,7 +260,7 @@ void sanitize_size_factors(std::size_t num, SizeFactor_* size_factors, const Siz
 /**
  * Overload of `sanitize_size_factors()` that calls `check_size_factor_sanity()` internally.
  *
- * @tparam SizeFactor_ Floating-point type for the size factors.
+ * @tparam SizeFactor_ Floating-point type of the size factors.
  *
  * @param num Number of size factors.
  * @param[in,out] size_factors Pointer to an array of positive size factors of length `n`.

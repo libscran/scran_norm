@@ -21,7 +21,7 @@ we can convert them into centered size factors:
 #include "scran_norm/scran_norm.hpp"
 
 // Assuming that counts is a std::shared_ptr<tatami::Matrix>
-std::vector<double> bias = tatami_stats::sums::by_column(counts.get()); 
+std::vector<double> bias = tatami_stats::sums::by_column(*counts)); 
 
 scran_norm::CenterSizeFactorsOptions copt;
 scran_norm::center_size_factors(bias.size(), bias.data(), NULL, copt);
@@ -113,4 +113,4 @@ See the tags in [`extern/CMakeLists.txt`](extern/CMakeLists.txt) to find compati
 ### Manual
 
 If you're not using CMake, the simple approach is to just copy the files in `include/` - either directly or with Git submodules - and include their path during compilation with, e.g., GCC's `-I`.
-This requires the external dependencies listed in [`extern/CMakeLists.txt`](extern/CMakeLists.txt), which also need to be made available during compilation.
+This also requires the external dependencies listed in [`extern/CMakeLists.txt`](extern/CMakeLists.txt). 
