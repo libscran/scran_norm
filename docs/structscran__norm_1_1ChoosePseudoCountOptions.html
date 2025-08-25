@@ -132,7 +132,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Quantile to use for finding the smallest/largest size factors. Setting this to zero will use the observed minimum and maximum, though this is usually too extreme in practice. The default is to take the 5th and 95th percentile to obtain a range that is representative of most cells. </p>
+<p>Quantile to use for finding the smallest/largest size factors. Setting this to zero will use the observed minimum and maximum, though in practice, this is usually too sensitive to outliers. The default is to take the 5th and 95th percentile to obtain a range that captures most of the distribution. </p>
 
 </div>
 </div>
@@ -147,7 +147,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Acceptable upper bound on the log2-transformation bias. This represents the bias in the log2-fold changes between the cells with the smallest and largest size factors. </p>
+<p>Acceptable upper bound on the log2-transformation bias. This is the magnitude of any spurious log2-fold change between the cells with the smallest and largest size factors. </p>
 
 </div>
 </div>
