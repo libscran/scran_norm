@@ -20,14 +20,14 @@ namespace scran_norm {
 struct ChoosePseudoCountOptions {
     /**
      * Quantile to use for finding the smallest/largest size factors.
-     * Setting this to zero will use the observed minimum and maximum, though this is usually too extreme in practice.
-     * The default is to take the 5th and 95th percentile to obtain a range that is representative of most cells.
+     * Setting this to zero will use the observed minimum and maximum, though in practice, this is usually too sensitive to outliers.
+     * The default is to take the 5th and 95th percentile to obtain a range that captures most of the distribution.
      */
     double quantile = 0.05;
 
     /**
      * Acceptable upper bound on the log2-transformation bias.
-     * This represents the bias in the log2-fold changes between the cells with the smallest and largest size factors.
+     * This is the magnitude of any spurious log2-fold change between the cells with the smallest and largest size factors.
      */
     double max_bias = 0.1;
 
@@ -61,16 +61,19 @@ Float_ find_quantile(Float_ quantile, std::size_t n, Float_* ptr) {
 
 /**
  * Choose a pseudo-count for log-transformation (see `NormalizeCountsOptions::pseudo_count`) that aims to control the transformation-induced bias.
- * Specifically, the log-transform can introduce spurious differences in the expected log-normalized expression between cells with very different size factors (Lun, 2018).
- * This bias can be mitigated by increasing the pseudo-count, which effectively shrinks all log-expression values towards the zero-expression baseline.
- * The increased shrinkage is strongest at low counts where the transformation bias is most pronounced.
- * At large counts, the shrinkage has less effect as the log-fold change is driven by the data.
  *
- * The log-transformation bias is typically modest in datasets where there are stronger sources of variation.
- * When observed, it manifests as a library size-dependent trend in the log-normalized expression values.
- * This is difficult to regress out without also removing biology that is associated with, e.g., total RNA content;
- * rather, a simpler solution is to increase the pseudo-count to suppress the bias.
+ * Log-transformation is commonly applied to sequencing count data prior to further analyses (see `NormalizeCountsOptions::log`).
+ * However, this can introduce spurious differences in the expected log-normalized expression between cells with very different size factors (Lun, 2018).
+ * This bias is typically modest in datasets where there are stronger sources of variation,
+ * but when observed, it manifests as a library size-dependent trend in the log-normalized expression values.
+ * It is difficult to regress out without also removing biology that is associated with, e.g., total RNA content.
  *
+ * A simpler solution is to increase the pseudo-count to suppress the bias.
+ * This shrinks all log-expression values towards the zero-expression baseline, thus also shrinking log-differences between cells towards zero. 
+ * The increased shrinkage is strongest at low counts where the data is least informative and the transformation bias is most pronounced.
+ * At large counts, the shrinkage has less effect as the log-differences are driven by the data.
+ * Our aim is to pick a pseudo-count that is large enough to mitigate the bias while being small enough to avoid shrinking the biological differences.
+ * 
  * No centering is performed by this function, so the size factors should be passed through `center_size_factors()` before calling this function.
  * Invalid size factors (e.g., zero, negative, non-finite) are automatically ignored, so prior sanitization should not be performed -
  * this ensures that we do not include the replacement values in the various quantile calculations.

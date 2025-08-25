@@ -22,7 +22,7 @@ struct NormalizeCountsOptions {
      * Pseudo-count to add to each value prior to log-transformation.
      * All values should be positive to ensure that log-transformed values are finite.
      * The default value of 1 preserves sparsity in the log-count matrix.
-     * Larger values shrink the differences between cells towards zero, reducing variance at the cost of increasing bias (see `choose_pseudo_count_raw()`).
+     * Larger values shrink the differences between cells towards zero, reducing spurious differences (but also signal) at low counts - see `choose_pseudo_count_raw()` for comments.
      * Ignored if `NormalizeCountsOptions::log = false`.
      */
     double pseudo_count = 1;
@@ -31,8 +31,8 @@ struct NormalizeCountsOptions {
      * Whether to preserve sparsity for non-unity pseudo-counts.
      * If true, we multiply the size factors by the `NormalizeCountsOptions::pseudo_count` and add 1 before log-transformation.
      * This does not change the differences between entries of the resulting matrix,
-     * and adding `log(pseudo_count)` will recover the expected log-count values.
-     * Ignored if `NormalizeCountsOptions::log = false`.
+     * and adding `log(pseudo_count/log(log_base)` will recover the expected log-count values.
+     * Ignored if `NormalizeCountsOptions::log = false` or `NormalizeCountsOptions::pseudo_count = 1`.
      */
     bool preserve_sparsity = false;
 
@@ -71,7 +71,8 @@ struct NormalizeCountsOptions {
  * @param counts Pointer to a matrix of non-negative counts.
  * Rows should correspond to genes while columns should correspond to cells.
  * @param size_factors Vector of length equal to the number of columns in `counts`, containing the size factor for each cell.
- * All values should be positive. 
+ * All values should be positive, and any invalid values should be replaced with `sanitize_size_factors()`. 
+ * In most applications, the size factors should also be centered via, e.g., `center_size_factors()`. 
  * @param options Further options.
  *
  * @return Point to a matrix of normalized expression values.

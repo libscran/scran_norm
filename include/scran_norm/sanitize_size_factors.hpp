@@ -147,11 +147,11 @@ struct SanitizeSizeFactorsOptions {
      * How should we handle size factors of zero?
      *
      * If set to `SANITIZE`, they will be automatically set to the smallest valid size factor (or 1, if all size factors are invalid).
-     * This approach is motivated by the observation that size factors of zero are typically generated from all-zero cells.
+     * This ensures that the normalized values will be large to reflect the extremity of the scaling, but still finite for sensible downstream processing. 
+     *
+     * In most cases, size factors of zero are only obtained for cells with all-zero counts.
      * By replacing the size factor with a finite value, we ensure that any all-zero cells are represented by all-zero columns in the normalized matrix,
      * which is a reasonable outcome if those cells cannot be filtered out during upstream quality control.
-     * We also need to handle cases where a zero size factor may be generated from a cell with non-zero rows, e.g., with `MedianSizeFactors`.
-     * By using a "relatively small" replacement value, we ensure that the normalized values reflect the extremity of the scaling.
      */
     SanitizeAction handle_zero = SanitizeAction::ERROR;
 
@@ -192,7 +192,7 @@ struct SanitizeSizeFactorsOptions {
  *
  * @param num Number of size factors.
  * @param[in,out] size_factors Pointer to an array of positive size factors of length `n`.
- * On output, invalid size factors are replaced.
+ * On output, invalid size factors may be replaced depending on the settings in `options`.
  * @param status A pre-computed object indicating whether invalid size factors are present in `size_factors`.
  * This can be useful if this information is already provided by, e.g., `check_size_factor_sanity()` or `center_size_factors()`.
  * @param options Further options.
