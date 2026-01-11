@@ -4,7 +4,15 @@ FetchContent_Declare(
   GIT_REPOSITORY https://github.com/libscran/scran_tests
   GIT_TAG master
 )
+
+FetchContent_Declare(
+  tatami_test
+  GIT_REPOSITORY https://github.com/tatami-inc/tatami_test
+  GIT_TAG master
+)
+
 FetchContent_MakeAvailable(scran_tests)
+FetchContent_MakeAvailable(tatami_test)
 
 enable_testing()
 
@@ -20,6 +28,7 @@ target_link_libraries(
     libtest
     scran_norm
     scran_tests
+    tatami_test
 )
 
 target_compile_options(libtest PRIVATE -Wall -Werror -Wpedantic -Wextra)

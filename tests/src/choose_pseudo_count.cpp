@@ -37,7 +37,7 @@ TEST(ChoosePseudoCount, FindQuantile) {
 TEST(ChoosePseudoCount, MoreInteresting) {
     size_t n = 99;
     auto contents = scran_tests::simulate_vector(n, []{
-        scran_tests::SimulationParameters sparams;
+        scran_tests::SimulationParameters<> sparams;
         sparams.lower = 0.2;
         sparams.upper = 2;
         sparams.seed = 10000;
