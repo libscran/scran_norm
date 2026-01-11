@@ -19,6 +19,7 @@
     <name>normalize_counts.hpp</name>
     <path>scran_norm/</path>
     <filename>normalize__counts_8hpp.html</filename>
+    <class kind="class">scran_norm::DelayedLogNormalizeHelper</class>
     <class kind="struct">scran_norm::NormalizeCountsOptions</class>
     <namespace>scran_norm</namespace>
   </compound>
@@ -80,6 +81,22 @@
       <anchorfile>structscran__norm_1_1ChoosePseudoCountOptions.html</anchorfile>
       <anchor>acc819b9b63b9f1781a8bc70173912df2</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>scran_norm::DelayedLogNormalizeHelper</name>
+    <filename>classscran__norm_1_1DelayedLogNormalizeHelper.html</filename>
+    <templarg>typename OutputValue_</templarg>
+    <templarg>typename InputValue_</templarg>
+    <templarg>typename Index_</templarg>
+    <templarg>typename SizeFactors_</templarg>
+    <base>tatami::DelayedUnaryIsometricOperationHelper&lt; OutputValue_, InputValue_, Index_ &gt;</base>
+    <member kind="function">
+      <type></type>
+      <name>DelayedLogNormalizeHelper</name>
+      <anchorfile>classscran__norm_1_1DelayedLogNormalizeHelper.html</anchorfile>
+      <anchor>ad73c23229224b3ce1ea89345401ca7a8</anchor>
+      <arglist>(SizeFactors_ size_factors, OutputValue_ log_base, OutputValue_ pseudo_count)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -183,6 +200,7 @@
     <filename>namespacescran__norm.html</filename>
     <class kind="struct">scran_norm::CenterSizeFactorsOptions</class>
     <class kind="struct">scran_norm::ChoosePseudoCountOptions</class>
+    <class kind="class">scran_norm::DelayedLogNormalizeHelper</class>
     <class kind="struct">scran_norm::NormalizeCountsOptions</class>
     <class kind="struct">scran_norm::SanitizeSizeFactorsOptions</class>
     <class kind="struct">scran_norm::SizeFactorDiagnostics</class>

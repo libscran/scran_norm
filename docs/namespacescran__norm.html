@@ -112,6 +112,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">ChoosePseudoCountOptions</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="#a37205f65b305106aeb9902b1ba4e4043">choose_pseudo_count()</a></code>.  <a href="structscran__norm_1_1ChoosePseudoCountOptions.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscran__norm_1_1DelayedLogNormalizeHelper.html">DelayedLogNormalizeHelper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for delayed log-normalization.  <a href="classscran__norm_1_1DelayedLogNormalizeHelper.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1NormalizeCountsOptions.html">NormalizeCountsOptions</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="#a141ebdc51024210f4c27902446fa4169">normalize_counts()</a></code>.  <a href="structscran__norm_1_1NormalizeCountsOptions.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -555,7 +558,7 @@ template&lt;typename OutputValue_  = double, typename InputValue_ , typename Ind
 </div><div class="memdoc">
 <p>Given a count matrix and a set of size factors, compute log-transformed normalized expression values. All operations are done in a delayed manner using the <code><a class="elRef" href="https://tatami-inc.github.io/tatami/classtatami_1_1DelayedUnaryIsometricOperation.html">tatami::DelayedUnaryIsometricOperation</a></code> class.</p>
 <p>For normalization, each cell's counts are divided by the cell's size factor to remove uninteresting scaling differences. The simplest and most common method for defining size factors is to use the centered library sizes (see <code><a class="el" href="#ae0b40602ff6f3055967e45baf6f87045">center_size_factors()</a></code> for details). This removes scaling biases caused by differences in sequencing depth, capture efficiency etc. between cells. The centering preserves the scale of the counts in the normalized expression values. That said, users can define size factors from any method of their choice (e.g., median-based normalization, TMM) as long as they are positive for all cells.</p>
-<p>Normalized values are then typically log-transformed so that differences in log-values represent log-fold changes in expression. This ensures that downstream analyses like t-tests and distance calculations focus on relative fold-changes rather than absolute differences. The log-transformation also provides some measure of variance stabilization so that the downstream analyses are not dominated by sampling noise at large counts.</p>
+<p>Normalized values are then typically log-transformed so that differences in log-values represent log-fold changes in expression. This ensures that downstream analyses like t-tests and distance calculations focus on relative fold-changes rather than absolute differences. The log-transformation also provides some measure of variance stabilization so that the downstream analyses are not dominated by sampling noise at large counts. See also <code><a class="el" href="classscran__norm_1_1DelayedLogNormalizeHelper.html" title="Helper for delayed log-normalization.">DelayedLogNormalizeHelper</a></code>, which handles the delayed calculation of the log-transformed values.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">OutputValue_</td><td>Floating-point type of the output matrix. </td></tr>
@@ -573,7 +576,7 @@ template&lt;typename OutputValue_  = double, typename InputValue_ , typename Ind
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Point to a matrix of normalized expression values. These are log-transformed if <code><a class="el" href="structscran__norm_1_1NormalizeCountsOptions.html#a69a9473da69f8b86ba73b4b800a1268b">NormalizeCountsOptions::log</a> = true</code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a matrix of normalized expression values. These are log-transformed if <code><a class="el" href="structscran__norm_1_1NormalizeCountsOptions.html#a69a9473da69f8b86ba73b4b800a1268b">NormalizeCountsOptions::log</a> = true</code>. </dd></dl>
 
 </div>
 </div>
