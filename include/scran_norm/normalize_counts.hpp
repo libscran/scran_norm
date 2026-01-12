@@ -42,7 +42,7 @@ public:
         my_base(std::log(log_base)),
         my_pseudo(pseudo_count)
     {
-        sanisizer::cast<Index_>(my_sf.size());
+        sanisizer::cast<Index_>(my_sf.size()); // check that cast is safe in ncol().
         if (my_pseudo != 1) {
             my_sparse = false;
         }
