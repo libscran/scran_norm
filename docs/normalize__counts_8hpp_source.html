@@ -122,7 +122,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        my_base(std::log(log_base)),</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        my_pseudo(pseudo_count)</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        sanisizer::cast&lt;Index_&gt;(my_sf.size());</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        sanisizer::cast&lt;Index_&gt;(my_sf.size()); <span class="comment">// check that cast is safe in ncol().</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">if</span> (my_pseudo != 1) {</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            my_sparse = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        }</div>

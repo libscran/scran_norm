@@ -132,12 +132,12 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="namespacescran__norm.html#a64768b22ec88efcc18740c760e3fbd3a">   80</a></span>SizeFactor_ <a class="code hl_function" href="namespacescran__norm.html#a64768b22ec88efcc18740c760e3fbd3a">center_size_factors_mean</a>(<span class="keyword">const</span> std::size_t num, <span class="keyword">const</span> SizeFactor_* <span class="keyword">const</span> size_factors, <a class="code hl_struct" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a>* <span class="keyword">const</span> diagnostics, <span class="keyword">const</span> <a class="code hl_struct" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a>&amp; options) {</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">static_assert</span>(std::is_floating_point&lt;SizeFactor_&gt;::value);</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    SizeFactor_ mean = 0;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">decltype</span>(I(num)) denom = 0;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    I&lt;<span class="keyword">decltype</span>(num)&gt; denom = 0;</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">if</span> (options.<a class="code hl_variable" href="structscran__norm_1_1CenterSizeFactorsOptions.html#a09be0c48d2af10b0975c95b4f4ffa6cc">ignore_invalid</a>) {</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_struct" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> tmpdiag;</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keyword">auto</span>&amp; diag = (diagnostics == NULL ? tmpdiag : *diagnostics);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">for</span> (<span class="keyword">decltype</span>(I(num)) i = 0; i &lt; num; ++i) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">for</span> (I&lt;<span class="keyword">decltype</span>(num)&gt; i = 0; i &lt; num; ++i) {</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keyword">const</span> <span class="keyword">auto</span> val = size_factors[i];</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">if</span> (!internal::is_invalid(val, diag)) {</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                mean += val;</div>
@@ -162,7 +162,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespacescran__norm.html#ae0b40602ff6f3055967e45baf6f87045">  126</a></span>SizeFactor_ <a class="code hl_function" href="namespacescran__norm.html#ae0b40602ff6f3055967e45baf6f87045">center_size_factors</a>(<span class="keyword">const</span> std::size_t num, SizeFactor_* <span class="keyword">const</span> size_factors, <a class="code hl_struct" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a>* <span class="keyword">const</span> diagnostics, <span class="keyword">const</span> <a class="code hl_struct" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a>&amp; options) {</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keyword">const</span> <span class="keyword">auto</span> mean = <a class="code hl_function" href="namespacescran__norm.html#a64768b22ec88efcc18740c760e3fbd3a">center_size_factors_mean</a>(num, size_factors, diagnostics, options);</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordflow">if</span> (mean) {</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">for</span> (<span class="keyword">decltype</span>(I(num)) i = 0; i &lt; num; ++i){</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">for</span> (I&lt;<span class="keyword">decltype</span>(num)&gt; i = 0; i &lt; num; ++i){</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            size_factors[i] /= mean;</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        }</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    }</div>
@@ -182,12 +182,12 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keyword">static_assert</span>(std::is_floating_point&lt;SizeFactor_&gt;::value);</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keyword">const</span> <span class="keyword">auto</span> ngroups = tatami_stats::total_groups(block, num);</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keyword">auto</span> group_mean = sanisizer::create&lt;std::vector&lt;SizeFactor_&gt; &gt;(ngroups);</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keyword">auto</span> group_num = sanisizer::create&lt;std::vector&lt;<span class="keyword">decltype</span>(I(num))&gt; &gt;(ngroups);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keyword">auto</span> group_num = sanisizer::create&lt;std::vector&lt;I&lt;<span class="keyword">decltype</span>(num)&gt;&gt; &gt;(ngroups);</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordflow">if</span> (options.<a class="code hl_variable" href="structscran__norm_1_1CenterSizeFactorsOptions.html#a09be0c48d2af10b0975c95b4f4ffa6cc">ignore_invalid</a>) {</div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <a class="code hl_struct" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> tmpdiag;</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keyword">auto</span>&amp; diag = (diagnostics == NULL ? tmpdiag : *diagnostics);</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordflow">for</span> (<span class="keyword">decltype</span>(I(num)) i = 0; i &lt; num; ++i) {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordflow">for</span> (I&lt;<span class="keyword">decltype</span>(num)&gt; i = 0; i &lt; num; ++i) {</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keyword">const</span> <span class="keyword">auto</span> val = size_factors[i];</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            <span class="keywordflow">if</span> (!internal::is_invalid(val, diag)) {</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                <span class="keyword">const</span> <span class="keyword">auto</span> b = block[i];</div>
@@ -196,14 +196,14 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            }</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        }</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordflow">for</span> (<span class="keyword">decltype</span>(I(num)) i = 0; i &lt; num; ++i) {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordflow">for</span> (I&lt;<span class="keyword">decltype</span>(num)&gt; i = 0; i &lt; num; ++i) {</div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <span class="keyword">const</span> <span class="keyword">auto</span> b = block[i];</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            group_mean[b] += size_factors[i];</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            ++(group_num[b]);</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        }</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">for</span> (<span class="keyword">decltype</span>(I(ngroups)) g = 0; g &lt; ngroups; ++g) {</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">for</span> (I&lt;<span class="keyword">decltype</span>(ngroups)&gt; g = 0; g &lt; ngroups; ++g) {</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordflow">if</span> (group_num[g]) {</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            group_mean[g] /= group_num[g];</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        }</div>
@@ -225,7 +225,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keyword">const</span> <span class="keyword">auto</span> group_mean = <a class="code hl_function" href="namespacescran__norm.html#a8537dadb0f8b98ccec77a87d44b1b1b1">center_size_factors_blocked_mean</a>(num, size_factors, block, diagnostics, options);</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordflow">if</span> (options.<a class="code hl_variable" href="structscran__norm_1_1CenterSizeFactorsOptions.html#a03777fea5bdfc1f386a60a88470e3422">block_mode</a> == CenterBlockMode::PER_BLOCK) {</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">for</span> (<span class="keyword">decltype</span>(I(num)) i = 0; i &lt; num; ++i) {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">for</span> (I&lt;<span class="keyword">decltype</span>(num)&gt; i = 0; i &lt; num; ++i) {</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; div = group_mean[block[i]];</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            <span class="keywordflow">if</span> (div) {</div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                size_factors[i] /= div;</div>
@@ -247,7 +247,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        }</div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        <span class="keywordflow">if</span> (min &gt; 0) {</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            <span class="keywordflow">for</span> (<span class="keyword">decltype</span>(I(num)) i = 0; i &lt; num; ++i) {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            <span class="keywordflow">for</span> (I&lt;<span class="keyword">decltype</span>(num)&gt; i = 0; i &lt; num; ++i) {</div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                size_factors[i] /= min;</div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            }</div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        }</div>
