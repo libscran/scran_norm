@@ -8,6 +8,19 @@
 
 #include "scran_norm/normalize_counts.hpp"
 
+template<typename Float_>
+std::vector<Float_> reciprocate_size_factors(std::vector<Float_> size_factors) {
+    for (auto& r : size_factors) {
+        r = 1.0 / r;
+    }
+    return size_factors;
+}
+
+template<typename Float_>
+Float_ reciprocate_base(Float_ base) {
+    return 1.0 / std::log(base);
+}
+
 typedef std::tuple<double, double> HelperSimulationOptions;
 
 class DelayedLogNormalizeHelperTest : public ::testing::TestWithParam<std::tuple<HelperSimulationOptions, tatami_test::StandardTestAccessOptions> > {
@@ -46,18 +59,16 @@ protected:
         auto dense = std::make_shared<tatami::DenseMatrix<double, int, decltype(vec)> >(NR, NC, vec, true); // row major
         auto sparse = tatami::convert_to_compressed_sparse<double, int>(*dense, false, {}); // column major.
 
-        auto op = std::make_shared<scran_norm::DelayedLogNormalizeHelper<double, double, int, decltype(size_factors)> >(size_factors, log_base, pseudo_count);
+        auto recip_sf = reciprocate_size_factors(size_factors);
+        auto op = std::make_shared<scran_norm::DelayedLogNormalizeHelper<double, double, int, decltype(recip_sf)> >(recip_sf, log_base, pseudo_count);
         dense_mod = std::make_shared<tatami::DelayedUnaryIsometricOperation<double, double, int> >(std::move(dense), op);
         sparse_mod = std::make_shared<tatami::DelayedUnaryIsometricOperation<double, double, int> >(std::move(sparse), op);
 
+        const double recip_base = reciprocate_base(log_base);
         for (int r = 0; r < NR; ++r) {
             for (int c = 0; c < NC; ++c) {
                 const auto offset = sanisizer::nd_offset<std::size_t>(c, NC, r);
-                if (pseudo_count == 1) {
-                    vec[offset] = std::log1p(vec[offset] / size_factors[c]) / std::log(log_base);
-                } else {
-                    vec[offset] = std::log(vec[offset] / size_factors[c] + pseudo_count) / std::log(log_base);
-                }
+                vec[offset] = std::log(vec[offset] * recip_sf[c] + pseudo_count) * recip_base;
             }
         }
         ref.reset(new tatami::DenseMatrix<double, int, decltype(vec)>(NR, NC, std::move(vec), true));
@@ -136,16 +147,18 @@ TEST(DelayedLogNormalizeHelper, AnyZero) {
     auto dense = std::make_shared<tatami::DenseMatrix<double, int, decltype(vec)> >(NR, NC, vec, true); // row major
     auto sparse = tatami::convert_to_compressed_sparse<double, int>(*dense, false, {}); // column major.
 
-    auto op = std::make_shared<scran_norm::DelayedLogNormalizeHelper<double, double, int, decltype(size_factors)> >(size_factors, 2.0, 1.0);
+    auto recip_sf = reciprocate_size_factors(size_factors);
+    auto op = std::make_shared<scran_norm::DelayedLogNormalizeHelper<double, double, int, decltype(recip_sf)> >(recip_sf, 2.0, 1.0);
     auto dense_mod = std::make_shared<tatami::DelayedUnaryIsometricOperation<double, double, int> >(std::move(dense), op);
     EXPECT_FALSE(dense_mod->is_sparse());
     auto sparse_mod = std::make_shared<tatami::DelayedUnaryIsometricOperation<double, double, int> >(std::move(sparse), op);
     EXPECT_FALSE(sparse_mod->is_sparse());
 
+    auto recip_base = reciprocate_base(2.0);
     for (int r = 0; r < NR; ++r) {
         for (int c = 0; c < NC; ++c) {
             const auto offset = sanisizer::nd_offset<std::size_t>(c, NC, r);
-            vec[offset] = std::log1p(vec[offset] / size_factors[c]) / std::log(2.0);
+            vec[offset] = std::log(vec[offset] * recip_sf[c] + 1.0) * recip_base;
         }
     }
     tatami::DenseMatrix<double, int, decltype(vec)> ref(NR, NC, std::move(vec), true);
@@ -180,17 +193,19 @@ TEST(DelayedLogNormalizeHelper, OtherTypes) {
     auto dense = std::make_shared<tatami::DenseMatrix<int, int, decltype(vec)> >(NR, NC, vec, true); // row major
     auto sparse = tatami::convert_to_compressed_sparse<int, int>(*dense, false, {}); // column major.
 
-    auto op = std::make_shared<scran_norm::DelayedLogNormalizeHelper<double, int, int, decltype(size_factors)> >(size_factors, 2.0, 1.0);
+    auto recip_sf = reciprocate_size_factors(size_factors);
+    auto op = std::make_shared<scran_norm::DelayedLogNormalizeHelper<double, int, int, decltype(recip_sf)> >(recip_sf, 2.0, 1.0);
     auto dense_mod = std::make_shared<tatami::DelayedUnaryIsometricOperation<double, int, int> >(std::move(dense), op);
     auto sparse_mod = std::make_shared<tatami::DelayedUnaryIsometricOperation<double, int, int> >(std::move(sparse), op);
     EXPECT_FALSE(dense_mod->is_sparse());
     EXPECT_TRUE(sparse_mod->is_sparse());
 
+    auto recip_base = reciprocate_base(2.0);
     std::vector<double> refvec(vec.size());
     for (int r = 0; r < NR; ++r) {
         for (int c = 0; c < NC; ++c) {
             const auto offset = sanisizer::nd_offset<std::size_t>(c, NC, r);
-            refvec[offset] = std::log1p(vec[offset] / size_factors[c]) / std::log(2.0);
+            refvec[offset] = std::log(vec[offset] * recip_sf[c] + 1.0) * recip_base;
         }
     }
     tatami::DenseMatrix<double, int, decltype(refvec)> ref(NR, NC, std::move(refvec), true);
