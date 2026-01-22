@@ -89,14 +89,14 @@
     <templarg>typename OutputValue_</templarg>
     <templarg>typename InputValue_</templarg>
     <templarg>typename Index_</templarg>
-    <templarg>typename SizeFactors_</templarg>
+    <templarg>typename ReciprocalSizeFactors_</templarg>
     <base>tatami::DelayedUnaryIsometricOperationHelper&lt; OutputValue_, InputValue_, Index_ &gt;</base>
     <member kind="function">
       <type></type>
       <name>DelayedLogNormalizeHelper</name>
       <anchorfile>classscran__norm_1_1DelayedLogNormalizeHelper.html</anchorfile>
-      <anchor>ad73c23229224b3ce1ea89345401ca7a8</anchor>
-      <arglist>(SizeFactors_ size_factors, OutputValue_ log_base, OutputValue_ pseudo_count)</arglist>
+      <anchor>afda033fbeb0d3fe4bf2ca3c4261c0d94</anchor>
+      <arglist>(ReciprocalSizeFactors_ reciprocal_size_factors, OutputValue_ log_base, OutputValue_ pseudo_count)</arglist>
     </member>
   </compound>
   <compound kind="struct">

@@ -4,7 +4,7 @@ var searchData=
   ['delayedbinaryisometricoperation_1',['DelayedBinaryIsometricOperation',['https://tatami-inc.github.io/tatami/classtatami_1_1DelayedBinaryIsometricOperation.html#a5b0f8bebfa5797832b258190bffc2a2f',1,'tatami::DelayedBinaryIsometricOperation']]],
   ['delayedbind_2',['DelayedBind',['https://tatami-inc.github.io/tatami/classtatami_1_1DelayedBind.html#a22b479c99b6034cfcab73bf05f03cc91',1,'tatami::DelayedBind']]],
   ['delayedcast_3',['DelayedCast',['https://tatami-inc.github.io/tatami/classtatami_1_1DelayedCast.html#a1fc5fdee58e8f23353c8fd73ef87001e',1,'tatami::DelayedCast']]],
-  ['delayedlognormalizehelper_4',['DelayedLogNormalizeHelper',['../classscran__norm_1_1DelayedLogNormalizeHelper.html#ad73c23229224b3ce1ea89345401ca7a8',1,'scran_norm::DelayedLogNormalizeHelper']]],
+  ['delayedlognormalizehelper_4',['DelayedLogNormalizeHelper',['../classscran__norm_1_1DelayedLogNormalizeHelper.html#afda033fbeb0d3fe4bf2ca3c4261c0d94',1,'scran_norm::DelayedLogNormalizeHelper']]],
   ['delayedsubset_5',['DelayedSubset',['https://tatami-inc.github.io/tatami/classtatami_1_1DelayedSubset.html#a77334620bba4e1536846d8501ff90e91',1,'tatami::DelayedSubset']]],
   ['delayedsubsetblock_6',['DelayedSubsetBlock',['https://tatami-inc.github.io/tatami/classtatami_1_1DelayedSubsetBlock.html#a5e0d013c4da863bae0dc93c92109f9c6',1,'tatami::DelayedSubsetBlock']]],
   ['delayedsubsetsorted_7',['DelayedSubsetSorted',['https://tatami-inc.github.io/tatami/classtatami_1_1DelayedSubsetSorted.html#a4d471bd695837386c7b6b4dded613cd5',1,'tatami::DelayedSubsetSorted']]],
