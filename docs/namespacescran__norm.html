@@ -151,9 +151,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a21e07ff4768b277f66109b0983190c53" id="r_a21e07ff4768b277f66109b0983190c53"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ , typename Block_ &gt; </td></tr>
 <tr class="memitem:a21e07ff4768b277f66109b0983190c53"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; SizeFactor_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a21e07ff4768b277f66109b0983190c53">center_size_factors_blocked</a> (const std::size_t num, SizeFactor_ *const size_factors, const Block_ *const block, <a class="el" href="structscran__norm_1_1SizeFactorDiagnostics.html">SizeFactorDiagnostics</a> *const diagnostics, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a> &amp;options)</td></tr>
 <tr class="separator:a21e07ff4768b277f66109b0983190c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a623bf6b4aed9b0f05f0b85a44962205a" id="r_a623bf6b4aed9b0f05f0b85a44962205a"><td class="memTemplParams" colspan="2">template&lt;typename Float_ &gt; </td></tr>
-<tr class="memitem:a623bf6b4aed9b0f05f0b85a44962205a"><td class="memTemplItemLeft" align="right" valign="top">Float_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a623bf6b4aed9b0f05f0b85a44962205a">choose_pseudo_count_raw</a> (std::size_t num, Float_ *const size_factors, const <a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">ChoosePseudoCountOptions</a> &amp;options)</td></tr>
-<tr class="separator:a623bf6b4aed9b0f05f0b85a44962205a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dd11205d7cc41b69a8f9fbc16d3081b" id="r_a9dd11205d7cc41b69a8f9fbc16d3081b"><td class="memTemplParams" colspan="2">template&lt;typename Float_ &gt; </td></tr>
+<tr class="memitem:a9dd11205d7cc41b69a8f9fbc16d3081b"><td class="memTemplItemLeft" align="right" valign="top">Float_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9dd11205d7cc41b69a8f9fbc16d3081b">choose_pseudo_count_raw</a> (const std::size_t num, Float_ *const size_factors, const <a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">ChoosePseudoCountOptions</a> &amp;options)</td></tr>
+<tr class="separator:a9dd11205d7cc41b69a8f9fbc16d3081b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37205f65b305106aeb9902b1ba4e4043" id="r_a37205f65b305106aeb9902b1ba4e4043"><td class="memTemplParams" colspan="2">template&lt;typename Float_ &gt; </td></tr>
 <tr class="memitem:a37205f65b305106aeb9902b1ba4e4043"><td class="memTemplItemLeft" align="right" valign="top">Float_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a37205f65b305106aeb9902b1ba4e4043">choose_pseudo_count</a> (const std::size_t num, const Float_ *const size_factors, const <a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">ChoosePseudoCountOptions</a> &amp;options)</td></tr>
 <tr class="separator:a37205f65b305106aeb9902b1ba4e4043"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -439,8 +439,8 @@ template&lt;typename SizeFactor_ , typename Block_ &gt; </div>
 
 </div>
 </div>
-<a id="a623bf6b4aed9b0f05f0b85a44962205a" name="a623bf6b4aed9b0f05f0b85a44962205a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a623bf6b4aed9b0f05f0b85a44962205a">&#9670;&#160;</a></span>choose_pseudo_count_raw()</h2>
+<a id="a9dd11205d7cc41b69a8f9fbc16d3081b" name="a9dd11205d7cc41b69a8f9fbc16d3081b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dd11205d7cc41b69a8f9fbc16d3081b">&#9670;&#160;</a></span>choose_pseudo_count_raw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -450,7 +450,7 @@ template&lt;typename Float_ &gt; </div>
         <tr>
           <td class="memname">Float_ scran_norm::choose_pseudo_count_raw </td>
           <td>(</td>
-          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>num</em></span>, </td>
+          <td class="paramtype">const std::size_t</td>          <td class="paramname"><span class="paramname"><em>num</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -512,7 +512,7 @@ template&lt;typename Float_ &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function just wraps <code><a class="el" href="#a623bf6b4aed9b0f05f0b85a44962205a">choose_pseudo_count_raw()</a></code> with the automatic creation of a writeable buffer for the size factors.</p>
+<p>This function just wraps <code><a class="el" href="#a9dd11205d7cc41b69a8f9fbc16d3081b">choose_pseudo_count_raw()</a></code> with the automatic creation of a writeable buffer for the size factors.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Float_</td><td>Floating-point type of the size factors.</td></tr>
