@@ -14,7 +14,7 @@ var searchData=
   ['check_5fsize_5ffactor_5fsanity_11',['check_size_factor_sanity',['../namespacescran__norm.html#a80034f4d92ab790c59098c46b5d4f1b2',1,'scran_norm']]],
   ['choose_5fpseudo_5fcount_12',['choose_pseudo_count',['../namespacescran__norm.html#a37205f65b305106aeb9902b1ba4e4043',1,'scran_norm']]],
   ['choose_5fpseudo_5fcount_2ehpp_13',['choose_pseudo_count.hpp',['../choose__pseudo__count_8hpp.html',1,'']]],
-  ['choose_5fpseudo_5fcount_5fraw_14',['choose_pseudo_count_raw',['../namespacescran__norm.html#a9dd11205d7cc41b69a8f9fbc16d3081b',1,'scran_norm']]],
+  ['choose_5fpseudo_5fcount_5fraw_14',['choose_pseudo_count_raw',['../namespacescran__norm.html#a623bf6b4aed9b0f05f0b85a44962205a',1,'scran_norm']]],
   ['choosepseudocountoptions_15',['ChoosePseudoCountOptions',['../structscran__norm_1_1ChoosePseudoCountOptions.html',1,'scran_norm']]],
   ['compare_5fhelpers_2ehpp_16',['compare_helpers.hpp',['https://tatami-inc.github.io/tatami/binary_2compare__helpers_8hpp.html',1,'(Global Namespace)'],['https://tatami-inc.github.io/tatami/unary_2compare__helpers_8hpp.html',1,'(Global Namespace)']]],
   ['compare_5futils_2ehpp_17',['compare_utils.hpp',['https://tatami-inc.github.io/tatami/compare__utils_8hpp.html',1,'']]],
