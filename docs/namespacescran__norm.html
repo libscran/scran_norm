@@ -321,7 +321,7 @@ template&lt;typename SizeFactor_ &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The mean size factor. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The mean of the size factors that was used to scale <code>size_factors</code>. </dd></dl>
 
 </div>
 </div>
@@ -378,7 +378,11 @@ template&lt;typename SizeFactor_ , typename Block_ &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Vector of length \(N\) containing the mean size factor for each block, to be used to scale the size factors in each block. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of length \(N\) containing the mean size factor for each block, to be used to scale the size factors. The exact scaling strategy depends on the choice of <code><a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html#a03777fea5bdfc1f386a60a88470e3422">CenterSizeFactorsOptions::block_mode</a></code>:</dd></dl>
+<ul>
+<li>For <code>CenterBlockMode::PER_BLOCK</code>, each size factor should be scaled by the mean of its corresponding block.</li>
+<li>For <code>CenterBlockMode::LOWEST</code>, all size factors should be scaled by the lowest mean across all blocks. </li>
+</ul>
 
 </div>
 </div>
@@ -435,7 +439,11 @@ template&lt;typename SizeFactor_ , typename Block_ &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Vector of length \(N\) containing the mean size factor for each block. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of length \(N\) containing the mean size factor for each block, used to scale <code>size_factors</code> on output. The exact scaling strategy depends on the choice of <code><a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html#a03777fea5bdfc1f386a60a88470e3422">CenterSizeFactorsOptions::block_mode</a></code>:</dd></dl>
+<ul>
+<li>For <code>CenterBlockMode::PER_BLOCK</code>, each size factor was scaled by the mean of its corresponding block.</li>
+<li>For <code>CenterBlockMode::LOWEST</code>, all size factors were scaled by the lowest mean across all blocks. </li>
+</ul>
 
 </div>
 </div>
