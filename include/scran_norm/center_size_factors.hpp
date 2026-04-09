@@ -120,7 +120,7 @@ SizeFactor_ center_size_factors_mean(const std::size_t num, const SizeFactor_* c
  * It can also be `NULL`, in which case it is ignored.
  * @param options Further options.
  *
- * @return The mean size factor.
+ * @return The mean of the size factors that was used to scale `size_factors`.
  */
 template<typename SizeFactor_>
 SizeFactor_ center_size_factors(const std::size_t num, SizeFactor_* const size_factors, SizeFactorDiagnostics* const diagnostics, const CenterSizeFactorsOptions& options) {
@@ -149,8 +149,11 @@ SizeFactor_ center_size_factors(const std::size_t num, SizeFactor_* const size_f
  * It can also be `NULL`, in which case it is ignored.
  * @param options Further options.
  *
- * @return Vector of length \f$N\f$ containing the mean size factor for each block,
- * to be used to scale the size factors in each block.
+ * @return Vector of length \f$N\f$ containing the mean size factor for each block, to be used to scale the size factors.
+ * The exact scaling strategy depends on the choice of `CenterSizeFactorsOptions::block_mode`:
+ *
+ * - For `CenterBlockMode::PER_BLOCK`, each size factor should be scaled by the mean of its corresponding block.
+ * - For `CenterBlockMode::LOWEST`, all size factors should be scaled by the lowest mean across all blocks.
  */
 template<typename SizeFactor_, typename Block_>
 std::vector<SizeFactor_> center_size_factors_blocked_mean(
@@ -210,7 +213,11 @@ std::vector<SizeFactor_> center_size_factors_blocked_mean(
  * It can also be NULL, in which case it is ignored.
  * @param options Further options.
  *
- * @return Vector of length \f$N\f$ containing the mean size factor for each block.
+ * @return Vector of length \f$N\f$ containing the mean size factor for each block, used to scale `size_factors` on output.
+ * The exact scaling strategy depends on the choice of `CenterSizeFactorsOptions::block_mode`:
+ *
+ * - For `CenterBlockMode::PER_BLOCK`, each size factor was scaled by the mean of its corresponding block.
+ * - For `CenterBlockMode::LOWEST`, all size factors were scaled by the lowest mean across all blocks.
  */
 template<typename SizeFactor_, typename Block_>
 std::vector<SizeFactor_> center_size_factors_blocked(
