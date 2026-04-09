@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['ignore_5finvalid_0',['ignore_invalid',['../structscran__norm_1_1CenterSizeFactorsOptions.html#a09be0c48d2af10b0975c95b4f4ffa6cc',1,'scran_norm::CenterSizeFactorsOptions']]],
+  ['ignore_5finvalid_0',['ignore_invalid',['../structscran__norm_1_1ComputeMeanSizeFactorOptions.html#a5f1d2ca0728cc73f406acddcdc5c9f63',1,'scran_norm::ComputeMeanSizeFactorOptions::ignore_invalid'],['../structscran__norm_1_1CenterSizeFactorsOptions.html#a09be0c48d2af10b0975c95b4f4ffa6cc',1,'scran_norm::CenterSizeFactorsOptions::ignore_invalid'],['../structscran__norm_1_1CenterSizeFactorsBlockedOptions.html#ac2d6fe94f34c91c48b18eb52013fbad3',1,'scran_norm::CenterSizeFactorsBlockedOptions::ignore_invalid']]],
   ['index_1',['index',['https://tatami-inc.github.io/tatami/structtatami_1_1CompressedSparseContents.html#a5b30cd6415c0e3cfd91b31590f16bc58',1,'tatami::CompressedSparseContents::index'],['https://tatami-inc.github.io/tatami/structtatami_1_1FragmentedSparseContents.html#a8c1a2bebb066b64451576dc356877091',1,'tatami::FragmentedSparseContents::index'],['https://tatami-inc.github.io/tatami/structtatami_1_1SparseRange.html#af61bafe43fadb90cee6162ac79bfdd3d',1,'tatami::SparseRange::index']]],
   ['index_5fto_5fcontainer_2ehpp_2',['Index_to_container.hpp',['https://tatami-inc.github.io/tatami/Index__to__container_8hpp.html',1,'']]],
   ['index_5ftype_3',['index_type',['https://tatami-inc.github.io/tatami/classtatami_1_1Matrix.html#a7575110444f4b58efcf0fb1a1060541c',1,'tatami::Matrix']]],

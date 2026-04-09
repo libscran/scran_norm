@@ -5,7 +5,9 @@
     <path>scran_norm/</path>
     <filename>center__size__factors_8hpp.html</filename>
     <includes id="sanitize__size__factors_8hpp" name="sanitize_size_factors.hpp" local="yes" import="no" module="no" objc="no">sanitize_size_factors.hpp</includes>
+    <class kind="struct">scran_norm::ComputeMeanSizeFactorOptions</class>
     <class kind="struct">scran_norm::CenterSizeFactorsOptions</class>
+    <class kind="struct">scran_norm::CenterSizeFactorsBlockedOptions</class>
     <namespace>scran_norm</namespace>
   </compound>
   <compound kind="file">
@@ -41,20 +43,73 @@
     <namespace>scran_norm</namespace>
   </compound>
   <compound kind="struct">
-    <name>scran_norm::CenterSizeFactorsOptions</name>
-    <filename>structscran__norm_1_1CenterSizeFactorsOptions.html</filename>
+    <name>scran_norm::CenterSizeFactorsBlockedOptions</name>
+    <filename>structscran__norm_1_1CenterSizeFactorsBlockedOptions.html</filename>
+    <member kind="variable">
+      <type>bool</type>
+      <name>ignore_invalid</name>
+      <anchorfile>structscran__norm_1_1CenterSizeFactorsBlockedOptions.html</anchorfile>
+      <anchor>ac2d6fe94f34c91c48b18eb52013fbad3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>SizeFactorDiagnostics *</type>
+      <name>diagnostics</name>
+      <anchorfile>structscran__norm_1_1CenterSizeFactorsBlockedOptions.html</anchorfile>
+      <anchor>ae500637d1e5287f08067adc30b21d316</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="variable">
       <type>CenterBlockMode</type>
       <name>block_mode</name>
-      <anchorfile>structscran__norm_1_1CenterSizeFactorsOptions.html</anchorfile>
-      <anchor>a03777fea5bdfc1f386a60a88470e3422</anchor>
+      <anchorfile>structscran__norm_1_1CenterSizeFactorsBlockedOptions.html</anchorfile>
+      <anchor>a1f4f48369ecd42c68133beb469af8d23</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable">
+      <type>std::optional&lt; std::vector&lt; double &gt; &gt;</type>
+      <name>custom_centers</name>
+      <anchorfile>structscran__norm_1_1CenterSizeFactorsBlockedOptions.html</anchorfile>
+      <anchor>a1dd3a6c3050f3d7b6f7b6f0d7ab2b458</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>report_final</name>
+      <anchorfile>structscran__norm_1_1CenterSizeFactorsBlockedOptions.html</anchorfile>
+      <anchor>af405df200388a16da7499e39287ca76f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>scran_norm::CenterSizeFactorsOptions</name>
+    <filename>structscran__norm_1_1CenterSizeFactorsOptions.html</filename>
     <member kind="variable">
       <type>bool</type>
       <name>ignore_invalid</name>
       <anchorfile>structscran__norm_1_1CenterSizeFactorsOptions.html</anchorfile>
       <anchor>a09be0c48d2af10b0975c95b4f4ffa6cc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>center</name>
+      <anchorfile>structscran__norm_1_1CenterSizeFactorsOptions.html</anchorfile>
+      <anchor>a2dfa25bb5094e18b536180a27efed78b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>SizeFactorDiagnostics *</type>
+      <name>diagnostics</name>
+      <anchorfile>structscran__norm_1_1CenterSizeFactorsOptions.html</anchorfile>
+      <anchor>a3201cbdb4dccf6a151c9cfa93f2f3950</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>report_final</name>
+      <anchorfile>structscran__norm_1_1CenterSizeFactorsOptions.html</anchorfile>
+      <anchor>a260b0a1709fc79318ea1b16b81e11abe</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -80,6 +135,24 @@
       <name>min_value</name>
       <anchorfile>structscran__norm_1_1ChoosePseudoCountOptions.html</anchorfile>
       <anchor>acc819b9b63b9f1781a8bc70173912df2</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>scran_norm::ComputeMeanSizeFactorOptions</name>
+    <filename>structscran__norm_1_1ComputeMeanSizeFactorOptions.html</filename>
+    <member kind="variable">
+      <type>bool</type>
+      <name>ignore_invalid</name>
+      <anchorfile>structscran__norm_1_1ComputeMeanSizeFactorOptions.html</anchorfile>
+      <anchor>a5f1d2ca0728cc73f406acddcdc5c9f63</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>SizeFactorDiagnostics *</type>
+      <name>diagnostics</name>
+      <anchorfile>structscran__norm_1_1ComputeMeanSizeFactorOptions.html</anchorfile>
+      <anchor>aa107dbf4abb80fc9ffa76e3df36cee15</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -198,8 +271,10 @@
   <compound kind="namespace">
     <name>scran_norm</name>
     <filename>namespacescran__norm.html</filename>
+    <class kind="struct">scran_norm::CenterSizeFactorsBlockedOptions</class>
     <class kind="struct">scran_norm::CenterSizeFactorsOptions</class>
     <class kind="struct">scran_norm::ChoosePseudoCountOptions</class>
+    <class kind="struct">scran_norm::ComputeMeanSizeFactorOptions</class>
     <class kind="class">scran_norm::DelayedLogNormalizeHelper</class>
     <class kind="struct">scran_norm::NormalizeCountsOptions</class>
     <class kind="struct">scran_norm::SanitizeSizeFactorsOptions</class>
@@ -212,6 +287,7 @@
       <arglist></arglist>
       <enumvalue file="namespacescran__norm.html" anchor="a47460312428a74877116e789da012abaa9e73aef66b430ace3684865eb71cbbf3">PER_BLOCK</enumvalue>
       <enumvalue file="namespacescran__norm.html" anchor="a47460312428a74877116e789da012abaa664626f39fdbfdb9cfe98285a9e161f9">LOWEST</enumvalue>
+      <enumvalue file="namespacescran__norm.html" anchor="a47460312428a74877116e789da012abaa72baef04098f035e8a320b03ad197818">CUSTOM</enumvalue>
     </member>
     <member kind="enumeration">
       <type></type>
@@ -225,31 +301,31 @@
     </member>
     <member kind="function">
       <type>SizeFactor_</type>
-      <name>center_size_factors_mean</name>
+      <name>compute_mean_size_factor</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a64768b22ec88efcc18740c760e3fbd3a</anchor>
-      <arglist>(const std::size_t num, const SizeFactor_ *const size_factors, SizeFactorDiagnostics *const diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
+      <anchor>a2a0ccb0eeba9237de5e8ece098ca2c0b</anchor>
+      <arglist>(const std::size_t num, const SizeFactor_ *const size_factors, const ComputeMeanSizeFactorOptions &amp;options)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; SizeFactor_ &gt;</type>
+      <name>compute_mean_size_factor_blocked</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>a266b155f68a08800be9f8425240ac389</anchor>
+      <arglist>(const std::size_t num, const SizeFactor_ *const size_factors, const Block_ *const block, const ComputeMeanSizeFactorOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>SizeFactor_</type>
       <name>center_size_factors</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>ae0b40602ff6f3055967e45baf6f87045</anchor>
-      <arglist>(const std::size_t num, SizeFactor_ *const size_factors, SizeFactorDiagnostics *const diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::vector&lt; SizeFactor_ &gt;</type>
-      <name>center_size_factors_blocked_mean</name>
-      <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a8537dadb0f8b98ccec77a87d44b1b1b1</anchor>
-      <arglist>(const std::size_t num, const SizeFactor_ *const size_factors, const Block_ *const block, SizeFactorDiagnostics *const diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
+      <anchor>a5a67f0b3d67afd9554796e104b98119a</anchor>
+      <arglist>(const std::size_t num, SizeFactor_ *const size_factors, const CenterSizeFactorsOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; SizeFactor_ &gt;</type>
       <name>center_size_factors_blocked</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a21e07ff4768b277f66109b0983190c53</anchor>
-      <arglist>(const std::size_t num, SizeFactor_ *const size_factors, const Block_ *const block, SizeFactorDiagnostics *const diagnostics, const CenterSizeFactorsOptions &amp;options)</arglist>
+      <anchor>a2abf50b10e70fdd473e4ab9d3528ab94</anchor>
+      <arglist>(const std::size_t num, SizeFactor_ *const size_factors, const Block_ *const block, const CenterSizeFactorsBlockedOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>Float_</type>

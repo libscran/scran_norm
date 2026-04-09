@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['two_5fpass_0',['two_pass',['https://tatami-inc.github.io/tatami/structtatami_1_1ConvertToCompressedSparseOptions.html#a216570deaa038bcf3edfd6acd3daa9f1',1,'tatami::ConvertToCompressedSparseOptions::two_pass'],['https://tatami-inc.github.io/tatami/structtatami_1_1RetrieveCompressedSparseContentsOptions.html#a6e8d3d669e760e0b640f085b519a49f3',1,'tatami::RetrieveCompressedSparseContentsOptions::two_pass']]]
+  ['report_5ffinal_0',['report_final',['../structscran__norm_1_1CenterSizeFactorsOptions.html#a260b0a1709fc79318ea1b16b81e11abe',1,'scran_norm::CenterSizeFactorsOptions::report_final'],['../structscran__norm_1_1CenterSizeFactorsBlockedOptions.html#af405df200388a16da7499e39287ca76f',1,'scran_norm::CenterSizeFactorsBlockedOptions::report_final']]]
 ];
