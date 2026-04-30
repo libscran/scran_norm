@@ -21,6 +21,7 @@ add_executable(
     src/normalize_counts.cpp
     src/sanitize_size_factors.cpp
     src/center_size_factors.cpp
+    src/center_spike_in_factors.cpp
     src/choose_pseudo_count.cpp
 )
 
