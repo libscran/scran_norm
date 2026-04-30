@@ -1,0 +1,28 @@
+<map id="scran_norm/center_spike_in_factors.hpp" name="scran_norm/center_spike_in_factors.hpp">
+<area shape="rect" id="Node000001" title="Center size factors for endogenous genes and spike&#45;in transcripts." alt="" coords="536,5,703,46"/>
+<area shape="rect" id="Node000002" href="$center__size__factors_8hpp.html" title="Center size factors prior to scaling normalization." alt="" coords="316,94,474,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="564,49,445,91,443,86,563,44"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="758,256,827,282"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="663,44,699,65,737,92,772,126,799,167,805,185,807,205,803,242,798,241,802,205,800,186,794,169,768,129,733,96,696,69,661,49"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,175,63,201"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="316,120,201,139,76,170,72,172,71,166,75,165,200,134,315,115"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="87,175,154,201"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="340,123,258,143,167,170,163,172,161,167,165,165,256,138,339,118"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="178,175,252,201"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="369,123,258,171,255,166,367,118"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="276,175,357,201"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="385,122,341,166,337,162,382,118"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="424,256,489,282"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="400,120,408,159,423,207,442,242,437,245,418,209,403,161,395,121"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="433,168,566,208"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="413,118,463,156,460,160,410,122"/>
+<area shape="rect" id="Node000009" href="$sanitize__size__factors_8hpp.html" title="Sanitize invalid size factors." alt="" coords="590,175,756,201"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="439,118,616,168,615,173,437,123"/>
+<area shape="poly" id="edge13_Node000002_Node000012" title=" " alt="" coords="475,108,556,114,642,124,718,141,748,152,769,166,782,182,790,202,796,240,791,241,785,203,777,185,766,170,746,157,717,146,641,129,555,119,475,114"/>
+<area shape="poly" id="edge11_Node000009_Node000007" title=" " alt="" coords="640,204,504,253,503,248,638,199"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="563,256,620,282"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="662,203,617,247,613,243,658,199"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="645,256,722,282"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="677,201,682,241,677,241,672,202"/>
+<area shape="poly" id="edge12_Node000009_Node000012" title=" " alt="" coords="692,199,763,246,761,250,689,203"/>
+</map>

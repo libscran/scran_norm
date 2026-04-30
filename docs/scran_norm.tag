@@ -11,6 +11,15 @@
     <namespace>scran_norm</namespace>
   </compound>
   <compound kind="file">
+    <name>center_spike_in_factors.hpp</name>
+    <path>scran_norm/</path>
+    <filename>center__spike__in__factors_8hpp.html</filename>
+    <includes id="center__size__factors_8hpp" name="center_size_factors.hpp" local="yes" import="no" module="no" objc="no">center_size_factors.hpp</includes>
+    <class kind="struct">scran_norm::CenterSpikeInFactorsOptions</class>
+    <class kind="struct">scran_norm::CenterSpikeInFactorsBlockedOptions</class>
+    <namespace>scran_norm</namespace>
+  </compound>
+  <compound kind="file">
     <name>choose_pseudo_count.hpp</name>
     <path>scran_norm/</path>
     <filename>choose__pseudo__count_8hpp.html</filename>
@@ -38,6 +47,7 @@
     <path>scran_norm/</path>
     <filename>scran__norm_8hpp.html</filename>
     <includes id="center__size__factors_8hpp" name="center_size_factors.hpp" local="yes" import="no" module="no" objc="no">center_size_factors.hpp</includes>
+    <includes id="center__spike__in__factors_8hpp" name="center_spike_in_factors.hpp" local="yes" import="no" module="no" objc="no">center_spike_in_factors.hpp</includes>
     <includes id="choose__pseudo__count_8hpp" name="choose_pseudo_count.hpp" local="yes" import="no" module="no" objc="no">choose_pseudo_count.hpp</includes>
     <includes id="normalize__counts_8hpp" name="normalize_counts.hpp" local="yes" import="no" module="no" objc="no">normalize_counts.hpp</includes>
     <namespace>scran_norm</namespace>
@@ -110,6 +120,63 @@
       <name>report_final</name>
       <anchorfile>structscran__norm_1_1CenterSizeFactorsOptions.html</anchorfile>
       <anchor>a260b0a1709fc79318ea1b16b81e11abe</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>scran_norm::CenterSpikeInFactorsBlockedOptions</name>
+    <filename>structscran__norm_1_1CenterSpikeInFactorsBlockedOptions.html</filename>
+    <member kind="variable">
+      <type>bool</type>
+      <name>ignore_invalid</name>
+      <anchorfile>structscran__norm_1_1CenterSpikeInFactorsBlockedOptions.html</anchorfile>
+      <anchor>a84cdc01f67e9f4db7f5bf10bbba19ff0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>SizeFactorDiagnostics *</type>
+      <name>endogenous_diagnostics</name>
+      <anchorfile>structscran__norm_1_1CenterSpikeInFactorsBlockedOptions.html</anchorfile>
+      <anchor>a18e9f7472f6da44577de08d5e34c9378</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; SizeFactorDiagnostics * &gt;</type>
+      <name>spike_in_diagnostics</name>
+      <anchorfile>structscran__norm_1_1CenterSpikeInFactorsBlockedOptions.html</anchorfile>
+      <anchor>a1ab5500edb8fa47740d9383159b5ad2b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>CenterBlockMode</type>
+      <name>block_mode</name>
+      <anchorfile>structscran__norm_1_1CenterSpikeInFactorsBlockedOptions.html</anchorfile>
+      <anchor>a9b9321549ac031a2c1b61d91055bdc48</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>scran_norm::CenterSpikeInFactorsOptions</name>
+    <filename>structscran__norm_1_1CenterSpikeInFactorsOptions.html</filename>
+    <member kind="variable">
+      <type>bool</type>
+      <name>ignore_invalid</name>
+      <anchorfile>structscran__norm_1_1CenterSpikeInFactorsOptions.html</anchorfile>
+      <anchor>ad0b361d6c2352c7049a43cc1bf865ff1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>SizeFactorDiagnostics *</type>
+      <name>endogenous_diagnostics</name>
+      <anchorfile>structscran__norm_1_1CenterSpikeInFactorsOptions.html</anchorfile>
+      <anchor>ab941e327bdfc194f0ce9cd0d11d4f2da</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; SizeFactorDiagnostics * &gt;</type>
+      <name>spike_in_diagnostics</name>
+      <anchorfile>structscran__norm_1_1CenterSpikeInFactorsOptions.html</anchorfile>
+      <anchor>a720ee8eb759293bf22eccb0f25f5905d</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -273,6 +340,8 @@
     <filename>namespacescran__norm.html</filename>
     <class kind="struct">scran_norm::CenterSizeFactorsBlockedOptions</class>
     <class kind="struct">scran_norm::CenterSizeFactorsOptions</class>
+    <class kind="struct">scran_norm::CenterSpikeInFactorsBlockedOptions</class>
+    <class kind="struct">scran_norm::CenterSpikeInFactorsOptions</class>
     <class kind="struct">scran_norm::ChoosePseudoCountOptions</class>
     <class kind="struct">scran_norm::ComputeMeanSizeFactorOptions</class>
     <class kind="class">scran_norm::DelayedLogNormalizeHelper</class>
@@ -326,6 +395,20 @@
       <anchorfile>namespacescran__norm.html</anchorfile>
       <anchor>a2abf50b10e70fdd473e4ab9d3528ab94</anchor>
       <arglist>(const std::size_t num, SizeFactor_ *const size_factors, const Block_ *const block, const CenterSizeFactorsBlockedOptions &amp;options)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>center_spike_in_factors</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>aa146d85d6872cd7d611a476fdec8aaca</anchor>
+      <arglist>(const std::size_t num, SizeFactor_ *const endogenous, const std::vector&lt; SizeFactor_ * &gt; &amp;spike_ins, const CenterSpikeInFactorsOptions &amp;options)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; SizeFactor_ &gt;</type>
+      <name>center_spike_in_factors_blocked</name>
+      <anchorfile>namespacescran__norm.html</anchorfile>
+      <anchor>aea8e424df9d1a563dfe9f56c369c8ba6</anchor>
+      <arglist>(const std::size_t num, SizeFactor_ *const endogenous, const std::vector&lt; SizeFactor_ * &gt; &amp;spike_ins, const Block_ *const block, const CenterSpikeInFactorsBlockedOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>Float_</type>

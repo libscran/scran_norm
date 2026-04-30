@@ -112,6 +112,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1CenterSizeFactorsOptions.html">CenterSizeFactorsOptions</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="#a5a67f0b3d67afd9554796e104b98119a">center_size_factors()</a></code>.  <a href="structscran__norm_1_1CenterSizeFactorsOptions.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1CenterSpikeInFactorsBlockedOptions.html">CenterSpikeInFactorsBlockedOptions</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="#aea8e424df9d1a563dfe9f56c369c8ba6">center_spike_in_factors_blocked()</a></code>.  <a href="structscran__norm_1_1CenterSpikeInFactorsBlockedOptions.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1CenterSpikeInFactorsOptions.html">CenterSpikeInFactorsOptions</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="#aa146d85d6872cd7d611a476fdec8aaca">center_spike_in_factors()</a></code>.  <a href="structscran__norm_1_1CenterSpikeInFactorsOptions.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">ChoosePseudoCountOptions</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options for <code><a class="el" href="#a37205f65b305106aeb9902b1ba4e4043">choose_pseudo_count()</a></code>.  <a href="structscran__norm_1_1ChoosePseudoCountOptions.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,6 +164,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a2abf50b10e70fdd473e4ab9d3528ab94" id="r_a2abf50b10e70fdd473e4ab9d3528ab94"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ , typename Block_ &gt; </td></tr>
 <tr class="memitem:a2abf50b10e70fdd473e4ab9d3528ab94"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; SizeFactor_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2abf50b10e70fdd473e4ab9d3528ab94">center_size_factors_blocked</a> (const std::size_t num, SizeFactor_ *const size_factors, const Block_ *const block, const <a class="el" href="structscran__norm_1_1CenterSizeFactorsBlockedOptions.html">CenterSizeFactorsBlockedOptions</a> &amp;options)</td></tr>
 <tr class="separator:a2abf50b10e70fdd473e4ab9d3528ab94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa146d85d6872cd7d611a476fdec8aaca" id="r_aa146d85d6872cd7d611a476fdec8aaca"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ &gt; </td></tr>
+<tr class="memitem:aa146d85d6872cd7d611a476fdec8aaca"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa146d85d6872cd7d611a476fdec8aaca">center_spike_in_factors</a> (const std::size_t num, SizeFactor_ *const endogenous, const std::vector&lt; SizeFactor_ * &gt; &amp;spike_ins, const <a class="el" href="structscran__norm_1_1CenterSpikeInFactorsOptions.html">CenterSpikeInFactorsOptions</a> &amp;options)</td></tr>
+<tr class="separator:aa146d85d6872cd7d611a476fdec8aaca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea8e424df9d1a563dfe9f56c369c8ba6" id="r_aea8e424df9d1a563dfe9f56c369c8ba6"><td class="memTemplParams" colspan="2">template&lt;typename SizeFactor_ , typename Block_ &gt; </td></tr>
+<tr class="memitem:aea8e424df9d1a563dfe9f56c369c8ba6"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; SizeFactor_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aea8e424df9d1a563dfe9f56c369c8ba6">center_spike_in_factors_blocked</a> (const std::size_t num, SizeFactor_ *const endogenous, const std::vector&lt; SizeFactor_ * &gt; &amp;spike_ins, const Block_ *const block, const <a class="el" href="structscran__norm_1_1CenterSpikeInFactorsBlockedOptions.html">CenterSpikeInFactorsBlockedOptions</a> &amp;options)</td></tr>
+<tr class="separator:aea8e424df9d1a563dfe9f56c369c8ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a623bf6b4aed9b0f05f0b85a44962205a" id="r_a623bf6b4aed9b0f05f0b85a44962205a"><td class="memTemplParams" colspan="2">template&lt;typename Float_ &gt; </td></tr>
 <tr class="memitem:a623bf6b4aed9b0f05f0b85a44962205a"><td class="memTemplItemLeft" align="right" valign="top">Float_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a623bf6b4aed9b0f05f0b85a44962205a">choose_pseudo_count_raw</a> (std::size_t num, Float_ *const size_factors, const <a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">ChoosePseudoCountOptions</a> &amp;options)</td></tr>
 <tr class="separator:a623bf6b4aed9b0f05f0b85a44962205a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -419,6 +431,113 @@ template&lt;typename SizeFactor_ , typename Block_ &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector of length \(N\) containing the mean size factor for each block, used to scale <code>size_factors</code> on output. </dd></dl>
+
+</div>
+</div>
+<a id="aa146d85d6872cd7d611a476fdec8aaca" name="aa146d85d6872cd7d611a476fdec8aaca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa146d85d6872cd7d611a476fdec8aaca">&#9670;&#160;</a></span>center_spike_in_factors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SizeFactor_ &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void scran_norm::center_spike_in_factors </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t</td>          <td class="paramname"><span class="paramname"><em>num</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeFactor_ *const</td>          <td class="paramname"><span class="paramname"><em>endogenous</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; SizeFactor_ * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>spike_ins</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structscran__norm_1_1CenterSpikeInFactorsOptions.html">CenterSpikeInFactorsOptions</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>options</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Center size factors for both endogenous genes and spike-in transcripts. This ensures that the average normalized abundances of genes and spike-ins are comparable in downstream analyses.</p>
+<p>In practice, this function is no different to calling <code><a class="el" href="#a5a67f0b3d67afd9554796e104b98119a">center_size_factors()</a></code> separately for <code>endogenous</code> and each of <code>spike_ins</code>. This function is provided for convenience and for consistency with <code><a class="el" href="#aea8e424df9d1a563dfe9f56c369c8ba6">center_spike_in_factors_blocked()</a></code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SizeFactor_</td><td>Floating-point type of the size factors.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">num</td><td>Number of cells. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">endogenous</td><td>Pointer to an array of length <code>num</code>, containing the size factor for endogenous genes for each cell. On output, this contains size factors that are centered at 1. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">spike_ins</td><td>Vector of length equal to the number of spike-in sets (e.g., ERCCs, SIRV). Each entry should be a pointer to an array of length <code>num</code>, containing the size factor for its corresponding spike-in set for each cell. On output, this contains size factors that are centered at 1. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">options</td><td>Further options. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aea8e424df9d1a563dfe9f56c369c8ba6" name="aea8e424df9d1a563dfe9f56c369c8ba6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea8e424df9d1a563dfe9f56c369c8ba6">&#9670;&#160;</a></span>center_spike_in_factors_blocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SizeFactor_ , typename Block_ &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; SizeFactor_ &gt; scran_norm::center_spike_in_factors_blocked </td>
+          <td>(</td>
+          <td class="paramtype">const std::size_t</td>          <td class="paramname"><span class="paramname"><em>num</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SizeFactor_ *const</td>          <td class="paramname"><span class="paramname"><em>endogenous</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; SizeFactor_ * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>spike_ins</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Block_ *const</td>          <td class="paramname"><span class="paramname"><em>block</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structscran__norm_1_1CenterSpikeInFactorsBlockedOptions.html">CenterSpikeInFactorsBlockedOptions</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>options</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Center size factors for both endogenous genes and spike-in transcripts while accounting for the block structure. Specifically, the size factors of each block are scaled so that the mean size factor for each spike-in set is the same as the mean for the endogenous genes. This ensures that the average normalized abundances of genes and spike-ins are comparable within each block.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SizeFactor_</td><td>Floating-point type of the size factors. </td></tr>
+    <tr><td class="paramname">Block_</td><td>Integer type for the block assignments.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">num</td><td>Number of cells. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">endogenous</td><td>Pointer to an array of length <code>num</code>, containing the size factor for endogenous genes for each cell. On output, this contains size factors that are centered according to <code><a class="el" href="structscran__norm_1_1CenterSpikeInFactorsBlockedOptions.html#a9b9321549ac031a2c1b61d91055bdc48">CenterSpikeInFactorsBlockedOptions::block_mode</a></code>. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">spike_ins</td><td>Vector of length equal to the number of spike-in sets (e.g., ERCCs, SIRV). Each entry should be a pointer to an array of length <code>num</code>, containing the size factor for its corresponding spike-in set for each cell. On output, the mean size factor within each block for each spike-in set is equal to the mean of the corresponding entries of <code>endogenous</code>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">block</td><td>Pointer to an array of length <code>num</code>, containing the block assignment for each cell. Each assignment should be an integer in \([0, N)\) where \(N\) is the total number of blocks. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">options</td><td>Further options.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of length equal to the number of blocks. Each entry contains the mean of the output size factors (endogenous or spike-in) in each block. </dd></dl>
 
 </div>
 </div>

@@ -24,5 +24,6 @@ var searchData=
   ['sparserange_2ehpp_21',['SparseRange.hpp',['https://tatami-inc.github.io/tatami/SparseRange_8hpp.html',1,'']]],
   ['sparsifiedwrapper_2ehpp_22',['SparsifiedWrapper.hpp',['https://tatami-inc.github.io/tatami/SparsifiedWrapper_8hpp.html',1,'']]],
   ['specialcompareoperation_23',['SpecialCompareOperation',['https://tatami-inc.github.io/tatami/namespacetatami.html#a4ef624db40413dabc3fea554fc936d39',1,'tatami']]],
-  ['substitute_5fhelpers_2ehpp_24',['substitute_helpers.hpp',['https://tatami-inc.github.io/tatami/substitute__helpers_8hpp.html',1,'']]]
+  ['spike_5fin_5fdiagnostics_24',['spike_in_diagnostics',['../structscran__norm_1_1CenterSpikeInFactorsOptions.html#a720ee8eb759293bf22eccb0f25f5905d',1,'scran_norm::CenterSpikeInFactorsOptions::spike_in_diagnostics'],['../structscran__norm_1_1CenterSpikeInFactorsBlockedOptions.html#a1ab5500edb8fa47740d9383159b5ad2b',1,'scran_norm::CenterSpikeInFactorsBlockedOptions::spike_in_diagnostics']]],
+  ['substitute_5fhelpers_2ehpp_25',['substitute_helpers.hpp',['https://tatami-inc.github.io/tatami/substitute__helpers_8hpp.html',1,'']]]
 ];
