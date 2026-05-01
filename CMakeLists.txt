@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 project(scran_norm
-    VERSION 0.2.2
+    VERSION 0.2.3
     DESCRIPTION "Scaling normalization of single-cell data"
     LANGUAGES CXX)
 
@@ -24,7 +24,7 @@ if(SCRAN_NORM_FETCH_EXTERN)
 else()
     find_package(tatami_tatami 4.0.0 CONFIG REQUIRED)
     find_package(tatami_tatami_stats 2.0.0 CONFIG REQUIRED)
-    find_package(ltla_sanisizer 0.1.0 CONFIG REQUIRED)
+    find_package(ltla_sanisizer 0.2.0 CONFIG REQUIRED)
 endif()
 
 target_link_libraries(scran_norm INTERFACE tatami::tatami tatami::tatami_stats ltla::sanisizer)
