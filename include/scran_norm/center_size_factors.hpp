@@ -60,21 +60,24 @@ SizeFactor_ compute_mean_size_factor(const std::size_t num, const SizeFactor_* c
 
     if (options.ignore_invalid) {
         SizeFactorDiagnostics tmpdiag;
-        auto& diag = (options.diagnostics == NULL ? tmpdiag : *(options.diagnostics));
         for (I<decltype(num)> i = 0; i < num; ++i) {
             const auto val = size_factors[i];
-            if (!internal::is_invalid(val, diag)) {
+            if (!internal::is_invalid(val, tmpdiag)) {
                 mean += val;
                 ++denom;
             }
         }
+        if (options.diagnostics != NULL) {
+            *(options.diagnostics) = tmpdiag;
+        }
+
     } else {
         mean = std::accumulate(size_factors, size_factors + num, static_cast<SizeFactor_>(0));
         denom = num;
     }
 
     if (denom) {
-        return mean/denom;
+        return mean / denom;
     } else {
         return 0;
     }
@@ -84,7 +87,7 @@ SizeFactor_ compute_mean_size_factor(const std::size_t num, const SizeFactor_* c
  * Compute the mean size factor for each block.
  *
  * @tparam SizeFactor_ Floating-point type of the size factors.
- * @tparam Block_ Integer type for the block assignments.
+ * @tparam Block_ Integer type of the block assignments.
  *
  * @param num Number of cells.
  * @param[in] size_factors Pointer to an array of length `num`, containing the size factor for each cell.
@@ -108,15 +111,18 @@ std::vector<SizeFactor_> compute_mean_size_factor_blocked(
 
     if (options.ignore_invalid) {
         SizeFactorDiagnostics tmpdiag;
-        auto& diag = (options.diagnostics == NULL ? tmpdiag : *(options.diagnostics));
         for (I<decltype(num)> i = 0; i < num; ++i) {
             const auto val = size_factors[i];
-            if (!internal::is_invalid(val, diag)) {
+            if (!internal::is_invalid(val, tmpdiag)) {
                 const auto b = block[i];
                 group_mean[b] += val;
                 ++(group_num[b]);
             }
         }
+        if (options.diagnostics != NULL) {
+            *(options.diagnostics) = tmpdiag;
+        }
+
     } else {
         for (I<decltype(num)> i = 0; i < num; ++i) {
             const auto b = block[i];
@@ -141,7 +147,7 @@ struct CenterSizeFactorsOptions {
     /**
      * Whether to ignore invalid size factors when computing the mean size factor, see `ComputeMeanSizeFactorOptions::ignore_invalid` for details.
      *
-     * Note that this setting does not actually remove any of the invalid size factors.
+     * Note that setting this option to `true` does not actually remove any of the invalid size factors.
      * If these are present, users should call `sanitize_size_factors()` after centering.
      * The `diagnostics` value in `center_size_factors()` and `center_size_factors_blocked()` can be used to determine whether such a call is necessary.
      * (In general, sanitization should be performed after centering so that the replacement size factors do not interfere with the mean calculations.)
@@ -213,13 +219,12 @@ SizeFactor_ center_size_factors(const std::size_t num, SizeFactor_* const size_f
 enum class CenterBlockMode : char { PER_BLOCK, LOWEST, CUSTOM };
 
 /**
- * @brief Options for `center_size_factors()` and `center_size_factors_blocked()`.
+ * @brief Options for `center_size_factors_blocked()`.
  */
 struct CenterSizeFactorsBlockedOptions {
     /**
      * Whether to ignore invalid size factors when computing the mean size factor, see `ComputeMeanSizeFactorOptions::ignore_invalid` for details.
-     *
-     * Note that this setting does not actually remove any of the invalid size factors, see comments at `CenterSizeFactorsOptions::ignore_invalid`.
+     * Note that setting this option to `true` does not actually remove any of the invalid size factors, see comments at `CenterSizeFactorsOptions::ignore_invalid`.
      */
     bool ignore_invalid = true;
 
@@ -232,12 +237,12 @@ struct CenterSizeFactorsBlockedOptions {
     /**
      * Strategy for handling blocks in `center_size_factors_blocked()`.
      *
-     * With the `PER_BLOCK` strategy, size factors are scaled separately for each block so that they have a mean of 1 within each block.
+     * With `PER_BLOCK`, size factors are scaled separately for each block so that they have a mean of 1 within each block.
      * The scaled size factors are identical to those obtained by separate invocations of `center_size_factors()` on the size factors for each block.
      * This can be desirable to ensure consistency with independent analyses of each block - otherwise, the centering would depend on the size factors in other blocks.
      * However, any systematic differences in the size factors between blocks are lost, i.e., systematic changes in coverage between blocks will not be normalized.
      * 
-     * With the `LOWEST` strategy, we compute the mean size factor for each block and we divide all size factors in all blocks by the lowest of the per-block means.
+     * With `LOWEST`, we compute the mean size factor for each block and we divide all size factors in all blocks by the lowest of the per-block means.
      * Here, our normalization strategy involves downscaling all blocks to match the coverage of the lowest-coverage block.
      * This is useful for datasets with big differences in coverage between blocks as it avoids egregious upscaling of low-coverage blocks.
      * Specifically, strong upscaling allows the log-transformation to ignore any shrinkage from the pseudo-count.
@@ -246,9 +251,9 @@ struct CenterSizeFactorsBlockedOptions {
      * effectively sacrificing some information in the higher-coverage batches so that they can be compared to the low-coverage batches
      * (which is preferable to exaggerating the informativeness of the latter for comparison to the former).
      *
-     * With the `CUSTOM` strategy, the size factors are scaled such that the mean for each block is equal to that specified in `CenterSizeFactorsBlockedOptions::custom_centers`.
+     * With `CUSTOM`, size factors are scaled such that the mean for each block is equal to that specified in `CenterSizeFactorsBlockedOptions::custom_centers`.
      * This is occasionally useful for ensuring that different sets of size factors are scaled to the same per-block mean,
-     * e.g., to ensure that average abundances are comparable between spike-in transcripts and endogenous genes.
+     * e.g., to ensure that average abundances are comparable between spike-in transcripts and endogenous genes in `center_spike_in_factors_blocked()`.
      *
      * In all cases, if the mean of the input size factors for any block is zero, no centering is attempted for that block.
      */
@@ -256,8 +261,7 @@ struct CenterSizeFactorsBlockedOptions {
 
     /**
      * Mean of the size factors after centering.
-     * This should almost always be 1, to ensure that the normalized expression values are on roughly the same scale as the original counts.
-     * Nonetheless, expert users can change it to some non-unity value.
+     * Only used if `CenterSizeFactorsBlockedOptions::block_mode = CenterBlockMode::CUSTOM`.
      */
     std::optional<std::vector<double> > custom_centers;
 
@@ -269,14 +273,16 @@ struct CenterSizeFactorsBlockedOptions {
 };
 
 /**
- * Center size factors within each block to obtain interpretable values after normalization, as discussed in `center_size_factors()`.
- * The exact strategy for handling blocks is controlled by `CenterSizeFactorsOptions::block_mode`.
+ * Center size factors within each block to obtain interpretable values after normalization.
+ * The rationale is the same as discussed in `center_size_factors()` but some additional work is required to account for experimental blocking, 
+ * e.g., to accommodate systematic differences in sequencing depth between runs.
+ * The exact strategy for adjusting size factors between blocks is controlled by `CenterSizeFactorsOptions::block_mode`.
  *
  * @tparam SizeFactor_ Floating-point type of the size factors.
- * @tparam Block_ Integer type for the block assignments.
+ * @tparam Block_ Integer type of the block assignments.
  *
  * @param num Number of cells.
- * @param[in] size_factors Pointer to an array of length `num`, containing the size factor for each cell.
+ * @param[in,out] size_factors Pointer to an array of length `num`, containing the size factor for each cell.
  * On output, this contains size factors that are centered according to `CenterSizeFactorsOptions::block_mode`.
  * @param[in] block Pointer to an array of length `num`, containing the block assignment for each cell.
  * Each assignment should be an integer in \f$[0, N)\f$ where \f$N\f$ is the total number of blocks.
@@ -320,6 +326,7 @@ std::vector<SizeFactor_> center_size_factors_blocked(
                 }
             }
         }
+
         return group_mean;
 
     } else if (options.block_mode == CenterBlockMode::LOWEST) {
@@ -384,6 +391,7 @@ std::vector<SizeFactor_> center_size_factors_blocked(
                 }
             }
         }
+
         return group_mean;
     }
 }
