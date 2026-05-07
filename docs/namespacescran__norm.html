@@ -234,11 +234,11 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>How invalid size factors should be handled:</p>
+<p>How invalid size factors of each type should be handled:</p>
 <ul>
 <li><code>IGNORE</code>: ignore invalid size factors with no error or change.</li>
-<li><code>ERROR</code>: throw an error.</li>
-<li><code>SANITIZE</code>: fix each invalid size factor. </li>
+<li><code>ERROR</code>: throw an error upon encountering an invalid size factor.</li>
+<li><code>SANITIZE</code>: replace invalid size factors with an appropriate (finite, positive) value. </li>
 </ul>
 
 </div>
