@@ -12,6 +12,11 @@ TEST(SanitizeSizeFactors, Error) {
 
     auto copy = sf;
     scran_norm::SanitizeSizeFactorsOptions opt;
+    opt.handle_zero = scran_norm::SanitizeAction::ERROR;
+    opt.handle_negative = scran_norm::SanitizeAction::ERROR;
+    opt.handle_infinite = scran_norm::SanitizeAction::ERROR;
+    opt.handle_nan = scran_norm::SanitizeAction::ERROR;
+
     auto diags = scran_norm::sanitize_size_factors(copy.size(), copy.data(), opt);
     EXPECT_EQ(copy, sf);
     EXPECT_FALSE(diags.has_nan);

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 project(scran_norm
-    VERSION 0.2.3
+    VERSION 0.2.4
     DESCRIPTION "Scaling normalization of single-cell data"
     LANGUAGES CXX)
 
