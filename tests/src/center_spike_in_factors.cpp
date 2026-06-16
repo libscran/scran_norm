@@ -90,6 +90,7 @@ TEST_P(CenterSpikeInFactorsTest, Blocked) {
         endog_sf.data(),
         { spike_sf1.data(), spike_sf2.data() },
         block.data(),
+        4,
         opt 
     );
 

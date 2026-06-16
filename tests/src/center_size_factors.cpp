@@ -162,17 +162,21 @@ class CenterSizeFactorsBlockedSimpleTest : public ::testing::TestWithParam<int> 
 protected:
     std::vector<double> sf;
     std::vector<int> block;
+    int num_blocks;
 
     void initialize(int scenario) {
         if (scenario == 0) {
             sf = std::vector<double>{ 3, 1, 2, 6, 5, 4 };
             block = std::vector<int>{ 0, 0, 0, 1, 1, 1 };
+            num_blocks = 2;
         } else if (scenario == 1) {
             sf = std::vector<double>{ 3, 1, 5, 2, 6, 5, 4, 1, 3 };
             block = std::vector<int>{ 1, 0, 1, 2, 1, 2, 0, 2, 1 };
+            num_blocks = 3;
         } else {
             sf = std::vector<double>{ 0.1, 10, 5.2, 1.8, 2.2, 0.01, 2.3 };
             block = std::vector<int>{   1,  2,   0,   1,   2,    0,   1 };
+            num_blocks = 3;
         }
     }
 
@@ -208,7 +212,7 @@ TEST_P(CenterSizeFactorsBlockedSimpleTest, Lowest) {
     opt.diagnostics = &diag;
 
     auto copy = sf;
-    auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+    auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
     {
         EXPECT_FALSE(diag.has_zero);
 
@@ -229,7 +233,7 @@ TEST_P(CenterSizeFactorsBlockedSimpleTest, Lowest) {
     opt.diagnostics = NULL;
     {
         auto copy2 = sf;
-        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), opt);
+        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), num_blocks, opt);
         EXPECT_EQ(out, out2);
         EXPECT_EQ(copy, copy2);
     }
@@ -237,7 +241,7 @@ TEST_P(CenterSizeFactorsBlockedSimpleTest, Lowest) {
     opt.report_final = true;
     {
         auto copy2 = sf;
-        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), opt);
+        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), num_blocks, opt);
 
         const double min = *std::min_element(out.begin(), out.end());
         const std::size_t num_groups = out.size();
@@ -258,7 +262,7 @@ TEST_P(CenterSizeFactorsBlockedSimpleTest, PerBlock) {
     opt.block_mode = scran_norm::CenterBlockMode::PER_BLOCK;
 
     auto copy = sf;
-    auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+    auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
     {
         EXPECT_FALSE(diag.has_zero);
 
@@ -278,7 +282,7 @@ TEST_P(CenterSizeFactorsBlockedSimpleTest, PerBlock) {
     opt.diagnostics = NULL;
     {
         auto copy2 = sf;
-        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), opt);
+        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), num_blocks, opt);
         EXPECT_EQ(out, out2);
         EXPECT_EQ(copy, copy2);
     }
@@ -286,7 +290,7 @@ TEST_P(CenterSizeFactorsBlockedSimpleTest, PerBlock) {
     opt.report_final = true;
     {
         auto copy2 = sf;
-        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), opt);
+        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), num_blocks, opt);
 
         const std::size_t num_groups = out.size();
         for (std::size_t g = 0; g < num_groups; ++g) {
@@ -305,13 +309,13 @@ TEST_P(CenterSizeFactorsBlockedSimpleTest, Custom) {
     opt.block_mode = scran_norm::CenterBlockMode::CUSTOM;
     {
         auto copy = sf;
-        EXPECT_ANY_THROW(scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt));
+        EXPECT_ANY_THROW(scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt));
     }
 
     opt.custom_centers.emplace();
     {
         auto copy = sf;
-        EXPECT_ANY_THROW(scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt));
+        EXPECT_ANY_THROW(scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt));
     }
 
     std::vector<double> targets;
@@ -322,7 +326,7 @@ TEST_P(CenterSizeFactorsBlockedSimpleTest, Custom) {
 
     opt.custom_centers = targets;
     auto copy = sf;
-    auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+    auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
 
     EXPECT_EQ(num_groups, out.size());
     for (std::size_t g = 0; g < num_groups; ++g) {
@@ -337,7 +341,7 @@ TEST_P(CenterSizeFactorsBlockedSimpleTest, Custom) {
 
     opt.report_final = true;
     auto copy2 = sf;
-    auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), opt);
+    auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), num_blocks, opt);
     EXPECT_EQ(copy2, copy);
     EXPECT_EQ(out2, targets);
 }
@@ -354,17 +358,21 @@ class CenterSizeFactorsBlockedZerosTest : public ::testing::TestWithParam<int> {
 protected:
     std::vector<double> sf;
     std::vector<int> block;
+    int num_blocks;
 
     void initialize(int scenario) {
         if (scenario == 0) {
             sf = std::vector<double>{ 3, 1, 0, 6, 0, 4 };
             block = std::vector<int>{ 0, 0, 0, 1, 1, 1 };
+            num_blocks = 2;
         } else if (scenario == 1) {
             sf = std::vector<double>{ 0, 1, 0, 2, 6, 5, 0, 1, 3 };
             block = std::vector<int>{ 1, 0, 1, 2, 1, 2, 0, 2, 1 };
+            num_blocks = 3;
         } else {
             sf = std::vector<double>{ 0.1,  0, 5.2, 0, 2.2, 0.01, 0 };
             block = std::vector<int>{   1,  2,   0, 1,   2,    0, 1 };
+            num_blocks = 3;
         }
     }
 
@@ -402,7 +410,7 @@ TEST_P(CenterSizeFactorsBlockedZerosTest, Lowest) {
     opt.diagnostics = &diag;
 
     auto copy = sf;
-    auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+    auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
     EXPECT_TRUE(diag.has_zero);
 
     const auto means = compute_means_manual(false);
@@ -427,7 +435,7 @@ TEST_P(CenterSizeFactorsBlockedZerosTest, PerBlock) {
 
     {
         auto copy2 = sf;
-        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), opt);
+        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), num_blocks, opt);
 
         const auto means = compute_means_manual(false);
         const std::size_t num_groups = means.size();
@@ -446,7 +454,7 @@ TEST_P(CenterSizeFactorsBlockedZerosTest, PerBlock) {
     opt.ignore_invalid = false;
     {
         auto copy2 = sf;
-        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), opt);
+        auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), num_blocks, opt);
 
         const auto means = compute_means_manual(true);
         const std::size_t num_groups = means.size();
@@ -477,7 +485,7 @@ TEST_P(CenterSizeFactorsBlockedZerosTest, Custom) {
     opt.custom_centers = targets;
 
     auto copy2 = sf;
-    auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), opt);
+    auto out2 = scran_norm::center_size_factors_blocked(copy2.size(), copy2.data(), block.data(), num_blocks, opt);
 
     EXPECT_EQ(num_groups, out2.size());
     for (std::size_t g = 0; g < num_groups; ++g) {
@@ -503,6 +511,7 @@ class CenterSizeFactorsBlockedZerosAllTest : public ::testing::Test {};
 TEST_F(CenterSizeFactorsBlockedZerosAllTest, Lowest) {
     std::vector<double> partial { 0, 0, 0, 1, 2, 3, 4, 5, 6 };
     std::vector<int> block { 0, 0, 0, 1, 1, 1, 2, 2, 2 };
+    int num_blocks = 3;
 
     scran_norm::CenterSizeFactorsBlockedOptions opt;
     scran_norm::SizeFactorDiagnostics diag;
@@ -511,7 +520,7 @@ TEST_F(CenterSizeFactorsBlockedZerosAllTest, Lowest) {
     std::vector<double> expected { 0, 0, 0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0 };
     {
         auto copy = partial;
-        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
         EXPECT_TRUE(diag.has_zero);
         EXPECT_EQ(out[0], 0);
         EXPECT_EQ(out[1], 2);
@@ -523,7 +532,7 @@ TEST_F(CenterSizeFactorsBlockedZerosAllTest, Lowest) {
     opt.diagnostics = NULL;
     {
         auto copy = partial;
-        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
         EXPECT_TRUE(diag.has_zero);
         EXPECT_EQ(out[0], 0);
         EXPECT_EQ(out[1], 1);
@@ -534,7 +543,7 @@ TEST_F(CenterSizeFactorsBlockedZerosAllTest, Lowest) {
     {
         std::vector<double> empty(9, 0);
         auto copy = empty;
-        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
         EXPECT_EQ(out[0], 0);
         EXPECT_EQ(out[1], 0);
         EXPECT_EQ(out[2], 0);
@@ -545,6 +554,7 @@ TEST_F(CenterSizeFactorsBlockedZerosAllTest, Lowest) {
 TEST_F(CenterSizeFactorsBlockedZerosAllTest, PerBlock) {
     std::vector<double> partial { 0, 0, 0, 1, 2, 3, 4, 5, 6 };
     std::vector<int> block { 0, 0, 0, 1, 1, 1, 2, 2, 2 };
+    int num_blocks = 3;
 
     scran_norm::CenterSizeFactorsBlockedOptions opt;
     scran_norm::SizeFactorDiagnostics diag;
@@ -554,7 +564,7 @@ TEST_F(CenterSizeFactorsBlockedZerosAllTest, PerBlock) {
     std::vector<double> expected { 0, 0, 0, 0.5, 1.0, 1.5, 0.8, 1, 1.2 };
     {
         auto copy = partial;
-        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
         EXPECT_TRUE(diag.has_zero);
         EXPECT_EQ(out[0], 0);
         EXPECT_EQ(out[1], 2);
@@ -570,7 +580,7 @@ TEST_F(CenterSizeFactorsBlockedZerosAllTest, PerBlock) {
     opt.diagnostics = NULL;
     {
         auto copy = partial;
-        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
         EXPECT_TRUE(diag.has_zero);
         EXPECT_EQ(out[0], 0);
         EXPECT_EQ(out[1], 1);
@@ -585,7 +595,7 @@ TEST_F(CenterSizeFactorsBlockedZerosAllTest, PerBlock) {
     {
         std::vector<double> empty(9, 0);
         auto copy = empty;
-        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
         EXPECT_EQ(out[0], 0);
         EXPECT_EQ(out[1], 0);
         EXPECT_EQ(out[2], 0);
@@ -596,6 +606,7 @@ TEST_F(CenterSizeFactorsBlockedZerosAllTest, PerBlock) {
 TEST_F(CenterSizeFactorsBlockedZerosAllTest, Custom) {
     std::vector<double> partial { 0, 0, 0, 1, 2, 3, 4, 5, 6 };
     std::vector<int> block { 0, 0, 0, 1, 1, 1, 2, 2, 2 };
+    int num_blocks = 3;
 
     scran_norm::CenterSizeFactorsBlockedOptions opt;
     scran_norm::SizeFactorDiagnostics diag;
@@ -606,7 +617,7 @@ TEST_F(CenterSizeFactorsBlockedZerosAllTest, Custom) {
     std::vector<double> expected { 0, 0, 0, 5, 10, 15, 4, 5, 6 };
     {
         auto copy = partial;
-        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
         EXPECT_TRUE(diag.has_zero);
         EXPECT_EQ(out[0], 0);
         EXPECT_EQ(out[1], 2);
@@ -618,7 +629,7 @@ TEST_F(CenterSizeFactorsBlockedZerosAllTest, Custom) {
     opt.diagnostics = NULL;
     {
         auto copy = partial;
-        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
         EXPECT_TRUE(diag.has_zero);
         EXPECT_EQ(out[0], 0);
         EXPECT_EQ(out[1], 10);
@@ -629,7 +640,7 @@ TEST_F(CenterSizeFactorsBlockedZerosAllTest, Custom) {
     {
         std::vector<double> empty(9, 0);
         auto copy = empty;
-        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), opt);
+        auto out = scran_norm::center_size_factors_blocked(copy.size(), copy.data(), block.data(), num_blocks, opt);
         EXPECT_EQ(out[0], 0);
         EXPECT_EQ(out[1], 0);
         EXPECT_EQ(out[2], 0);
