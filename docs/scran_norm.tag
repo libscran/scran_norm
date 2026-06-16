@@ -372,43 +372,43 @@
       <type>SizeFactor_</type>
       <name>compute_mean_size_factor</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a2a0ccb0eeba9237de5e8ece098ca2c0b</anchor>
-      <arglist>(const std::size_t num, const SizeFactor_ *const size_factors, const ComputeMeanSizeFactorOptions &amp;options)</arglist>
+      <anchor>a6683f56e7b34b29bfcf1c373b332fe0f</anchor>
+      <arglist>(const std::size_t num_cells, const SizeFactor_ *const size_factors, const ComputeMeanSizeFactorOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; SizeFactor_ &gt;</type>
       <name>compute_mean_size_factor_blocked</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a266b155f68a08800be9f8425240ac389</anchor>
-      <arglist>(const std::size_t num, const SizeFactor_ *const size_factors, const Block_ *const block, const ComputeMeanSizeFactorOptions &amp;options)</arglist>
+      <anchor>a82a42100f46ec5f59f0eb508f131ef3e</anchor>
+      <arglist>(const std::size_t num_cells, const SizeFactor_ *const size_factors, const Block_ *const block, const std::size_t num_blocks, const ComputeMeanSizeFactorOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>SizeFactor_</type>
       <name>center_size_factors</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a5a67f0b3d67afd9554796e104b98119a</anchor>
-      <arglist>(const std::size_t num, SizeFactor_ *const size_factors, const CenterSizeFactorsOptions &amp;options)</arglist>
+      <anchor>a353713e8b5bdf4efad1c678cc2307516</anchor>
+      <arglist>(const std::size_t num_cells, SizeFactor_ *const size_factors, const CenterSizeFactorsOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; SizeFactor_ &gt;</type>
       <name>center_size_factors_blocked</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a2abf50b10e70fdd473e4ab9d3528ab94</anchor>
-      <arglist>(const std::size_t num, SizeFactor_ *const size_factors, const Block_ *const block, const CenterSizeFactorsBlockedOptions &amp;options)</arglist>
+      <anchor>a36ca8a8e37f0ddd646f1dfc508208e68</anchor>
+      <arglist>(const std::size_t num_cells, SizeFactor_ *const size_factors, const Block_ *const block, const std::size_t num_blocks, const CenterSizeFactorsBlockedOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>center_spike_in_factors</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>aa146d85d6872cd7d611a476fdec8aaca</anchor>
-      <arglist>(const std::size_t num, SizeFactor_ *const endogenous, const std::vector&lt; SizeFactor_ * &gt; &amp;spike_ins, const CenterSpikeInFactorsOptions &amp;options)</arglist>
+      <anchor>a422c682014542530ce017311cabb11dd</anchor>
+      <arglist>(const std::size_t num_cells, SizeFactor_ *const endogenous, const std::vector&lt; SizeFactor_ * &gt; &amp;spike_ins, const CenterSpikeInFactorsOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>std::vector&lt; SizeFactor_ &gt;</type>
       <name>center_spike_in_factors_blocked</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>aea8e424df9d1a563dfe9f56c369c8ba6</anchor>
-      <arglist>(const std::size_t num, SizeFactor_ *const endogenous, const std::vector&lt; SizeFactor_ * &gt; &amp;spike_ins, const Block_ *const block, const CenterSpikeInFactorsBlockedOptions &amp;options)</arglist>
+      <anchor>ab3a00b25a3333303fde65aa27a182ba8</anchor>
+      <arglist>(const std::size_t num_cells, SizeFactor_ *const endogenous, const std::vector&lt; SizeFactor_ * &gt; &amp;spike_ins, const Block_ *const block, const std::size_t num_blocks, const CenterSpikeInFactorsBlockedOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>Float_</type>
