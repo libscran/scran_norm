@@ -23,10 +23,11 @@ if(SCRAN_NORM_FETCH_EXTERN)
     add_subdirectory(extern)
 else()
     find_package(tatami_tatami 4.0.0 CONFIG REQUIRED)
+    find_package(ltla_quickstats 0.1.0 CONFIG REQUIRED)
     find_package(ltla_sanisizer 0.2.0 CONFIG REQUIRED)
 endif()
 
-target_link_libraries(scran_norm INTERFACE tatami::tatami ltla::sanisizer)
+target_link_libraries(scran_norm INTERFACE tatami::tatami ltla::quickstats ltla::sanisizer)
 
 # Tests
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
