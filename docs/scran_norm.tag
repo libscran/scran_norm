@@ -414,8 +414,8 @@
       <type>Float_</type>
       <name>choose_pseudo_count_raw</name>
       <anchorfile>namespacescran__norm.html</anchorfile>
-      <anchor>a623bf6b4aed9b0f05f0b85a44962205a</anchor>
-      <arglist>(std::size_t num, Float_ *const size_factors, const ChoosePseudoCountOptions &amp;options)</arglist>
+      <anchor>a9dd11205d7cc41b69a8f9fbc16d3081b</anchor>
+      <arglist>(const std::size_t num, Float_ *const size_factors, const ChoosePseudoCountOptions &amp;options)</arglist>
     </member>
     <member kind="function">
       <type>Float_</type>

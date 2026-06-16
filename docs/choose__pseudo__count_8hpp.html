@@ -110,21 +110,33 @@ $(function(){ initResizable(false); });
 <div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &quot;quickstats/quickstats.hpp&quot;</code><br />
+<code>#include &quot;sanisizer/sanisizer.hpp&quot;</code><br />
 <code>#include &quot;utils.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for choose_pseudo_count.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="choose__pseudo__count_8hpp__incl.png" border="0" usemap="#ascran__norm_2choose__pseudo__count_8hpp" alt=""/></div>
 <map name="ascran__norm_2choose__pseudo__count_8hpp" id="ascran__norm_2choose__pseudo__count_8hpp">
-<area shape="rect" title="Choose a pseudo&#45;count for log&#45;transformation." alt="" coords="82,5,267,46"/>
+<area shape="rect" title="Choose a pseudo&#45;count for log&#45;transformation." alt="" coords="253,5,437,46"/>
 <area shape="rect" title=" " alt="" coords="5,94,80,120"/>
-<area shape="poly" title=" " alt="" coords="143,49,77,88,74,83,140,44"/>
+<area shape="poly" title=" " alt="" coords="270,49,95,95,94,89,269,44"/>
 <area shape="rect" title=" " alt="" coords="103,94,160,120"/>
-<area shape="poly" title=" " alt="" coords="166,48,148,81,143,79,162,45"/>
+<area shape="poly" title=" " alt="" coords="293,49,176,92,174,87,291,44"/>
 <area shape="rect" title=" " alt="" coords="185,94,249,120"/>
-<area shape="poly" title=" " alt="" coords="187,45,206,79,201,81,183,48"/>
-<area shape="rect" title=" " alt="" coords="273,94,342,120"/>
-<area shape="poly" title=" " alt="" coords="209,44,276,83,273,88,206,49"/>
+<area shape="poly" title=" " alt="" coords="315,49,251,88,248,83,312,44"/>
+<area shape="rect" title=" " alt="" coords="273,94,337,120"/>
+<area shape="poly" title=" " alt="" coords="338,48,321,81,316,79,333,45"/>
+<area shape="rect" title=" " alt="" coords="362,94,411,120"/>
+<area shape="poly" title=" " alt="" coords="358,45,375,79,371,81,353,48"/>
+<area shape="rect" title=" " alt="" coords="435,94,604,120"/>
+<area shape="poly" title=" " alt="" coords="390,44,480,85,478,90,388,49"/>
+<area shape="rect" title=" " alt="" coords="628,94,780,120"/>
+<area shape="poly" title=" " alt="" coords="435,44,634,88,633,93,434,49"/>
+<area shape="rect" title=" " alt="" coords="804,94,873,120"/>
+<area shape="poly" title=" " alt="" coords="438,36,598,58,789,91,788,96,597,63,438,41"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -154,9 +166,9 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a623bf6b4aed9b0f05f0b85a44962205a" id="r_a623bf6b4aed9b0f05f0b85a44962205a"><td class="memTemplParams" colspan="2">template&lt;typename Float_ &gt; </td></tr>
-<tr class="memitem:a623bf6b4aed9b0f05f0b85a44962205a"><td class="memTemplItemLeft" align="right" valign="top">Float_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a623bf6b4aed9b0f05f0b85a44962205a">scran_norm::choose_pseudo_count_raw</a> (std::size_t num, Float_ *const size_factors, const <a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">ChoosePseudoCountOptions</a> &amp;options)</td></tr>
-<tr class="separator:a623bf6b4aed9b0f05f0b85a44962205a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dd11205d7cc41b69a8f9fbc16d3081b" id="r_a9dd11205d7cc41b69a8f9fbc16d3081b"><td class="memTemplParams" colspan="2">template&lt;typename Float_ &gt; </td></tr>
+<tr class="memitem:a9dd11205d7cc41b69a8f9fbc16d3081b"><td class="memTemplItemLeft" align="right" valign="top">Float_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a9dd11205d7cc41b69a8f9fbc16d3081b">scran_norm::choose_pseudo_count_raw</a> (const std::size_t num, Float_ *const size_factors, const <a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">ChoosePseudoCountOptions</a> &amp;options)</td></tr>
+<tr class="separator:a9dd11205d7cc41b69a8f9fbc16d3081b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37205f65b305106aeb9902b1ba4e4043" id="r_a37205f65b305106aeb9902b1ba4e4043"><td class="memTemplParams" colspan="2">template&lt;typename Float_ &gt; </td></tr>
 <tr class="memitem:a37205f65b305106aeb9902b1ba4e4043"><td class="memTemplItemLeft" align="right" valign="top">Float_&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacescran__norm.html#a37205f65b305106aeb9902b1ba4e4043">scran_norm::choose_pseudo_count</a> (const std::size_t num, const Float_ *const size_factors, const <a class="el" href="structscran__norm_1_1ChoosePseudoCountOptions.html">ChoosePseudoCountOptions</a> &amp;options)</td></tr>
 <tr class="separator:a37205f65b305106aeb9902b1ba4e4043"><td class="memSeparator" colspan="2">&#160;</td></tr>

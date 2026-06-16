@@ -8,7 +8,7 @@ var searchData=
   ['center_5fspike_5fin_5ffactors_5fblocked_5',['center_spike_in_factors_blocked',['../namespacescran__norm.html#ab3a00b25a3333303fde65aa27a182ba8',1,'scran_norm']]],
   ['check_5fsize_5ffactor_5fsanity_6',['check_size_factor_sanity',['../namespacescran__norm.html#a80034f4d92ab790c59098c46b5d4f1b2',1,'scran_norm']]],
   ['choose_5fpseudo_5fcount_7',['choose_pseudo_count',['../namespacescran__norm.html#a37205f65b305106aeb9902b1ba4e4043',1,'scran_norm']]],
-  ['choose_5fpseudo_5fcount_5fraw_8',['choose_pseudo_count_raw',['../namespacescran__norm.html#a623bf6b4aed9b0f05f0b85a44962205a',1,'scran_norm']]],
+  ['choose_5fpseudo_5fcount_5fraw_8',['choose_pseudo_count_raw',['../namespacescran__norm.html#a9dd11205d7cc41b69a8f9fbc16d3081b',1,'scran_norm']]],
   ['compress_5fsparse_5ftriplets_9',['compress_sparse_triplets',['https://tatami-inc.github.io/tatami/namespacetatami.html#ab0d27353312d3a07a4415c7438398526',1,'tatami']]],
   ['compressedsparsecolumnmatrix_10',['CompressedSparseColumnMatrix',['https://tatami-inc.github.io/tatami/classtatami_1_1CompressedSparseColumnMatrix.html#a4a7d2c1c47bbab5e0bdde48ad9ba9ec7',1,'tatami::CompressedSparseColumnMatrix']]],
   ['compressedsparsematrix_11',['CompressedSparseMatrix',['https://tatami-inc.github.io/tatami/classtatami_1_1CompressedSparseMatrix.html#a5a0718c4ea694307105dedb1fe8c616a',1,'tatami::CompressedSparseMatrix']]],

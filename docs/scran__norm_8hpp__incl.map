@@ -1,49 +1,55 @@
 <map id="scran_norm/scran_norm.hpp" name="scran_norm/scran_norm.hpp">
-<area shape="rect" id="Node000001" title="Scaling normalization of single&#45;cell data." alt="" coords="200,5,385,31"/>
-<area shape="rect" id="Node000002" href="$center__size__factors_8hpp.html" title="Center size factors prior to scaling normalization." alt="" coords="239,153,397,178"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="297,31,316,137,311,138,292,32"/>
-<area shape="rect" id="Node000014" href="$center__spike__in__factors_8hpp.html" title="Center size factors for endogenous genes and spike&#45;in transcripts." alt="" coords="46,79,230,105"/>
-<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="267,34,179,75,177,70,265,29"/>
-<area shape="rect" id="Node000015" href="$choose__pseudo__count_8hpp.html" title="Choose a pseudo&#45;count for log&#45;transformation." alt="" coords="34,153,210,178"/>
-<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="290,33,273,68,244,107,210,131,174,149,172,144,207,126,240,103,269,65,286,30"/>
-<area shape="rect" id="Node000016" href="$normalize__counts_8hpp.html" title="Normalize and log&#45;transform counts." alt="" coords="853,153,999,178"/>
-<area shape="poly" id="edge23_Node000001_Node000016" title=" " alt="" coords="346,29,859,146,857,151,345,34"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="741,226,799,252"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="398,172,547,192,726,223,726,228,546,197,397,178"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="284,226,352,252"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="321,179,321,211,315,211,315,179"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="85,226,159,252"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="286,181,170,223,168,218,284,176"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="823,226,904,252"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="398,171,582,191,808,223,807,229,581,197,397,177"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="215,300,279,326"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="309,180,291,202,275,228,263,257,255,286,250,284,258,255,270,225,287,198,305,177"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="566,226,718,252"/>
-<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="374,176,572,220,571,225,373,182"/>
-<area shape="rect" id="Node000009" href="$sanitize__size__factors_8hpp.html" title="Sanitize invalid size factors." alt="" coords="376,226,542,252"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="343,176,423,217,420,221,341,181"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="42,300,111,326"/>
-<area shape="poly" id="edge14_Node000002_Node000013" title=" " alt="" coords="299,181,111,294,109,289,296,177"/>
-<area shape="poly" id="edge11_Node000009_Node000007" title=" " alt="" coords="424,255,295,298,293,293,422,250"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="339,300,396,326"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="445,255,396,293,393,288,442,250"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="421,300,498,326"/>
-<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="462,252,462,284,457,284,457,252"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="522,300,588,326"/>
-<area shape="poly" id="edge12_Node000009_Node000012" title=" " alt="" coords="477,250,529,289,526,293,474,255"/>
-<area shape="poly" id="edge13_Node000009_Node000013" title=" " alt="" coords="394,255,127,305,126,300,393,250"/>
-<area shape="poly" id="edge16_Node000014_Node000002" title=" " alt="" coords="169,103,274,144,272,149,167,108"/>
-<area shape="poly" id="edge17_Node000014_Node000013" title=" " alt="" coords="91,108,54,126,37,138,24,154,12,179,8,201,12,224,22,251,34,271,50,288,46,292,29,274,17,253,7,225,3,201,7,177,20,151,34,135,51,121,89,103"/>
-<area shape="poly" id="edge20_Node000015_Node000003" title=" " alt="" coords="210,174,227,176,367,187,477,193,587,202,726,223,726,229,586,207,476,198,366,192,227,181,210,179"/>
-<area shape="poly" id="edge19_Node000015_Node000005" title=" " alt="" coords="125,179,125,211,119,211,119,179"/>
-<area shape="poly" id="edge21_Node000015_Node000007" title=" " alt="" coords="108,181,92,196,77,214,70,233,71,242,75,250,100,275,132,292,167,302,200,307,199,312,166,307,130,297,97,279,70,254,65,243,65,232,73,211,88,192,104,177"/>
-<area shape="poly" id="edge22_Node000015_Node000013" title=" " alt="" coords="89,181,56,200,42,212,31,227,27,243,31,258,53,288,48,291,26,261,22,243,26,225,38,209,53,195,86,177"/>
-<area shape="poly" id="edge25_Node000016_Node000003" title=" " alt="" coords="901,181,811,222,809,217,898,176"/>
-<area shape="poly" id="edge24_Node000016_Node000006" title=" " alt="" coords="918,180,886,216,882,213,914,177"/>
-<area shape="rect" id="Node000017" title=" " alt="" coords="1074,226,1141,252"/>
-<area shape="poly" id="edge26_Node000016_Node000017" title=" " alt="" coords="958,176,1063,218,1061,223,956,181"/>
-<area shape="rect" id="Node000018" title=" " alt="" coords="1164,226,1229,252"/>
-<area shape="poly" id="edge27_Node000016_Node000018" title=" " alt="" coords="972,176,1150,223,1149,228,971,181"/>
-<area shape="rect" id="Node000019" href="/github/workspace/docs/tatami.tag$tatami_8hpp.html" title=" " alt="" coords="928,226,1049,252"/>
-<area shape="poly" id="edge28_Node000016_Node000019" title=" " alt="" coords="938,177,970,213,966,216,934,180"/>
+<area shape="rect" id="Node000001" title="Scaling normalization of single&#45;cell data." alt="" coords="674,5,859,31"/>
+<area shape="rect" id="Node000002" href="$center__size__factors_8hpp.html" title="Center size factors prior to scaling normalization." alt="" coords="486,153,644,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="757,33,719,68,671,107,604,148,601,143,668,102,716,64,753,29"/>
+<area shape="rect" id="Node000014" href="$center__spike__in__factors_8hpp.html" title="Center size factors for endogenous genes and spike&#45;in transcripts." alt="" coords="474,79,657,105"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="733,34,615,76,613,71,732,29"/>
+<area shape="rect" id="Node000015" href="$choose__pseudo__count_8hpp.html" title="Choose a pseudo&#45;count for log&#45;transformation." alt="" coords="752,153,928,178"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="775,30,829,137,825,140,770,33"/>
+<area shape="rect" id="Node000019" href="$normalize__counts_8hpp.html" title="Normalize and log&#45;transform counts." alt="" coords="1135,153,1281,178"/>
+<area shape="poly" id="edge27_Node000001_Node000019" title=" " alt="" coords="804,29,1158,145,1156,150,803,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="941,226,998,252"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="635,176,926,227,925,233,634,182"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="297,226,364,252"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="526,181,380,226,379,221,525,176"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="666,226,740,252"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="590,177,667,216,665,221,587,181"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="1022,226,1103,252"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="645,173,808,193,1007,223,1006,228,807,198,645,178"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="420,300,484,326"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="540,181,508,201,479,228,465,256,458,285,453,284,460,254,475,225,505,196,537,177"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="490,226,641,252"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="568,179,568,211,563,211,563,179"/>
+<area shape="rect" id="Node000009" href="$sanitize__size__factors_8hpp.html" title="Sanitize invalid size factors." alt="" coords="57,226,223,252"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="493,182,228,226,227,221,492,176"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="303,300,372,326"/>
+<area shape="poly" id="edge14_Node000002_Node000013" title=" " alt="" coords="543,181,460,229,367,293,364,288,457,224,541,177"/>
+<area shape="poly" id="edge11_Node000009_Node000007" title=" " alt="" coords="194,250,405,298,404,303,193,255"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="197,300,254,326"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="156,250,201,288,198,292,153,255"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="5,300,83,326"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="125,255,74,293,70,289,122,250"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="107,300,173,326"/>
+<area shape="poly" id="edge12_Node000009_Node000012" title=" " alt="" coords="143,252,143,284,137,284,137,252"/>
+<area shape="poly" id="edge13_Node000009_Node000013" title=" " alt="" coords="174,250,291,292,289,297,173,255"/>
+<area shape="poly" id="edge16_Node000014_Node000002" title=" " alt="" coords="568,105,568,137,563,137,563,105"/>
+<area shape="poly" id="edge17_Node000014_Node000013" title=" " alt="" coords="494,108,440,123,382,147,329,181,307,203,288,228,283,243,288,259,298,274,311,288,308,292,294,277,283,261,278,243,283,225,303,199,326,177,380,142,438,118,492,103"/>
+<area shape="poly" id="edge20_Node000015_Node000003" title=" " alt="" coords="863,177,935,216,933,221,861,181"/>
+<area shape="poly" id="edge19_Node000015_Node000005" title=" " alt="" coords="818,181,741,221,738,216,815,177"/>
+<area shape="poly" id="edge21_Node000015_Node000007" title=" " alt="" coords="854,177,868,193,881,212,887,234,879,254,853,273,813,288,763,298,708,306,594,314,500,315,500,310,594,308,708,301,763,293,811,282,850,268,875,250,881,234,876,215,864,196,850,180"/>
+<area shape="poly" id="edge25_Node000015_Node000008" title=" " alt="" coords="794,181,627,225,626,219,793,176"/>
+<area shape="poly" id="edge26_Node000015_Node000013" title=" " alt="" coords="834,180,802,218,779,238,753,254,705,275,662,287,623,293,585,295,507,295,461,297,408,303,388,306,387,301,408,297,461,291,507,290,585,290,622,288,661,282,703,270,751,250,776,234,798,214,830,177"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="1321,226,1386,252"/>
+<area shape="poly" id="edge22_Node000015_Node000016" title=" " alt="" coords="928,172,1099,191,1306,223,1306,229,1099,196,928,177"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="815,226,865,252"/>
+<area shape="poly" id="edge23_Node000015_Node000017" title=" " alt="" coords="843,179,843,211,837,211,837,179"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="1127,226,1297,252"/>
+<area shape="poly" id="edge24_Node000015_Node000018" title=" " alt="" coords="904,176,1134,220,1133,226,903,182"/>
+<area shape="poly" id="edge29_Node000019_Node000003" title=" " alt="" coords="1168,181,1014,227,1012,222,1167,176"/>
+<area shape="poly" id="edge28_Node000019_Node000006" title=" " alt="" coords="1185,181,1102,221,1100,217,1182,176"/>
+<area shape="poly" id="edge31_Node000019_Node000016" title=" " alt="" coords="1234,176,1316,217,1314,221,1231,181"/>
+<area shape="rect" id="Node000020" title=" " alt="" coords="1409,226,1476,252"/>
+<area shape="poly" id="edge30_Node000019_Node000020" title=" " alt="" coords="1249,176,1395,221,1393,226,1247,181"/>
+<area shape="rect" id="Node000021" href="/github/workspace/docs/tatami.tag$tatami_8hpp.html" title=" " alt="" coords="1501,226,1622,252"/>
+<area shape="poly" id="edge32_Node000019_Node000021" title=" " alt="" coords="1269,176,1487,220,1486,225,1268,182"/>
 </map>
