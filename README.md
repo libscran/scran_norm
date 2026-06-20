@@ -35,11 +35,11 @@ This avoids inflated variances from applying small size factors to low-coverage 
 
 ```cpp
 scran_norm::center_size_factors_blocked(
-    bias.size(), 
-    bias.data(), 
-    block.data(), 
-    NULL, 
-    copt
+    bias.size(),  // number of cells
+    bias.data(),  // pointer to an array of relative biases, e.g., library sizes.
+    block.data(), // pointer to an array of block assignments
+    num_blocks,   // number of unique blocks in the block array.
+    copt          // further options
 );
 ```
 
@@ -48,10 +48,10 @@ we can sanitize them prior to the construction of the log-normalized matrix:
 
 ```cpp
 scran_norm::SanitizeSizeFactorsOptions sopt;
-sopt.handle_zero = scran_norm::SanitizeAction::SANITIZE;
-sopt.handle_infinite = scran_norm::SanitizeAction::SANITIZE;
+sopt.handle_zero = scran_norm::SanitizeAction::IGNORE; // don't alter zeros
+sopt.handle_infinite = scran_norm::SanitizeAction::SANITIZE; // sanitize infinities
+sopt.handle_nan = scran_norm::SanitizeAction::ERROR; // error on seeing NaNs
 scran_norm::sanitize_size_factors(size_factors.size(), size_factors.data(), sopt);
-// Gets rid of any zero and infinite values in 'size_factors'.
 ```
 
 Finally, we convert our [`tatami::Matrix`](https://github.com/tatami-inc/tatami) of counts into a log-transformed normalized matrix:
