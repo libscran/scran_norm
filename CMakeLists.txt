@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(scran_norm
-    VERSION 0.2.4
+project(
+    scran_norm
+    VERSION 0.3.0
     DESCRIPTION "Scaling normalization of single-cell data"
-    LANGUAGES CXX)
+    LANGUAGES CXX
+)
 
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
@@ -22,8 +24,8 @@ option(SCRAN_NORM_FETCH_EXTERN "Automatically fetch scran_norm's external depend
 if(SCRAN_NORM_FETCH_EXTERN)
     add_subdirectory(extern)
 else()
-    find_package(tatami_tatami 4.0.0 CONFIG REQUIRED)
-    find_package(ltla_quickstats 0.1.0 CONFIG REQUIRED)
+    find_package(tatami_tatami 4.1.0 CONFIG REQUIRED)
+    find_package(ltla_quickstats 0.2.0 CONFIG REQUIRED)
     find_package(ltla_sanisizer 0.2.0 CONFIG REQUIRED)
 endif()
 
