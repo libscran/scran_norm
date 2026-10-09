@@ -94,18 +94,18 @@ TEST_P(DelayedLogNormalizeHelperTest, Full) {
 
 TEST_P(DelayedLogNormalizeHelperTest, Block) {
     auto opts = tatami_test::convert_test_access_options(std::get<1>(GetParam()));
-    tatami_test::test_block_access<double, int>(*dense_mod, *ref, 0.2, 0.6, opts); \
-    tatami_test::test_block_access<double, int>(*dense_mod, *ref, 0.1, 0.4, opts); \
-    tatami_test::test_block_access<double, int>(*sparse_mod, *ref, 0.25, 0.5, opts); \
-    tatami_test::test_block_access<double, int>(*sparse_mod, *ref, 0.6, 0.3, opts); \
+    tatami_test::test_block_access<double, int>(*dense_mod, *ref, 0.2, 0.6, opts);
+    tatami_test::test_block_access<double, int>(*dense_mod, *ref, 0.1, 0.4, opts);
+    tatami_test::test_block_access<double, int>(*sparse_mod, *ref, 0.25, 0.5, opts);
+    tatami_test::test_block_access<double, int>(*sparse_mod, *ref, 0.6, 0.3, opts);
 }
 
 TEST_P(DelayedLogNormalizeHelperTest, Indexed) {
     auto opts = tatami_test::convert_test_access_options(std::get<1>(GetParam()));
-    tatami_test::test_indexed_access<double, int>(*dense_mod, *ref, 0.2, 0.15, opts); \
-    tatami_test::test_indexed_access<double, int>(*dense_mod, *ref, 0.1, 0.1, opts); \
-    tatami_test::test_indexed_access<double, int>(*sparse_mod, *ref, 0.3, 0.2, opts); \
-    tatami_test::test_indexed_access<double, int>(*sparse_mod, *ref, 0.5, 0.3, opts); \
+    tatami_test::test_indexed_access<double, int>(*dense_mod, *ref, 0.2, 0.15, opts);
+    tatami_test::test_indexed_access<double, int>(*dense_mod, *ref, 0.1, 0.1, opts);
+    tatami_test::test_indexed_access<double, int>(*sparse_mod, *ref, 0.3, 0.2, opts);
+    tatami_test::test_indexed_access<double, int>(*sparse_mod, *ref, 0.5, 0.3, opts);
 }
 
 INSTANTIATE_TEST_SUITE_P(
